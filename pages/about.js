@@ -9,15 +9,19 @@ class About extends React.Component {
   }
 
   render () {
+    const { value, increment } = this.props
+
     return (
       <Layout>
         <h1>About</h1>
-        <h3>{this.props.value }</h3>
-        <button onClick={() => { this.props.increment() }}>Click</button>
+        <h3>{ value }</h3>
+        <button onClick={() => { increment() }}>Click</button>
       </Layout>
     )
   }
 }
+
+/* -------------------------------------------------------------------------------- */
 
 export default connect(
   state => ({

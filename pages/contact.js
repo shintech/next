@@ -12,6 +12,8 @@ class Contact extends React.Component {
   }
 }
 
+/* -------------------------------------------------------------------------------- */
+
 export default connect(
   state => ({
     state

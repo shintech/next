@@ -1,36 +1,41 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { about } from '../actions'
-import { getPosts } from '../api/posts'
+import { posts } from '../actions'
 import Layout from '../layouts/Main'
 import Post from '../components/Post'
 
 class Home extends React.Component {
-  static async getInitialProps ({ reduxStore, req }) {
-    const res = await getPosts()
-    const json = await res.json()
-    return { posts: json }
+  componentWillMount () {
+    this.props.fetchPosts()
   }
 
   render () {
+    const { loading, data } = this.props.posts
+
     return (
       <Layout>
-        <ul>
-          {this.props.posts.map(p => <Post key={p.title} post={p} />)}
-        </ul>
+        {(loading) ? <ul>loading...</ul>
+          : <ul>
+            {data.map(p => <Post key={p.title} post={p} />)}
+          </ul>
+        }
       </Layout>
     )
   }
 }
 
+/* -------------------------------------------------------------------------------- */
+
 export default connect(
-  state => ({
-    state
-  }),
+  state => {
+    return {
+      posts: state.posts
+    }
+  },
 
   dispatch => ({
-    increment: () => {
-      dispatch(about.increment())
+    fetchPosts: () => {
+      dispatch(posts.fetchPosts())
     }
   })
 )(Home)
