@@ -1,8 +1,7 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+const Wrapper = styled.li`
   border-bottom: 1px solid #ddd;
-
   a {
     padding: 15px;
     text-decoration: none;

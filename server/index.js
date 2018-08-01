@@ -2,7 +2,7 @@ const express = require('express')
 const next = require('next')
 const routes = require('../routes')
 const getRouter = require('./api')
-
+const morgan = require('morgan')
 const dev = process.env['NODE_ENV'] !== 'production'
 const port = process.env['PORT'] || 8000
 
@@ -16,6 +16,8 @@ app.prepare()
     const server = express()
 
     let api = getRouter()
+
+    server.use(morgan('dev'))
 
     server.use('/api', api)
 

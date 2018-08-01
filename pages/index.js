@@ -2,11 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { posts } from '../actions'
 import Layout from '../layouts/Main'
-import Post from '../components/Post'
+import PostList from '../components/PostList'
 
 class Home extends React.Component {
-  componentWillMount () {
-    this.props.fetchPosts()
+  async componentDidMount () {
+    await this.props.fetchPosts()
   }
 
   render () {
@@ -14,11 +14,7 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        {(loading) ? <ul>loading...</ul>
-          : <ul>
-            {data.map(p => <Post key={p.title} post={p} />)}
-          </ul>
-        }
+        { (loading) ? <h3>Loading...</h3> : <PostList posts={data} /> }
       </Layout>
     )
   }

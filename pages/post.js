@@ -29,6 +29,8 @@ const Wrapper = styled.div`
   }
 `
 
+/* -------------------------------------------------------------------------------- */
+
 const PostPage = ({ post }) =>
   <Layout>
     <Wrapper>
