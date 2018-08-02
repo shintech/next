@@ -1,8 +1,16 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import styled from 'styled-components'
 import { posts } from '../actions'
 import Layout from '../layouts/Main'
-import PostList from '../components/PostList'
+import Post from '../components/Post'
+
+const Wrapper = styled.div`
+  ul {
+    list-style: none;
+    padding-left: 0px;
+  }
+`
 
 class Home extends React.Component {
   async componentDidMount () {
@@ -14,7 +22,13 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        { (loading) ? <h3>Loading...</h3> : <PostList posts={data} /> }
+        <Wrapper>
+          { (loading) ? <h3>Loading...</h3>
+            : <ul>
+              {data.map(p => { return <Post key={p.title} post={p} /> })}
+            </ul>
+          }
+        </Wrapper>
       </Layout>
     )
   }

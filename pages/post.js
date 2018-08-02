@@ -31,34 +31,29 @@ const Wrapper = styled.div`
 
 /* -------------------------------------------------------------------------------- */
 
-class PostPage extends React.Component {
-  static getInitialProps ({ query, reduxStore }) {
-    let post = {
-      title: null,
-      body: null
-    }
+const PostPage = ({ post }) =>
+  <Layout>
+    <Wrapper>
+      <h1>
+        {post.title}
+      </h1>
+      <p>
+        {post.body}
+      </p>
+    </Wrapper>
+  </Layout>
 
-    if (reduxStore.getState().posts.data) {
-      post = reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug))
-    }
-
-    return { post }
+PostPage.getInitialProps = ({ query, reduxStore }) => {
+  let post = {
+    title: null,
+    body: null
   }
 
-  render () {
-    return (
-      <Layout>
-        <Wrapper>
-          <h1>
-            {this.props.post.title}
-          </h1>
-          <p>
-            {this.props.post.body}
-          </p>
-        </Wrapper>
-      </Layout>
-    )
+  if (reduxStore.getState().posts.data) {
+    post = reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug))
   }
+
+  return { post }
 }
 
 export default PostPage
