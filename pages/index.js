@@ -26,7 +26,7 @@ class Home extends React.Component {
         <Wrapper>
           { (loading) ? <Loading />
             : <ul>
-              {data.map(p => { return <Post key={p.title} post={p} /> })}
+              {data.map(p => <Post key={p.title} post={p} />)}
             </ul>
           }
         </Wrapper>
