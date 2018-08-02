@@ -1,23 +1,35 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import styled, { ServerStyleSheet } from 'styled-components'
+
+const Body = styled.body`
+  background-color: lightgrey;
+`
 
 export default class SiteDocument extends Document {
-  render () {
+  static getInitialProps ({ renderPage }) {
     const sheet = new ServerStyleSheet()
-    sheet.collectStyles(<Main />)
+
+    const page = renderPage((Main) => (props) =>
+      sheet.collectStyles(<Main {...props} />)
+    )
+
     const styleTags = sheet.getStyleElement()
 
+    return { ...page, styleTags }
+  }
+
+  render () {
     return (
       <html>
         <Head>
           <meta charSet='utf-8' />
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
-          {styleTags}
+          {this.props.styleTags}
         </Head>
-        <body>
+        <Body>
           <Main />
           <NextScript />
-        </body>
+        </Body>
       </html>
     )
   }
