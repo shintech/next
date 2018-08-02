@@ -33,7 +33,16 @@ const Wrapper = styled.div`
 
 class PostPage extends React.Component {
   static getInitialProps ({ query, reduxStore }) {
-    return { post: reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug)) }
+    let post = {
+      title: null,
+      body: null
+    }
+
+    if (reduxStore.getState().posts.data) {
+      post = reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug))
+    }
+
+    return { post }
   }
 
   render () {
