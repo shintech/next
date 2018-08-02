@@ -37,6 +37,9 @@ const PostPage = ({ post }) =>
       <h1>
         {post.title}
       </h1>
+      <h3>
+        {post.short}
+      </h3>
       <p>
         {post.body}
       </p>
