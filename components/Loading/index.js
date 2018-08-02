@@ -2,7 +2,7 @@ import Wrapper from './Wrapper'
 
 const LoadingPage = () =>
   <Wrapper>
-    <h3> Please Wait...</h3>
+    <div />
   </Wrapper>
 
 export default LoadingPage
