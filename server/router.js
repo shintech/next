@@ -1,4 +1,5 @@
 const express = require('express')
+const posts = require('./api/posts')
 
 const router = express.Router()
 
@@ -9,5 +10,10 @@ module.exports = function (options) {
     })
   )
 
+  router.route('/posts')
+    .get(posts(options).fatchAll)
+
+  router.route('/posts/:id')
+    .get(posts(options).fetchOne)
   return router
 }

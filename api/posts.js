@@ -1,9 +1,19 @@
 import fetch from 'isomorphic-fetch'
 
 export function getPosts () {
-  return fetch('https://jsonplaceholder.typicode.com/posts')
+  return fetch('/api/posts', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }
 
 export function getPost (slug) {
-  return fetch(`https://jsonplaceholder.typicode.com/posts?title=${slug}`)
+  return fetch(`/api/posts/${slug}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }

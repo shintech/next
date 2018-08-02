@@ -2,3 +2,5 @@
 /.next
 *.log
 /dist
+/test.js
+/test.sql

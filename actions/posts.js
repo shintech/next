@@ -1,5 +1,5 @@
 import C from '../store/constants'
-import { getPosts } from '../api/posts'
+import { getPosts, getPost } from '../api/posts'
 
 function fetchPosts () {
   return async dispatch => {
@@ -13,6 +13,19 @@ function fetchPosts () {
   }
 }
 
+function fetchPost (id) {
+  return async dispatch => {
+    const res = await getPost(id)
+    const json = await res.json()
+
+    dispatch({
+      type: C.FETCH_POST,
+      payload: json
+    })
+  }
+}
+
 export default {
-  fetchPosts
+  fetchPosts,
+  fetchPost
 }

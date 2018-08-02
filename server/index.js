@@ -1,8 +1,10 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const next = require('next')
-const routes = require('../routes')
-const getRouter = require('./api')
 const morgan = require('morgan')
+const configDB = require('./db')
+const routes = require('../routes')
+const getRouter = require('./router')
 const dev = process.env['NODE_ENV'] !== 'production'
 const port = process.env['PORT'] || 8000
 
@@ -14,21 +16,21 @@ const handler = routes.getRequestHandler(app)
 app.prepare()
   .then(() => {
     const server = express()
-
-    let api = getRouter()
+    const db = configDB()
+    const api = getRouter({ db })
 
     server.use(morgan('dev'))
+      .use(bodyParser.urlencoded({ extended: true }))
+      .use(bodyParser.json())
+      .use('/api', api)
+      .use(handler)
 
-    server.use('/api', api)
+      .get('/', (req, res) => {
+        return handle(req, res)
+      })
 
-    server.use(handler)
-
-    server.get('/', (req, res) => {
-      return handle(req, res)
-    })
-
-    server.listen(8000, (err) => {
-      if (err) throw err
-      console.log(`listening on port ${port}...`)
-    })
+      .listen(8000, (err) => {
+        if (err) throw err
+        console.log(`listening on port ${port}...`)
+      })
   })

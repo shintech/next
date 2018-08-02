@@ -1,6 +1,6 @@
+import React from 'react'
 import styled from 'styled-components'
 import Layout from '../layouts/Main'
-import { getPost } from 'api/posts'
 
 const Wrapper = styled.div`
   padding: 3rem;
@@ -31,22 +31,25 @@ const Wrapper = styled.div`
 
 /* -------------------------------------------------------------------------------- */
 
-const PostPage = ({ post }) =>
-  <Layout>
-    <Wrapper>
-      <h1>
-        {post.title}
-      </h1>
-      <p>
-        {post.body}
-      </p>
-    </Wrapper>
-  </Layout>
+class PostPage extends React.Component {
+  static getInitialProps ({ query, reduxStore }) {
+    return { post: reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug)) }
+  }
 
-PostPage.getInitialProps = async ({ query }) => {
-  const res = await getPost(query.slug)
-  const json = await res.json()
-  return { post: json[0] }
+  render () {
+    return (
+      <Layout>
+        <Wrapper>
+          <h1>
+            {this.props.post.title}
+          </h1>
+          <p>
+            {this.props.post.body}
+          </p>
+        </Wrapper>
+      </Layout>
+    )
+  }
 }
 
 export default PostPage

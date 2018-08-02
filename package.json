@@ -1,14 +1,18 @@
 {
   "name": "nextt",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
+    "chalk": "^2.4.1",
     "express": "^4.16.3",
+    "faker": "^4.1.0",
     "morgan": "^1.9.0",
     "next": "^6.1.1",
     "next-routes": "^1.4.2",
+    "pg-promise": "^8.4.5",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
     "react-redux": "^5.0.7",
@@ -20,7 +24,7 @@
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node server/index.js",
-    "dev": "nodemon server/index.js"
+    "dev": "NODE_ENV=development nodemon server/index.js"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
