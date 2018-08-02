@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { posts } from '../actions'
 import Layout from '../layouts/Main'
 import Post from '../components/Post'
+import Loading from '../components/Loading'
 
 const Wrapper = styled.div`
   ul {
@@ -23,7 +24,7 @@ class Home extends React.Component {
     return (
       <Layout>
         <Wrapper>
-          { (loading) ? <h3>Loading...</h3>
+          { (loading) ? <Loading />
             : <ul>
               {data.map(p => { return <Post key={p.title} post={p} /> })}
             </ul>
