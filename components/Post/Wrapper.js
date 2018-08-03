@@ -2,18 +2,20 @@ import styled from 'styled-components'
 
 const Wrapper = styled.li`
   border-bottom: 1px solid #ddd;
+  height: 12ch;
+  overflow: hidden;
+
+  :hover {
+    background: #F5F5F5;
+    border: 1px dotted gold;
+
+    h3 { color: #387EF5 }
+  }
   
   a {
     padding: 15px;
     text-decoration: none;
     display: block;
-
-    &:hover {
-      background: #F5F5F5;
-      border: 1px dotted gold;
-
-      h3 { color: #387EF5 }
-    }
   }
 
   h3 {
@@ -24,6 +26,9 @@ const Wrapper = styled.li`
     font-family: "PT Sans", sans-serif;
     text-transform: capitalize;
     margin: 0;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;    
   }
 
   p {
@@ -31,7 +36,10 @@ const Wrapper = styled.li`
     line-height: 35px;
     color: #444;
     font-family: "PT Serif", sans-serif;
-    margin: 0;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `
 
