@@ -1,6 +1,8 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const next = require('next')
+const path = require('path')
+const favicon = require('serve-favicon')
 const morgan = require('morgan')
 const configDB = require('./db')
 const routes = require('../routes')
@@ -13,6 +15,10 @@ const app = next({ dev })
 const handle = app.getRequestHandler()
 const handler = routes.getRequestHandler(app)
 
+const fileAssets = express.static(
+  path.join(__dirname, '../public')
+)
+
 app.prepare()
   .then(() => {
     const server = express()
@@ -20,6 +26,8 @@ app.prepare()
     const api = getRouter({ db })
 
     server.use(morgan('dev'))
+      .use(fileAssets)
+      .use(favicon(path.join('public', 'images', 'favicon.png')))
       .use(bodyParser.urlencoded({ extended: true }))
       .use(bodyParser.json())
       .use('/api', api)

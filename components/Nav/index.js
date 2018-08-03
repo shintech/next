@@ -1,17 +1,5 @@
 import Link from 'next/link'
-import styled from 'styled-components'
-
-const Wrapper = styled.nav`
-  padding: 15px;
-  border-bottom: 1px solid #ddd;
-  display: flex;
-  background: purple;
-  a {
-    padding: 0 15px;
-    color: #FFF;
-    text-decoration: none
-  }
-`
+import Wrapper from './Wrapper'
 
 const Nav = () => (
   <Wrapper>
