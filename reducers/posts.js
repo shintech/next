@@ -8,6 +8,12 @@ const posts = (state = {}, action) => {
         data: action.payload
       }
 
+    case C.FETCH_POST:
+      return {
+        loading: false,
+        data: action.payload
+      }
+
     default:
       return state
   }

@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Layout from '../layouts/Main'
+import { getPost } from '../api/posts'
 
 const Wrapper = styled.div`
   padding: 3rem;
@@ -46,16 +47,9 @@ const PostPage = ({ post }) =>
     </Wrapper>
   </Layout>
 
-PostPage.getInitialProps = ({ query, reduxStore }) => {
-  let post = {
-    title: null,
-    body: null
-  }
-
-  if (reduxStore.getState().posts.data) {
-    post = reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug))
-  }
-
+PostPage.getInitialProps = async ({ query }) => {
+  let res = await getPost(query.slug)
+  let post = await res.json()
   return { post }
 }
 
