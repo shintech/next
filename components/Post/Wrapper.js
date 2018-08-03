@@ -2,7 +2,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.li`
   border-bottom: 1px solid #ddd;
-  height: 12ch;
+  height: 14ch;
   overflow: hidden;
 
   :hover {

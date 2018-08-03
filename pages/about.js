@@ -2,6 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { about } from '../actions'
 import Layout from '../layouts/Main'
+import Graph from '../components/Graph'
 
 class About extends React.Component {
   static getInitialProps ({ reduxStore, req }) {
@@ -16,6 +17,7 @@ class About extends React.Component {
         <h1>About</h1>
         <h3>{ value }</h3>
         <button onClick={() => { increment() }}>Click</button>
+        <Graph />
       </Layout>
     )
   }
