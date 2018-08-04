@@ -11,17 +11,15 @@ class About extends React.Component {
           <hr />
 
           <h3>Summary</h3>
-          <p>
-            <ul>
-              <li>Next.js</li>
-              <li>React.js</li>
-              <li>Redux</li>
-              <li>Webpack</li>
-              <li>Express.js</li>
-              <li>PostgreSQL</li>
-              <li>d3</li>
-            </ul>
-          </p>
+          <ul>
+            <li>Next.js</li>
+            <li>React.js</li>
+            <li>Redux</li>
+            <li>Webpack</li>
+            <li>Express.js</li>
+            <li>PostgreSQL</li>
+            <li>d3</li>
+          </ul>
 
           <h3>Description</h3>
           <p>
@@ -42,21 +40,17 @@ class About extends React.Component {
           </p>
 
           <h3>TODO</h3>
-          <p>
-            <ul>
-              <li>make about and contact pages dynamic - possibly retrieve data from or just display readme file</li>
-              <li>create readme file</li>
-              <li>write some tests</li>
-            </ul>
-          </p>
+          <ul>
+            <li>make about and contact pages dynamic - possibly retrieve data from or just display readme file</li>
+            <li>create readme file</li>
+            <li>write some tests</li>
+          </ul>
 
           <h3>References</h3>
-          <p>
-            <ul>
-              <li><a href='https://github.com/zeit/next.js'>https://github.com/zeit/next.js</a></li>
-              <li><a href='https://github.com/timberio/next-go/'>https://github.com/timberio/next-go/</a></li>
-            </ul>
-          </p>
+          <ul>
+            <li><a href='https://github.com/zeit/next.js'>https://github.com/zeit/next.js</a></li>
+            <li><a href='https://github.com/timberio/next-go/'>https://github.com/timberio/next-go/</a></li>
+          </ul>
         </Page>
       </Layout>
     )

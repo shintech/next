@@ -2,7 +2,7 @@ import Document, { Head, Main, NextScript } from 'next/document'
 import styled, { ServerStyleSheet } from 'styled-components'
 
 const Body = styled.body`
-  background-color: lightgrey;
+  background-color: #ceefe8;
 `
 
 export default class SiteDocument extends Document {
