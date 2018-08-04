@@ -3,7 +3,7 @@ version: '2'
 services: 
   next:
     build: .
-    image: shintech/database
+    image: shintech/next
     container_name: next
     network_mode: bridge
     env_file:
