@@ -1,17 +1,10 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import styled from 'styled-components'
 import { posts } from '../actions'
 import Layout from '../layouts/Main'
+import Page from '../layouts/Page'
 import Post from '../components/Post'
 import Loading from '../components/Loading'
-
-const Wrapper = styled.div`
-  ul {
-    list-style: none;
-    padding-left: 0px;
-  }
-`
 
 class Home extends React.Component {
   async componentDidMount () {
@@ -23,13 +16,14 @@ class Home extends React.Component {
 
     return (
       <Layout>
-        <Wrapper>
+        <Page>
+          <hr />
           { (loading) ? <Loading />
             : <ul>
               {data.map(p => <Post key={p.title} post={p} />)}
             </ul>
           }
-        </Wrapper>
+        </Page>
       </Layout>
     )
   }

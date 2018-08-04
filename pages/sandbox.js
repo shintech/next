@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Layout from '../layouts/Main'
 import { sandbox } from '../actions'
+import Layout from '../layouts/Main'
+import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 
 class Sandbox extends React.Component {
@@ -14,10 +15,18 @@ class Sandbox extends React.Component {
 
     return (
       <Layout>
-        <h1>Sandbox</h1>
-        <h3>{ value }</h3>
-        <button onClick={() => { increment() }}>Click to increment...</button>
-        <Graph />
+        <Page>
+          <hr />
+
+          <h3>Dispatch increment action</h3>
+          <p>{ value }</p>
+          <button onClick={() => { increment() }}>Click</button>
+
+          <hr />
+
+          <h3>d3</h3>
+          <Graph />
+        </Page>
       </Layout>
     )
   }
