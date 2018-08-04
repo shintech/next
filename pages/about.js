@@ -5,6 +5,41 @@ import Page from '../layouts/Page'
 
 class About extends React.Component {
   render () {
+    let obj = {
+      summary: [
+        'Next.js',
+        'React.js',
+        'Redux',
+        'Express',
+        'PostgreSQL',
+        'd3'
+      ],
+
+      description: 'Universal JavaScript application built with Next.js and Express.js',
+
+      links: [
+        { title: 'home', details: 'List of data fetched from /api/post' },
+        { title: 'about', details: 'Details about the application' },
+        { title: 'contact', details: 'Information about github or other accounts' }
+      ],
+
+      sandbox: [
+        { title: 'increment', details: 'dispatches redux action INCREMENT' },
+        { title: 'd3', details: 'button currently uses d3 to change background color' }
+      ],
+
+      todos: [
+        { details: 'make about and contact pages dynamic - possibly retrieve data from or just display readme file' },
+        { details: 'create readme file' },
+        { details: 'write some tests' }
+      ],
+
+      references: [
+        { url: 'https://github.com/zeit/next.js' },
+        { url: 'https://github.com/timberio/next-go/' }
+      ]
+    }
+
     return (
       <Layout>
         <Page>
@@ -12,44 +47,30 @@ class About extends React.Component {
 
           <h3>Summary</h3>
           <ul>
-            <li>Next.js</li>
-            <li>React.js</li>
-            <li>Redux</li>
-            <li>Webpack</li>
-            <li>Express.js</li>
-            <li>PostgreSQL</li>
-            <li>d3</li>
+            {obj.summary.map(e => <li>{e}</li>)}
           </ul>
 
           <h3>Description</h3>
-          <p>
-          Universal JavaScript application built with Next.js and Express.js
-          </p>
+          <p>{obj.description}</p>
 
           <h3>Links</h3>
-          <p>
-            <strong>home</strong>: List of data fetched from /api/posts<br />
-            <strong>about</strong>: Details about the application<br />
-            <strong>contact</strong>: Information about github or other accounts<br />
-          </p>
+          <ul>
+            {obj.links.map(link => <li><strong>{link.title}</strong>: {link.details}</li>)}
+          </ul>
 
           <h3>Sandbox</h3>
-          <p>
-            <strong>increment</strong>: dispatches redux action INCREMENT<br />
-            <strong>color</strong>: button currently uses d3 to change background color
-          </p>
+          <ul>
+            {obj.sandbox.map(link => <li><strong>{link.title}</strong>: {link.details}</li>)}
+          </ul>
 
           <h3>TODO</h3>
           <ul>
-            <li>make about and contact pages dynamic - possibly retrieve data from or just display readme file</li>
-            <li>create readme file</li>
-            <li>write some tests</li>
+            {obj.todos.map(todo => <li>{todo.details}</li>)}
           </ul>
 
           <h3>References</h3>
           <ul>
-            <li><a href='https://github.com/zeit/next.js'>https://github.com/zeit/next.js</a></li>
-            <li><a href='https://github.com/timberio/next-go/'>https://github.com/timberio/next-go/</a></li>
+            {obj.references.map(ref => <li><a href={ref.url}>{ref.url}</a></li>)}
           </ul>
         </Page>
       </Layout>
