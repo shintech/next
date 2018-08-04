@@ -1,9 +1,9 @@
 import C from '../store/constants'
-import { getPosts, getPost, addPost } from '../api/posts'
+import { posts } from '../api'
 
 function fetchPosts () {
   return async dispatch => {
-    const res = await getPosts()
+    const res = await posts.getPosts()
     const json = await res.json()
 
     dispatch({
@@ -15,7 +15,7 @@ function fetchPosts () {
 
 function fetchPost (id) {
   return async dispatch => {
-    const res = await getPost(id)
+    const res = await posts.getPost(id)
     const json = await res.json()
 
     dispatch({
@@ -30,7 +30,7 @@ function add (post) {
     let payload
 
     try {
-      let result = await addPost(post)
+      let result = await posts.addPost(post)
       payload = await result.json()
     } catch (err) {
       throw new Error(err.message)
