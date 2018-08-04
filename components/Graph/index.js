@@ -9,6 +9,7 @@ const Graph = () => {
     </div>
   )
 }
+
 function onClick () {
   d3.selectAll('main').style('background-color', 'red')
 }

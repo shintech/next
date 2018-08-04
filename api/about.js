@@ -23,9 +23,9 @@ export function fetchData () {
     ],
 
     todos: [
-      { details: 'make about and contact pages dynamic - possibly retrieve data from or just display readme file' },
-      { details: 'create readme file' },
-      { details: 'write some tests' }
+      'make about and contact pages dynamic - possibly retrieve data from or just display readme file',
+      'create readme file',
+      'write some tests'
     ],
 
     references: [
