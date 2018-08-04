@@ -1,5 +1,5 @@
 export default {
-  about: {
+  sandbox: {
     value: 0
   },
 

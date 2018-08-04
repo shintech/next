@@ -2,13 +2,15 @@ import * as d3 from 'd3'
 
 const Graph = () => {
   return (
-    <p onClick={onClick}>
-     Click to turn red...
-    </p>
+    <div>
+      <button onClick={onClick}>
+        Click to turn red...
+      </button>
+    </div>
   )
 }
 function onClick () {
-  d3.selectAll('p').style('color', 'red')
+  d3.selectAll('main').style('background-color', 'red')
 }
 
 export default Graph

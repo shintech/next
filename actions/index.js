@@ -1,7 +1,7 @@
-import about from './about'
+import sandbox from './sandbox'
 import posts from './posts'
 
 export {
-  about,
+  sandbox,
   posts
 }

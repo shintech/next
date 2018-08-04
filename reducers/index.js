@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import about from './about'
+import sandbox from './sandbox'
 import posts from './posts'
 
 export default combineReducers({
-  about,
+  sandbox,
   posts
 })

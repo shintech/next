@@ -9,8 +9,11 @@ const Wrapper = styled.nav`
   a {
     padding: 0 15px;
     color: #FFF;
-    text-decoration: none
+    text-decoration: none;
   }
+  .sandbox {
+    margin-left: auto;
+  }  
 `
 
 export default Wrapper

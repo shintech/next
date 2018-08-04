@@ -1,6 +1,6 @@
 {
   "name": "nextt",
-  "version": "0.2.14",
+  "version": "0.3.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -9,7 +9,6 @@
     "chalk": "^2.4.1",
     "d3": "^5.5.0",
     "express": "^4.16.3",
-    "faker": "^4.1.0",
     "morgan": "^1.9.0",
     "next": "^6.1.1",
     "next-routes": "^1.4.2",
@@ -22,14 +21,14 @@
     "serve-favicon": "^2.5.0",
     "styled-components": "^3.3.3"
   },
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^3.1.1",
+    "babel-plugin-styled-components": "^1.5.1"
+  },
   "scripts": {
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node server/index.js",
     "dev": "NODE_ENV=development nodemon server/index.js"
-  },
-  "devDependencies": {
-    "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-styled-components": "^1.5.1"
   }
 }
