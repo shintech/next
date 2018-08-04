@@ -23,14 +23,12 @@ export function fetchData () {
     ],
 
     todos: [
-      'make about and contact pages dynamic - possibly retrieve data from or just display readme file',
-      'create readme file',
       'write some tests'
     ],
 
     references: [
-      { url: 'https://github.com/zeit/next.js' },
-      { url: 'https://github.com/timberio/next-go/' }
+      { url: 'https://github.com/zeit/next.js', title: 'https://github.com/zeit/next.js' },
+      { url: 'https://github.com/timberio/next-go/', title: 'https://github.com/timberio/next-go/' }
     ]
   }
 }

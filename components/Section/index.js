@@ -5,7 +5,7 @@ const Section = ({ title, list, links, references, text }) => {
     if (text) return <p>{text}</p>
     if (list) return list.map((e, v) => <li key={v}>{e}</li>)
     if (links) return links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)
-    if (references) return references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.url}</a></li>)
+    if (references) return references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)
   }
 
   return (

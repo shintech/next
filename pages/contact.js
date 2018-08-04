@@ -1,24 +1,22 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { contacts } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
+import Section from '../components/Section'
 
-class Contact extends React.Component {
-  render () {
-    return (
-      <Layout>
-        <Page>
-          <hr />
-          <h3>Github</h3>
-          <ul>
-            <li><a href='https://github.com/mprather1' >mprather1</a></li>
-            <li><a href='https://github.com/shintech' >shintech</a></li>
-            <li><a href='https://github.com/shintech/next' >shintech/next</a></li>
-          </ul>
-        </Page>
-      </Layout>
-    )
-  }
+const Contact = ({ references }) =>
+  <Layout>
+    <Page>
+      <hr />
+      <Section title='Github' references={references} />
+    </Page>
+  </Layout>
+
+/* -------------------------------------------------------------------------------- */
+
+Contact.getInitialProps = () => {
+  return { ...contacts.fetchData() }
 }
 
 /* -------------------------------------------------------------------------------- */
