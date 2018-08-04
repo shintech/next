@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { posts } from '../actions'
+import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Post from '../components/Post'
@@ -20,7 +20,7 @@ class Home extends React.Component {
           <hr />
           { (loading) ? <Loading />
             : <ul>
-              {data.map(p => <Post key={p.title} post={p} />)}
+              {data.map(p => <Post key={p.id} post={p} />)}
             </ul>
           }
         </Page>
@@ -40,7 +40,7 @@ export default connect(
 
   dispatch => ({
     fetchPosts: () => {
-      dispatch(posts.fetchPosts())
+      dispatch(action.posts.fetchPosts())
     }
   })
 )(Home)

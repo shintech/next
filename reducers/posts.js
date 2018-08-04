@@ -14,6 +14,12 @@ const posts = (state = {}, action) => {
         data: action.payload
       }
 
+    case C.ADD_POST:
+      return {
+        payload: 'success',
+        loading: false
+      }
+
     default:
       return state
   }

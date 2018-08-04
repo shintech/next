@@ -1,4 +1,3 @@
-import React from 'react'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import { getPost } from '../api/posts'

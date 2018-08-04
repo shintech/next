@@ -1,7 +1,8 @@
+
 import sandbox from './sandbox'
 import posts from './posts'
 
-export {
+export default {
   sandbox,
   posts
 }

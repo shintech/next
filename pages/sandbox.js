@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { sandbox } from '../actions'
+import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
@@ -41,7 +41,7 @@ export default connect(
 
   dispatch => ({
     increment: () => {
-      dispatch(sandbox.increment())
+      dispatch(action.sandbox.increment())
     }
   })
 )(Sandbox)
