@@ -5,7 +5,7 @@ const chalk = require('chalk')
 module.exports = function (options) {
   let environment = process.env['NODE_ENV']
 
-  let postgresURI = process.env['POSTGRES_URI'] || `postgres://postgres:postgres@localhost:5432/api_${environment}`
+  let postgresURI = process.env['DATABASE_URL'] || `postgres://postgres:postgres@localhost:5432/api_${environment}`
 
   const pgp = pg({
     promiseLib: promise

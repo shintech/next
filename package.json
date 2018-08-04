@@ -28,7 +28,7 @@
   "scripts": {
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
-    "start": "NODE_ENV=production node server/index.js",
+    "start": "node server/index.js",
     "dev": "NODE_ENV=development nodemon server/index.js",
     "begin": "npm run build && npm start"
   }

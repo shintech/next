@@ -1,0 +1,15 @@
+version: '2'
+
+services: 
+  next:
+    build: .
+    image: shintech/database
+    container_name: next
+    network_mode: bridge
+    env_file:
+      - ./next.env
+    external_links:
+      - postgres
+    ports:
+      - "8000:8000"
+    restart: always
