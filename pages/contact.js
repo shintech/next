@@ -7,6 +7,13 @@ class Contact extends React.Component {
     return (
       <Layout>
         <h1>Contact!</h1>
+        <hr />
+        <h3>Github</h3>
+        <ul>
+          <li><a href='https://github.com/mprather1' >mprather1</a></li>
+          <li><a href='https://github.com/shintech' >shintech</a></li>
+          <li><a href='https://github.com/shintech/next' >shintech/next</a></li>
+        </ul>
       </Layout>
     )
   }

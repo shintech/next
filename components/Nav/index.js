@@ -3,10 +3,10 @@ import Wrapper from './Wrapper'
 
 const Nav = () => (
   <Wrapper>
-    <Link href='/'><a>Home</a></Link> |
-    <Link href='/about'><a>About</a></Link> |
-    <Link href='/contact'><a>Contact</a></Link>
-    <Link href='/sandbox'><a className='sandbox'>Sandbox</a></Link>
+    <Link href='/'><a>home</a></Link> |
+    <Link href='/about'><a>about</a></Link> |
+    <Link href='/contact'><a>contact</a></Link>
+    <Link href='/sandbox'><a className='sandbox'>sandbox</a></Link>
   </Wrapper>
 )
 

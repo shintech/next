@@ -7,6 +7,55 @@ class About extends React.Component {
     return (
       <Layout>
         <h1>About!</h1>
+        <hr />
+
+        <h3>Summary</h3>
+        <p>
+          <ul>
+            <li>Next.js</li>
+            <li>React.js</li>
+            <li>Redux</li>
+            <li>Webpack</li>
+            <li>Express.js</li>
+            <li>PostgreSQL</li>
+            <li>d3</li>
+          </ul>
+        </p>
+
+        <h3>Description</h3>
+        <p>
+          Universal JavaScript application built with Next.js and Express.js
+        </p>
+
+        <h3>Links</h3>
+        <p>
+          <strong>home</strong>: List of data fetched from /api/posts<br />
+          <strong>about</strong>: Details about the application<br />
+          <strong>contact</strong>: Information about github or other accounts<br />
+        </p>
+
+        <h3>Sandbox</h3>
+        <p>
+          <strong>increment</strong>: dispatches redux action INCREMENT<br />
+          <strong>color</strong>: button currently uses d3 to change background color
+        </p>
+
+        <h3>TODO</h3>
+        <p>
+          <ul>
+            <li>make about and contact pages dynamic - possibly retrieve data from or just display readme file</li>
+            <li>create readme file</li>
+            <li>write some tests</li>
+          </ul>
+        </p>
+
+        <h3>References</h3>
+        <p>
+          <ul>
+            <li><a href='https://github.com/zeit/next.js'>https://github.com/zeit/next.js</a></li>
+            <li><a href='https://github.com/timberio/next-go/'>https://github.com/timberio/next-go/</a></li>
+          </ul>
+        </p>
       </Layout>
     )
   }

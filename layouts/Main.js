@@ -17,7 +17,7 @@ export default ({ children, title = 'Default' }) => (
     </main>
 
     <Footer>
-      Footer
+      <a href='#'>shintech</a>
     </Footer>
   </Wrapper>
 )
