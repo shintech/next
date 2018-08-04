@@ -3,7 +3,7 @@ version: '3'
 services: 
   next:
     build: .
-    image: shintech/next
+    image: shintech/next:latest
     container_name: next
     network_mode: bridge
     env_file:
@@ -15,8 +15,8 @@ services:
     restart: always
     
   postgres:
-    image: shintech/blog-database
     build: ./database
+    image: shintech/blog-database:latest
     container_name: postgres
     network_mode: bridge
     env_file:

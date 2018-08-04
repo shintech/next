@@ -1,7 +1,7 @@
--- DROP DATABASE IF EXISTS api_development;
--- CREATE DATABASE api_development;
+DROP DATABASE IF EXISTS api_development;
+CREATE DATABASE api_development;
 
--- \c api_development;
+\c api_development;
 
 CREATE TABLE posts (
   ID SERIAL PRIMARY KEY,
@@ -326,14 +326,14 @@ Occaecati vel est architecto ad dolorum est consequatur maxime expedita.');
 
 ---------------------------------------------------------------------------
 
--- DROP DATABASE IF EXISTS api_test;
--- CREATE DATABASE api_test;
+DROP DATABASE IF EXISTS api_test;
+CREATE DATABASE api_test;
 
--- \c api_test;
+\c api_test;
 
--- CREATE TABLE posts (
---   ID SERIAL PRIMARY KEY,
---   title VARCHAR,
---   body VARCHAR,
---   created_at TIMESTAMP without time zone default (now() at time zone 'utc')
--- );
+CREATE TABLE posts (
+  ID SERIAL PRIMARY KEY,
+  title VARCHAR,
+  body VARCHAR,
+  created_at TIMESTAMP without time zone default (now() at time zone 'utc')
+);
