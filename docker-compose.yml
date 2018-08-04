@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services: 
   next:
@@ -8,8 +8,19 @@ services:
     network_mode: bridge
     env_file:
       - ./next.env
-    external_links:
+    links:
       - postgres
     ports:
       - "8000:8000"
+    restart: always
+    
+  postgres:
+    image: shintech/blog-database
+    build: ./database
+    container_name: postgres
+    network_mode: bridge
+    env_file:
+        - ./postgres.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
     restart: always
