@@ -24,7 +24,8 @@ export function fetchData () {
 
     todos: [
       'create readme file',
-      'write some tests'
+      'write some tests',
+      'child views in Section component'
     ],
 
     references: [

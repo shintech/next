@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
-import Post from '../components/Post'
+import PostList from '../components/PostList'
 import Loading from '../components/Loading'
 
 class Home extends React.Component {
@@ -18,11 +18,7 @@ class Home extends React.Component {
     return (
       <Layout>
         <Page>
-          { (loading) ? <Loading />
-            : <ul>
-              {data.map(p => <Post key={p.id} post={p} />)}
-            </ul>
-          }
+          { (loading) ? <Loading /> : <PostList posts={data} /> }
         </Page>
       </Layout>
     )
