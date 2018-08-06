@@ -10,7 +10,7 @@ export function getPosts () {
 }
 
 export function getPost (slug) {
-  return fetch(`http://dev.shintech.ninja:8000/api/posts/${slug}`, {
+  return fetch(`http://localhost:8000/api/posts/${slug}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

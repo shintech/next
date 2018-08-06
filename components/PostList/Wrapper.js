@@ -8,7 +8,7 @@ const Wrapper = styled.ul`
     overflow: hidden;   
     white-space: nowrap;
     height: 9ch;
-    border-radius: 15px;
+    border-radius: 10px;
     
     :hover {
       background: #F5F5F5;
