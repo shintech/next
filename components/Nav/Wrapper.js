@@ -5,6 +5,8 @@ const Wrapper = styled.nav`
   border-bottom: 1px solid #ddd;
   display: flex;
   background: purple;
+  border-radius: 10px;
+
   
   a {
     padding: 0 15px;

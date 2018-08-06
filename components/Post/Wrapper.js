@@ -3,8 +3,9 @@ import styled from 'styled-components'
 const Wrapper = styled.li`
   border-bottom: 1px solid #ddd;
   height: 12ch;
+  border-radius: 10px;
   overflow: hidden;
-
+  
   :hover {
     background: #F5F5F5;
     border: 1px dotted gold;
