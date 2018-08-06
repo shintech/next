@@ -3,9 +3,7 @@ import * as d3 from 'd3'
 const Graph = () => {
   return (
     <div>
-      <button onClick={onClick}>
-        Click to turn red...
-      </button>
+      <button onClick={onClick}>Click</button>
     </div>
   )
 }

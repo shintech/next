@@ -5,20 +5,22 @@ import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
+import Figure from '../components/Figure'
 
 const Sandbox = ({ value, increment }) =>
   <Layout>
     <Page>
-      <hr />
+      <Figure title='INCREMENT'>
+        <p>{ value }</p>
+        <button onClick={() => { increment() }}>Click</button>
+        <hr />
+      </Figure>
 
-      <h3>Dispatch increment action</h3>
-      <p>{ value }</p>
-      <button onClick={() => { increment() }}>Click</button>
-
-      <hr />
-
-      <h3>d3</h3>
-      <Graph />
+      <Figure title='d3'>
+        <div>Click to turn red...</div>
+        <Graph />
+        <hr />
+      </Figure>
     </Page>
   </Layout>
 

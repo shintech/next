@@ -3,17 +3,34 @@ import PropTypes from 'prop-types'
 import { about } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
-import Section from '../components/Section'
+import Figure from '../components/Figure'
 
 const About = ({ summary, description, links, sandbox, todos, references }) =>
   <Layout>
     <Page>
-      <Section title='Summary' list={summary} />
-      <Section title='Description' text={description} />
-      <Section title='Links' links={links} />
-      <Section title='Sandbox' links={sandbox} />
-      <Section title='TODO' list={todos} />
-      <Section title='References' references={references} />
+      <Figure title='Summary'>
+        <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
+      </Figure>
+
+      <Figure title='Description'>
+        <p>{description}</p>
+      </Figure>
+
+      <Figure title='Links'>
+        <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+      </Figure>
+
+      <Figure title='Sandbox'>
+        <ul>{sandbox.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+      </Figure>
+
+      <Figure title='TODO'>
+        <ul>{todos.map((e, v) => <li key={v}>{e}</li>)}</ul>
+      </Figure>
+
+      <Figure title='References'>
+        <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
+      </Figure>
     </Page>
   </Layout>
 

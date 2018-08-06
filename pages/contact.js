@@ -4,12 +4,14 @@ import PropTypes from 'prop-types'
 import { contacts } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
-import Section from '../components/Section'
+import Figure from '../components/Figure'
 
 const Contact = ({ references }) =>
   <Layout>
     <Page>
-      <Section title='Github' references={references} />
+      <Figure title='Github' >
+        <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
+      </Figure>
     </Page>
   </Layout>
 

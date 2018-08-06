@@ -25,7 +25,8 @@ export function fetchData () {
     todos: [
       'create readme file',
       'write some tests',
-      'child views in Section component'
+      'style post page',
+      'make navbar display active tab'
     ],
 
     references: [
