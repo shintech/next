@@ -23,11 +23,11 @@ const PostPage = ({ post }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-PostPage.getInitialProps = async ({ query, reduxStore }) => {
+PostPage.getInitialProps = async ({ query, store }) => {
   let post
 
-  if (reduxStore.getState().posts.data) {
-    post = reduxStore.getState().posts.data.find(e => e.id === parseInt(query.slug))
+  if (store.getState().posts.data) {
+    post = store.getState().posts.data.find(e => e.id === parseInt(query.slug))
   } else {
     let res = await getPost(query.slug)
     post = await res.json()

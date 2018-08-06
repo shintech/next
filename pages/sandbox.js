@@ -6,13 +6,13 @@ import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 
-const Sandbox = ({ value, increment }) =>
+const Sandbox = ({ sandbox, increment }) =>
   <Layout>
     <Page>
       <hr />
 
       <h3>Dispatch increment action</h3>
-      <p>{ value }</p>
+      <p>{ sandbox.value }</p>
       <button onClick={() => { increment() }}>Click</button>
 
       <hr />
@@ -24,23 +24,19 @@ const Sandbox = ({ value, increment }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Sandbox.getInitialProps = ({ reduxStore, req }) => {
-  return { value: reduxStore.getState().sandbox.value }
-}
+Sandbox.getInitialProps = ({ store, req }) => ({ ...store.getState() })
 
 /* -------------------------------------------------------------------------------- */
 
 Sandbox.propTypes = {
-  value: PropTypes.number.isRequired,
+  sandbox: PropTypes.object.isRequired,
   increment: PropTypes.func.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
 
 export default connect(
-  state => ({
-    value: state.sandbox.value
-  }),
+  state => state,
 
   dispatch => ({
     increment: () => {

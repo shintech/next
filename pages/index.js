@@ -32,6 +32,10 @@ class Home extends React.Component {
 
 /* -------------------------------------------------------------------------------- */
 
+Home.getInitialProps = ({ store }) => ({ ...store.getState() })
+
+/* -------------------------------------------------------------------------------- */
+
 Home.propTypes = {
   posts: PropTypes.object.isRequired
 }
@@ -39,11 +43,7 @@ Home.propTypes = {
 /* -------------------------------------------------------------------------------- */
 
 export default connect(
-  state => {
-    return {
-      posts: state.posts
-    }
-  },
+  state => state,
 
   dispatch => ({
     fetchPosts: () => {

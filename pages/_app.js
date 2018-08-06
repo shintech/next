@@ -4,10 +4,10 @@ import { Provider } from 'react-redux'
 
 class MyApp extends App {
   render () {
-    const {Component, pageProps, reduxStore} = this.props
+    const {Component, pageProps, store} = this.props
     return (
       <Container>
-        <Provider store={reduxStore}>
+        <Provider store={store}>
           <Component {...pageProps} />
         </Provider>
       </Container>
