@@ -1,35 +1,38 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 
-class Sandbox extends React.Component {
-  static getInitialProps ({ reduxStore, req }) {
-    return { value: reduxStore.getState().sandbox.value }
-  }
+const Sandbox = ({ value, increment }) =>
+  <Layout>
+    <Page>
+      <hr />
 
-  render () {
-    const { value, increment } = this.props
+      <h3>Dispatch increment action</h3>
+      <p>{ value }</p>
+      <button onClick={() => { increment() }}>Click</button>
 
-    return (
-      <Layout>
-        <Page>
-          <hr />
+      <hr />
 
-          <h3>Dispatch increment action</h3>
-          <p>{ value }</p>
-          <button onClick={() => { increment() }}>Click</button>
+      <h3>d3</h3>
+      <Graph />
+    </Page>
+  </Layout>
 
-          <hr />
+/* -------------------------------------------------------------------------------- */
 
-          <h3>d3</h3>
-          <Graph />
-        </Page>
-      </Layout>
-    )
-  }
+Sandbox.getInitialProps = ({ reduxStore, req }) => {
+  return { value: reduxStore.getState().sandbox.value }
+}
+
+/* -------------------------------------------------------------------------------- */
+
+Sandbox.propTypes = {
+  value: PropTypes.number.isRequired,
+  increment: PropTypes.func.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
 const Section = ({ title, list, links, references, text }) => {
@@ -17,5 +18,17 @@ const Section = ({ title, list, links, references, text }) => {
     </Wrapper>
   )
 }
+
+/* -------------------------------------------------------------------------------- */
+
+Section.propTypes = {
+  title: PropTypes.string.isRequired,
+  list: PropTypes.array,
+  links: PropTypes.array,
+  references: PropTypes.array,
+  text: PropTypes.string
+}
+
+/* -------------------------------------------------------------------------------- */
 
 export default Section

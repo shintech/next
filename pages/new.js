@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
@@ -17,7 +18,6 @@ const NewPost = ({ createNewPost }) => {
   }
 
   /* eslint-disable */
-  
   return (
     <Layout>
       <Page>
@@ -47,9 +47,16 @@ const NewPost = ({ createNewPost }) => {
       </Page>
     </Layout>
   )
-
  /* eslint-enable */
 }
+
+/* -------------------------------------------------------------------------------- */
+
+NewPost.propTypes = {
+  createNewPost: PropTypes.func.isRequired
+}
+
+/* -------------------------------------------------------------------------------- */
 
 export default connect(
   state => ({

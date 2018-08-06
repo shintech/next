@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import { getPost } from '../api/posts'
@@ -20,6 +21,8 @@ const PostPage = ({ post }) =>
     </Page>
   </Layout>
 
+/* -------------------------------------------------------------------------------- */
+
 PostPage.getInitialProps = async ({ query, reduxStore }) => {
   let post
 
@@ -32,5 +35,13 @@ PostPage.getInitialProps = async ({ query, reduxStore }) => {
 
   return { post }
 }
+
+/* -------------------------------------------------------------------------------- */
+
+PostPage.propTypes = {
+  post: PropTypes.object.isRequired
+}
+
+/* -------------------------------------------------------------------------------- */
 
 export default PostPage

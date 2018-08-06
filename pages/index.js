@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
@@ -27,6 +28,12 @@ class Home extends React.Component {
       </Layout>
     )
   }
+}
+
+/* -------------------------------------------------------------------------------- */
+
+Home.propTypes = {
+  posts: PropTypes.object.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */

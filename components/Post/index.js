@@ -1,4 +1,5 @@
 import { Link } from 'routes'
+import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
 const PostItem = ({ post }) => (
@@ -11,5 +12,13 @@ const PostItem = ({ post }) => (
     </Link>
   </Wrapper>
 )
+
+/* -------------------------------------------------------------------------------- */
+
+PostItem.propTypes = {
+  post: PropTypes.object.isRequired
+}
+
+/* -------------------------------------------------------------------------------- */
 
 export default PostItem

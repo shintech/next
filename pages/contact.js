@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { contacts } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
@@ -17,6 +18,12 @@ const Contact = ({ references }) =>
 
 Contact.getInitialProps = () => {
   return { ...contacts.fetchData() }
+}
+
+/* -------------------------------------------------------------------------------- */
+
+Contact.propTypes = {
+  references: PropTypes.array.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */

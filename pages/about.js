@@ -1,4 +1,5 @@
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
 import { about } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
@@ -21,6 +22,16 @@ const About = ({ summary, description, links, sandbox, todos, references }) =>
 
 About.getInitialProps = () => {
   return { ...about.fetchData() }
+}
+
+/* -------------------------------------------------------------------------------- */
+
+About.propTypes = {
+  summary: PropTypes.array.isRequired,
+  description: PropTypes.string.isRequired,
+  links: PropTypes.array.isRequired,
+  sandbox: PropTypes.array.isRequired,
+  references: PropTypes.array.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
