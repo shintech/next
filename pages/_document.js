@@ -1,8 +1,10 @@
 import Document, { Head, Main, NextScript } from 'next/document'
-import styled, { ServerStyleSheet } from 'styled-components'
+import { injectGlobal, ServerStyleSheet } from 'styled-components'
 
-const Body = styled.body`
-  background-color: #ceefe8;
+injectGlobal`
+  body {
+    background-color: #;
+  }
 `
 
 export default class SiteDocument extends Document {
@@ -26,10 +28,10 @@ export default class SiteDocument extends Document {
           <meta name='viewport' content='initial-scale=1.0, width=device-width' />
           {this.props.styleTags}
         </Head>
-        <Body>
+        <body>
           <Main />
           <NextScript />
-        </Body>
+        </body>
       </html>
     )
   }
