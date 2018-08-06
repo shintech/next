@@ -23,6 +23,7 @@ export function fetchData () {
     ],
 
     todos: [
+      'create readme file',
       'write some tests'
     ],
 
