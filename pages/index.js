@@ -18,7 +18,6 @@ class Home extends React.Component {
     return (
       <Layout>
         <Page>
-          <hr />
           { (loading) ? <Loading />
             : <ul>
               {data.map(p => <Post key={p.id} post={p} />)}

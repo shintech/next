@@ -6,7 +6,7 @@ const Page = styled.div`
     padding-left: 0px;
   }
   padding: 1rem;
-  max-width: 90%;
+  max-width: 93%;
   margin: 0 auto;
 
   @media (max-width: 750px) {

@@ -8,7 +8,6 @@ import Section from '../components/Section'
 const About = ({ summary, description, links, sandbox, todos, references }) =>
   <Layout>
     <Page>
-      <hr />
       <Section title='Summary' list={summary} />
       <Section title='Description' text={description} />
       <Section title='Links' links={links} />

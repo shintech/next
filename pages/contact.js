@@ -9,7 +9,6 @@ import Section from '../components/Section'
 const Contact = ({ references }) =>
   <Layout>
     <Page>
-      <hr />
       <Section title='Github' references={references} />
     </Page>
   </Layout>

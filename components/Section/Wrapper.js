@@ -3,19 +3,26 @@ import styled from 'styled-components'
 const Wrapper = styled.figure`
   margin: 0;
 
-  ul: {
+  ul {
     list-style: none;
   }
-
-  figcaption {
-    display: block;
-    font-size: 1.17em;
-    margin-top: 1em;
-    margin-bottom: 1em;
-    margin-left: 0;
-    margin-right: 0;
-    font-weight: bold;    
+  
+  li, p {
+    padding-left: 8px;
   }
+  
+  figcaption {
+    border: 1px dotted black;
+    font-size: 1.17em;
+    padding-left: 8px;
+    border-radius: 5px;
+    font-weight: bold;  
+    color: #222;
+    line-height: 35px;
+    font-family: "PT Sans", sans-serif;
+    background-color: lightgreen;
+  }
+
 `
 
 export default Wrapper
