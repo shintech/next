@@ -6,13 +6,13 @@ import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 
-const Sandbox = ({ sandbox, increment }) =>
+const Sandbox = ({ value, increment }) =>
   <Layout>
     <Page>
       <hr />
 
       <h3>Dispatch increment action</h3>
-      <p>{ sandbox.value }</p>
+      <p>{ value }</p>
       <button onClick={() => { increment() }}>Click</button>
 
       <hr />
@@ -24,19 +24,17 @@ const Sandbox = ({ sandbox, increment }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Sandbox.getInitialProps = ({ store, req }) => ({ ...store.getState() })
-
-/* -------------------------------------------------------------------------------- */
-
 Sandbox.propTypes = {
-  sandbox: PropTypes.object.isRequired,
+  value: PropTypes.number.isRequired,
   increment: PropTypes.func.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
 
 export default connect(
-  state => state,
+  state => ({
+    value: state.sandbox.value
+  }),
 
   dispatch => ({
     increment: () => {

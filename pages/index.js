@@ -32,10 +32,6 @@ class Home extends React.Component {
 
 /* -------------------------------------------------------------------------------- */
 
-Home.getInitialProps = ({ store }) => ({ ...store.getState() })
-
-/* -------------------------------------------------------------------------------- */
-
 Home.propTypes = {
   posts: PropTypes.object.isRequired
 }
