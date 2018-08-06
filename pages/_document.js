@@ -3,7 +3,7 @@ import { injectGlobal, ServerStyleSheet } from 'styled-components'
 
 injectGlobal`
   body {
-    background-color: #;
+    background-color: #ceefe8;
   }
 `
 
