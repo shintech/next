@@ -7,6 +7,7 @@ const Wrapper = styled.article`
   grid-template-columns: 60% auto;
   grid-template-rows: auto auto;
   
+  
   h1 {
     font-family: "Times New Roman", Times, serif;
     grid-row: 1;  
@@ -25,19 +26,27 @@ const Wrapper = styled.article`
     grid-column: 2;  
     border: 1px solid teal;
     padding: 1ch;
-    font-family: "Times New Roman", Times, serif;
-   
+    font-family: 'Esteban', serif;
+    font-size: 19px;
+    
     :hover {
       color: indianred;
       cursor: default;
-    }
+    };
   }
   
   p {
     padding: 0 2ch 0 2ch;
     grid-row: span 2;  
     grid-column: 1;    
-    font-family: "curier new", courier, monospace;
+    font-family: 'Farsan', cursive;
+    font-size: 25px;
+
+    .stylized-letter {
+      color: salmon;
+      font-family: 'Rouge Script', cursive;
+      font-size: 45px;
+    };    
 
   }
 `

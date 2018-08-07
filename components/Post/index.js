@@ -1,13 +1,15 @@
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
-const Post = ({ post }) =>
-  <Wrapper>
-    <h1>{post.title}</h1>
-    <p>{post.body}</p>
-    <aside>{post.short}</aside>
-  </Wrapper>
+const Post = ({ post }) => {
+  let split = post.body.split('')
 
+  return (<Wrapper>
+    <h1>{post.title}</h1>
+    <p><span className='stylized-letter'>{split[0]}</span>{split.slice(1)}</p>
+    <aside>{post.short}</aside>
+  </Wrapper>)
+}
 /* -------------------------------------------------------------------------------- */
 
 Post.propTypes = {
