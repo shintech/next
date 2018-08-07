@@ -1,5 +1,6 @@
 const express = require('express')
 const posts = require('./api/posts')
+const tasks = require('./api/tasks')
 
 const router = express.Router()
 
@@ -16,5 +17,12 @@ module.exports = function (options) {
 
   router.route('/posts/:id')
     .get(posts(options).fetchOne)
+
+  router.route('/tasks')
+    .get(tasks(options).fatchAll)
+
+  router.route('/tasks/:id')
+    .get(tasks(options).fetchOne)
+
   return router
 }
