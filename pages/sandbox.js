@@ -1,4 +1,3 @@
-import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
@@ -7,7 +6,7 @@ import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 import Figure from '../components/Figure'
 
-const Sandbox = ({ value, increment, pathname }) =>
+const Sandbox = ({ value, increment, fetchGraph, pathname }) =>
   <Layout>
     <Page>
       <Figure title='INCREMENT'>
@@ -16,9 +15,8 @@ const Sandbox = ({ value, increment, pathname }) =>
         <hr />
       </Figure>
 
-      <Figure title='d3'>
-        <div>Click to turn red...</div>
-        <Graph />
+      <Figure title='Graphs'>
+        <Graph onload={fetchGraph} />
         <hr />
       </Figure>
     </Page>
@@ -45,6 +43,10 @@ export default connect(
   dispatch => ({
     increment: () => {
       dispatch(action.sandbox.increment())
+    },
+
+    fetchGraph: () => {
+      dispatch(action.sandbox.fetchGraph())
     }
   })
 )(Sandbox)

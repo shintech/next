@@ -8,6 +8,15 @@ function increment () {
   }
 }
 
+function fetchGraph () {
+  return async dispatch => {
+    dispatch({
+      type: C.FETCH_GRAPH
+    })
+  }
+}
+
 export default {
-  increment
+  increment,
+  fetchGraph
 }

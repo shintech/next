@@ -5,11 +5,11 @@ import Wrapper from './Wrapper'
 const PostList = ({ posts }) =>
   <Wrapper>
     {posts.map(post =>
-      <li>
+      <li key={post.id}>
         <Link route='post' params={{ slug: post.id }}>
           <a>
             <h3>{post.title}</h3>
-            <div key={post.id}>{post.short}</div>
+            <div>{post.short}</div>
           </a>
         </Link>
       </li>

@@ -9,6 +9,9 @@ const about = (state = {}, action) => {
         value: value
       }
 
+    case C.FETCH_GRAPH:
+      return state
+
     default:
       return state
   }
