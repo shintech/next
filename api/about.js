@@ -23,8 +23,13 @@ export function fetchData () {
     ],
 
     todos: [
-      'create readme file',
-      'write some tests'
+      'work on loading component',
+      'try to make loading animation for d3 graphs',
+      'write some tests',
+      'upload and process files',
+      'download files',
+      'authentication',
+      'more graphs'
     ],
 
     references: [
