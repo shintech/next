@@ -25,9 +25,6 @@ const middleWare = server => [
 ]
 
 const storeFactory = (server = false) =>
-  applyMiddleware(...middleWare(server))(createStore)(
-    reducers,
-    state
-  )
+  createStore(reducers, state, applyMiddleware(...middleWare(server)))
 
 export default storeFactory

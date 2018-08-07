@@ -18,7 +18,7 @@ const Wrapper = styled.figure`
     border-radius: 5px;
     font-weight: bold;  
     color: #222;
-    line-height: 35px;
+    line-height: 2.5ch;
     font-family: "PT Sans", sans-serif;
     background-color: lightgreen;
   }

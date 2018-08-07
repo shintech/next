@@ -7,7 +7,7 @@ import Page from '../layouts/Page'
 import Graph from '../components/Graph'
 import Figure from '../components/Figure'
 
-const Sandbox = ({ value, increment }) =>
+const Sandbox = ({ value, increment, pathname }) =>
   <Layout>
     <Page>
       <Figure title='INCREMENT'>
@@ -23,6 +23,10 @@ const Sandbox = ({ value, increment }) =>
       </Figure>
     </Page>
   </Layout>
+
+/* -------------------------------------------------------------------------------- */
+
+Sandbox.getInitialProps = ({ pathname }) => ({ pathname })
 
 /* -------------------------------------------------------------------------------- */
 

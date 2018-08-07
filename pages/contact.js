@@ -6,8 +6,8 @@ import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Figure from '../components/Figure'
 
-const Contact = ({ references }) =>
-  <Layout>
+const Contact = ({ references, pathname }) =>
+  <Layout pathname={pathname}>
     <Page>
       <Figure title='Github' >
         <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
@@ -17,9 +17,7 @@ const Contact = ({ references }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Contact.getInitialProps = () => {
-  return { ...contacts.fetchData() }
-}
+Contact.getInitialProps = ({ pathname }) => ({ ...contacts.fetchData(), pathname })
 
 /* -------------------------------------------------------------------------------- */
 

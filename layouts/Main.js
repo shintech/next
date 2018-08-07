@@ -3,13 +3,13 @@ import Wrapper from './Wrapper'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 
-export default ({ children, title = 'Default' }) => (
+const Main = ({ children, title = 'Default', pathname = '/' }) =>
   <Wrapper>
     <Head>
       <title>{ title }</title>
     </Head>
     <header>
-      <Nav />
+      <Nav pathname={pathname} />
     </header>
 
     <main>
@@ -20,4 +20,5 @@ export default ({ children, title = 'Default' }) => (
       <a href='#'>shintech</a>
     </Footer>
   </Wrapper>
-)
+
+export default Main

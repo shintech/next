@@ -5,8 +5,8 @@ import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Figure from '../components/Figure'
 
-const About = ({ summary, description, links, sandbox, todos, references }) =>
-  <Layout>
+const About = ({ summary, description, links, sandbox, todos, references, pathname }) =>
+  <Layout pathname={pathname}>
     <Page>
       <Figure title='Summary'>
         <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
@@ -36,9 +36,7 @@ const About = ({ summary, description, links, sandbox, todos, references }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-About.getInitialProps = () => {
-  return { ...about.fetchData() }
-}
+About.getInitialProps = ({ pathname }) => ({ ...about.fetchData(), pathname })
 
 /* -------------------------------------------------------------------------------- */
 
