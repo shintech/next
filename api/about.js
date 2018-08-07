@@ -24,9 +24,7 @@ export function fetchData () {
 
     todos: [
       'create readme file',
-      'write some tests',
-      'style post page',
-      'make navbar display active tab'
+      'write some tests'
     ],
 
     references: [

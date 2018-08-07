@@ -2,22 +2,14 @@ import PropTypes from 'prop-types'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import { getPost } from '../api/posts'
+import Post from '../components/Post'
 
 /* -------------------------------------------------------------------------------- */
 
 const PostPage = ({ post }) =>
   <Layout>
     <Page>
-      <hr />
-      <h1>
-        {post.title}
-      </h1>
-      <h3>
-        {post.short}
-      </h3>
-      <p>
-        {post.body}
-      </p>
+      <Post post={post} />
     </Page>
   </Layout>
 
