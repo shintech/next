@@ -6,6 +6,7 @@ const Wrapper = styled.nav`
   background: purple;
   border-radius: 5px;
   list-style-type: none;
+  overflow: hidden;
 
   a {
     line-height: 4.5ch;
@@ -15,7 +16,6 @@ const Wrapper = styled.nav`
     padding-right: 2ch;
     color: #FFF;
     text-decoration: none;
-    border-radius: 5px;
  }
   
   a:hover {
@@ -36,7 +36,8 @@ const Wrapper = styled.nav`
       background-color: steelblue;
       cursor: default;
       color: black
-    }  }
+    }  
+  }
 `
 
 export default Wrapper
