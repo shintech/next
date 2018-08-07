@@ -29,7 +29,8 @@ export function fetchData () {
       'upload and process files',
       'download files',
       'authentication',
-      'more graphs'
+      'more graphs',
+      'make navbar collapse'
     ],
 
     references: [
