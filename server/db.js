@@ -2,7 +2,7 @@ const promise = require('bluebird')
 const pg = require('pg-promise')
 const chalk = require('chalk')
 
-module.exports = function (options) {
+module.exports = ({ logger }) => {
   let environment = process.env['NODE_ENV']
 
   let postgresURI = process.env['DATABASE_URL'] || `postgres://postgres:postgres@localhost:5432/api_${environment}`
@@ -16,7 +16,7 @@ module.exports = function (options) {
   const databaseName = connectionString.split('/')
 
   if (environment === 'development') {
-    console.info(`Connected to database: ${chalk.bgBlack.green(databaseName[databaseName.length - 1])}`)
+    logger.info(`Connected to database: ${chalk.bgBlack.green(databaseName[databaseName.length - 1])}`)
   }
 
   return init

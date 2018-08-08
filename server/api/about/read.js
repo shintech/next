@@ -1,6 +1,4 @@
-module.exports = function (options) {
-  const { db } = options
-
+module.exports = function ({ db, logger }) {
   return {
     fatchAll: async function (req, res) {
       let response, status
@@ -12,7 +10,7 @@ module.exports = function (options) {
         response = { error: err.message || err }
         status = (err.constructor.name === 'QueryResultError') ? 404 : 500
 
-        console.error(response.error)
+        logger.error(response.error)
       }
 
       res.status(status)

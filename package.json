@@ -1,6 +1,6 @@
 {
   "name": "nextt",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -21,7 +21,8 @@
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
     "serve-favicon": "^2.5.0",
-    "styled-components": "^3.3.3"
+    "styled-components": "^3.3.3",
+    "winston": "^3.0.0"
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
