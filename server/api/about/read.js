@@ -19,7 +19,7 @@ module.exports = function (options) {
         .format({
           json: () => {
             res.write(JSON.stringify(response))
-
+            res.flush()
             res.end()
           }
         })
