@@ -7,7 +7,7 @@ import Graph from '../components/Graph'
 import Figure from '../components/Figure'
 
 const Sandbox = ({ value, increment, fetchGraph, pathname }) =>
-  <Layout>
+  <Layout pathname={pathname}>
     <Page>
       <Figure title='INCREMENT'>
         <p>{ value }</p>
