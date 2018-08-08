@@ -1,6 +1,5 @@
 const promise = require('bluebird')
 const pg = require('pg-promise')
-const chalk = require('chalk')
 
 module.exports = ({ logger }) => {
   let environment = process.env['NODE_ENV']
@@ -16,7 +15,7 @@ module.exports = ({ logger }) => {
   const databaseName = connectionString.split('/')
 
   if (environment === 'development') {
-    logger.info(`Connected to database: ${chalk.bgBlack.green(databaseName[databaseName.length - 1])}`)
+    logger.info(`Connected to database: ${databaseName[databaseName.length - 1]}`)
   }
 
   return init

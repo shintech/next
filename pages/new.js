@@ -59,7 +59,7 @@ export default connect(
 
   dispatch => ({
     createNewTask: (attrs) => {
-      dispatch(action.about.add(attrs))
+      dispatch(action.about.addTask(attrs))
     }
   })
 )(NewTask)

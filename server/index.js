@@ -5,7 +5,6 @@ const path = require('path')
 const compression = require('compression')
 const favicon = require('serve-favicon')
 const morgan = require('morgan')
-const winston = require('winston')
 const configDB = require('./db')
 const routes = require('../routes')
 const getRouter = require('./router')
@@ -13,6 +12,7 @@ const getRouter = require('./router')
 const environment = process.env['NODE_ENV']
 const port = process.env['PORT'] || 8000
 
+const logger = require('./logger')({ environment })
 const dev = environment !== 'production'
 
 const app = next({ dev })
@@ -23,21 +23,6 @@ const handler = routes.getRequestHandler(app)
 const fileAssets = express.static(
   path.join(__dirname, '../public')
 )
-
-const logger = winston.createLogger({
-  level: 'info',
-  format: winston.format.json(),
-  transports: [
-    new winston.transports.File({ filename: 'error.log', level: 'error' }),
-    new winston.transports.File({ filename: 'combined.log' })
-  ]
-})
-
-if (process.env.NODE_ENV !== 'production') {
-  logger.add(new winston.transports.Console({
-    format: winston.format.simple()
-  }))
-}
 
 app.prepare()
   .then(() => {
@@ -57,7 +42,7 @@ app.prepare()
       .use('/api', api)
       .use(handler)
 
-      .get('/', (req, res) => {
+      .get('*', (req, res) => {
         return handle(req, res)
       })
 

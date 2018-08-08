@@ -25,7 +25,7 @@ function fetchPost (id) {
   }
 }
 
-function add (post) {
+function addPost (post) {
   return async dispatch => {
     let payload
 
@@ -46,5 +46,5 @@ function add (post) {
 export default {
   fetchPosts,
   fetchPost,
-  add
+  addPost
 }

@@ -13,7 +13,7 @@ function fetchTasks () {
   }
 }
 
-function add (task) {
+function addTask (task) {
   return async dispatch => {
     let payload
 
@@ -33,5 +33,5 @@ function add (task) {
 
 export default {
   fetchTasks,
-  add
+  addTask
 }
