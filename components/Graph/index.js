@@ -5,7 +5,7 @@ class Graph extends React.Component {
   componentDidMount () {
     let data = [90, 34, 22, 64, 12]
 
-    let width = 420
+    let width = '95%'
     let barHeight = 20
 
     var x = d3.scaleLinear()
