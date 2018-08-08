@@ -1,6 +1,6 @@
 const express = require('express')
 const posts = require('./api/posts')
-const tasks = require('./api/tasks')
+const about = require('./api/about')
 
 const router = express.Router()
 
@@ -19,10 +19,11 @@ module.exports = function (options) {
     .get(posts(options).fetchOne)
 
   router.route('/tasks')
-    .get(tasks(options).fatchAll)
+    .get(about(options).fatchAll)
+    .post(about(options).createTask)
 
   router.route('/tasks/:id')
-    .get(tasks(options).fetchOne)
+    .get(about(options).fetchOne)
 
   return router
 }

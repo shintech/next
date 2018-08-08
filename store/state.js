@@ -5,5 +5,9 @@ export default {
 
   posts: {
     loading: true
+  },
+
+  about: {
+    loading: true
   }
 }

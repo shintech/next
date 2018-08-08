@@ -19,7 +19,24 @@ CREATE TABLE tasks (
 );
 
 INSERT INTO  tasks ( title, details )
-VALUES ('test', 'details');
+VALUES ('test', 'work on loading component');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'try to make loading animation for d3 graphs');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'write some tests');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'upload and process files');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'download files');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'authentication');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'more graph');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'make navbar collapse');
+INSERT INTO  tasks ( title, details )
+VALUES ('test', 'pass some initial data as an argument to next');
+
 
 INSERT INTO posts ( title, body, short)
 VALUES ('Occaecati doloribus aut molestiae aliquid ad.', 'Eius architecto eveniet. Sit non ea dolorem sunt blanditiis qui consequuntur. Quia aspernatur quia et. Error aut nihil reiciendis sed dolorum earum quasi molestiae sequi. Quia rerum quis sint sit eius.   Corporis tenetur officia veritatis molestias. Est laboriosam enim excepturi eius delectus. Est et non. Possimus molestiae qui nobis dignissimos. Doloribus illum recusandae ut est dolorem ex.   Sapiente fugit est in. Aspernatur ea eum quia aut et. Delectus quibusdam maiores praesentium tenetur veniam unde voluptate. Omnis dolorem voluptatem in iste et optio aut ut voluptatem.', 'Ab eum eos voluptas tempora. Dolores et error veritatis praesentium ducimus sed laborum. Unde perspiciatis laudantium amet sit deleniti. Non placeat recusandae et inventore est ullam. Provident impedit et consequatur.');

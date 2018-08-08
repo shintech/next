@@ -1,3 +1,5 @@
+import fetch from 'isomorphic-fetch'
+
 export function fetchData () {
   return {
     summary: [
@@ -22,20 +24,37 @@ export function fetchData () {
       { title: 'd3', details: 'button currently uses d3 to change background color' }
     ],
 
-    todos: [
-      'work on loading component',
-      'try to make loading animation for d3 graphs',
-      'write some tests',
-      'upload and process files',
-      'download files',
-      'authentication',
-      'more graphs',
-      'make navbar collapse'
-    ],
-
     references: [
       { url: 'https://github.com/zeit/next.js', title: 'https://github.com/zeit/next.js' },
       { url: 'https://github.com/timberio/next-go/', title: 'https://github.com/timberio/next-go/' }
     ]
   }
+}
+
+export function getTasks () {
+  return fetch('/api/tasks', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+export function getTask (slug) {
+  return fetch(`http://localhost:8000/api/tasks/${slug}`, {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}
+
+export function addTask (body) {
+  return fetch('/api/tasks', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(body)
+  })
 }

@@ -4,17 +4,16 @@ import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 
-const NewPost = ({ createNewPost }) => {
-  let _title, _short, _body
+const NewTask = ({ createNewTask }) => {
+  let _title, _details
 
   const submit = e => {
     e.preventDefault()
 
     let title = _title.value
-    let short = _short.value
-    let body = _body.value
+    let details = _details.value
 
-    createNewPost({ title, short, body })
+    createNewTask({ title, details })
   }
 
   /* eslint-disable */
@@ -29,13 +28,8 @@ const NewPost = ({ createNewPost }) => {
             </li>
 
             <li className='form-group'>
-              <label>Short <span className='required'>*</span></label>
-              <input ref={input => _short = input} type='textarea' placeholder='....' />
-            </li>
-
-            <li className='form-group'>
-              <label>Body <span className='required'>*</span></label>
-              <input ref={input => _body = input} type='textarea' placeholder='....' />
+              <label>Details <span className='required'>*</span></label>
+              <input ref={input => _details = input} type='textarea' placeholder='....' />
             </li>
 
             <li>
@@ -52,8 +46,8 @@ const NewPost = ({ createNewPost }) => {
 
 /* -------------------------------------------------------------------------------- */
 
-NewPost.propTypes = {
-  createNewPost: PropTypes.func.isRequired
+NewTask.propTypes = {
+  createNewTask: PropTypes.func.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -64,8 +58,8 @@ export default connect(
   }),
 
   dispatch => ({
-    createNewPost: (attrs, posts) => {
-      dispatch(action.posts.add(attrs, posts))
+    createNewTask: (attrs) => {
+      dispatch(action.about.add(attrs))
     }
   })
-)(NewPost)
+)(NewTask)
