@@ -17,7 +17,6 @@ const dev = environment !== 'production'
 
 const app = next({ dev })
 
-const handle = app.getRequestHandler()
 const handler = routes.getRequestHandler(app)
 
 const fileAssets = express.static(
@@ -30,9 +29,7 @@ app.prepare()
     const db = configDB({ logger })
     const api = getRouter({ db, logger })
 
-    if (environment !== 'test') {
-      server.use(morgan((environment === 'development') ? 'dev' : 'common'))
-    }
+    if (environment === 'development') server.use(morgan('dev'))
 
     server.use(fileAssets)
       .use(favicon(path.join('public', 'images', 'favicon.png')))
@@ -42,12 +39,13 @@ app.prepare()
       .use('/api', api)
       .use(handler)
 
-      .get('*', (req, res) => {
-        return handle(req, res)
+      .listen(8000)
+
+      .on('listening', () => {
+        logger.info(`listening on port ${port}...`)
       })
 
-      .listen(8000, (err) => {
-        if (err) throw err
-        logger.info(`listening on port ${port}...`)
+      .on('error', (err) => {
+        throw (err)
       })
   })
