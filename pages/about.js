@@ -5,6 +5,35 @@ import { about } from '../api'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Figure from '../components/Figure'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+display: grid;
+grid-template-columns: 45% auto;
+grid-template-rows: auto;
+
+figure {
+  grid-column: 2;
+  border: 1px black solid;
+  margin-bottom: 1ch;
+  border-radius: 5px;
+  overflow: hidden;
+  
+  figcaption {
+    border-bottom: 1px dotted black;
+  }
+}
+
+figure:nth-child(2n + 1) {
+  grid-column: 1;
+  margin-right: 1ch;
+  grid-row: span 2;
+
+  figcaption {
+    background-color: steelblue;
+  }    
+}
+`
 
 class About extends React.Component {
   async componentDidMount () {
@@ -17,37 +46,39 @@ class About extends React.Component {
     return (
       <Layout pathname={pathname}>
         <Page>
-          <Figure title='Summary'>
-            <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
-          </Figure>
+          <Wrapper>
+            <Figure title='Summary'>
+              <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
+            </Figure>
 
-          <Figure title='Description'>
-            <p>{description}</p>
-          </Figure>
+            <Figure title='Description'>
+              <p>{description}</p>
+            </Figure>
 
-          <Figure title='Links'>
-            <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
-          </Figure>
+            <Figure title='Links'>
+              <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+            </Figure>
 
-          <Figure title='Sandbox'>
-            <ul>{sandbox.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
-          </Figure>
+            <Figure title='Sandbox'>
+              <ul>{sandbox.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+            </Figure>
 
-          <Figure title='TODO'>
-            <div>
-              { (state.about.loading) ? <h3>Loading...</h3>
-                : <ul>
-                  {state.about.data.map(post =>
-                    <li key={post.id}>{post.details}</li>
-                  )}
-                </ul>
-              }
-            </div>
-          </Figure>
+            <Figure title='TODO'>
+              <div>
+                { (state.about.loading) ? <h3>Loading...</h3>
+                  : <ul>
+                    {state.about.data.map(post =>
+                      <li key={post.id}>{post.details}</li>
+                    )}
+                  </ul>
+                }
+              </div>
+            </Figure>
 
-          <Figure title='References'>
-            <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
-          </Figure>
+            <Figure title='References'>
+              <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
+            </Figure>
+          </Wrapper>
         </Page>
       </Layout>
     )
