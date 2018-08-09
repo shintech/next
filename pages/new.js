@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
-import Page from '../layouts/Page'
+import Grid from '../layouts/Grid'
 
 const NewTask = ({ createNewTask }) => {
   let _title, _details
@@ -19,7 +19,7 @@ const NewTask = ({ createNewTask }) => {
   /* eslint-disable */
   return (
     <Layout>
-      <Page>
+      <Grid>
         <form onSubmit={submit}>
           <ul className='form-style'>
             <li className='form-group'>
@@ -38,7 +38,7 @@ const NewTask = ({ createNewTask }) => {
             </li>
           </ul>
         </form>
-      </Page>
+      </Grid>
     </Layout>
   )
  /* eslint-enable */

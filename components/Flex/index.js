@@ -7,7 +7,7 @@ function range (start, end) {
 
 const Flex = () =>
   <Wrapper>
-    {range(0, 31).map(f => {
+    {range(0, 35).map(f => {
       return <a key={f} href='#' onClick={e => { e.preventDefault() }} />
     })}
   </Wrapper>

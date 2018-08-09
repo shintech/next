@@ -1,12 +1,16 @@
 import styled from 'styled-components'
 
 const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 3fr;  
+  grid-gap: 1ch;
+  
   ul {
     list-style: none;
     padding-left: 0px;
   }
   
-  padding: 1rem;
+  padding-top: 1rem;
   max-width: 93%;
   margin: 0 auto;
 

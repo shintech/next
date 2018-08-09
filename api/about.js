@@ -11,7 +11,13 @@ export function fetchData () {
       'd3'
     ],
 
-    description: 'Universal JavaScript application built with Next.js and Express.js',
+    description: {
+      paragraph: 'Universal JavaScript application built with Next.js and Express.js',
+      usage: {
+        development: './install.sh\nnpm run dev',
+        production: 'docker-compose build && docker-compose up -d'
+      }
+    },
 
     links: [
       { title: 'home', details: 'List of data fetched from /api/post' },
@@ -20,8 +26,10 @@ export function fetchData () {
     ],
 
     sandbox: [
-      { title: 'increment', details: 'dispatches redux action INCREMENT' },
-      { title: 'd3', details: 'button currently uses d3 to change background color' }
+      { title: 'Redux Increment', details: 'dispatches redux action INCREMENT.' },
+      { title: 'Bar Graph', details: 'Bar Graph made using d3.' },
+      { title: 'Upload File', details: 'Upload a file.' },
+      { title: 'FlexBox', details: 'CSS FlexBox demonstration.' }
     ],
 
     references: [

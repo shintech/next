@@ -3,48 +3,8 @@ import PropTypes from 'prop-types'
 import action from '../actions'
 import { about } from '../api'
 import Layout from '../layouts/Main'
-import Page from '../layouts/Page'
-import Figure from '../components/Figure'
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-display: grid;
-grid-template-columns: 43% auto;
-
-figcaption {
-  border-bottom: 1px dotted black;
-}
-
-figure {
-  grid-column: 2;
-  border: 1px black solid;
-  margin-bottom: 1ch;
-  border-radius: 5px;
-  overflow: hidden;
-  
-  :hover {
-    figcaption {
-      background-color: mediumseagreen;
-    }
-  }
-  
-}
-
-figure:nth-child(2n + 1) {
-  grid-column: 1;
-  margin-right: 1ch;
-  
-  :hover {
-    figcaption {
-          background-color: steelblue;
-    }
-  }
-  
-  figcaption {
-    background-color: lightsteelblue;
-  }    
-}
-`
+import Grid from '../layouts/Grid'
+import Section from '../components/Section'
 
 class About extends React.Component {
   async componentDidMount () {
@@ -56,41 +16,47 @@ class About extends React.Component {
 
     return (
       <Layout pathname={pathname}>
-        <Page>
-          <Wrapper>
-            <Figure title='Summary'>
-              <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
-            </Figure>
+        <Grid>
+          <Section title='Summary'>
+            <ul>{summary.map((e, v) => <li key={v}>{e}</li>)}</ul>
+          </Section>
 
-            <Figure title='Description'>
-              <p>{description}</p>
-            </Figure>
+          <Section title='Description'>
+            <p>{description.paragraph}</p>
+            <p>
+              <strong>Usage</strong>
+              <br />
+              <strong>Development</strong>:  {description.usage.development}
+              <br />
+              <strong>Production</strong>:  {description.usage.production}
 
-            <Figure title='Links'>
-              <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
-            </Figure>
+            </p>
+          </Section>
 
-            <Figure title='Sandbox'>
-              <ul>{sandbox.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
-            </Figure>
+          <Section title='Links'>
+            <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+          </Section>
 
-            <Figure title='TODO'>
-              <div>
-                { (state.about.loading) ? <h3>Loading...</h3>
-                  : <ul>
-                    {state.about.data.map(post =>
-                      <li key={post.id}>{post.details}</li>
-                    )}
-                  </ul>
-                }
-              </div>
-            </Figure>
+          <Section title='References'>
+            <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
+          </Section>
 
-            <Figure title='References'>
-              <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
-            </Figure>
-          </Wrapper>
-        </Page>
+          <Section title='Sandbox'>
+            <ul>{sandbox.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
+          </Section>
+
+          <Section title='TODO'>
+            <div>
+              { (state.about.loading) ? <p>Loading...</p>
+                : <ul>
+                  {state.about.data.map(post =>
+                    <li key={post.id}>{post.details}</li>
+                  )}
+                </ul>
+              }
+            </div>
+          </Section>
+        </Grid>
       </Layout>
     )
   }

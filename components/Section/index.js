@@ -3,7 +3,7 @@ import Wrapper from './Wrapper'
 
 const Figure = ({ title, children }) =>
   <Wrapper>
-    <figcaption>{ title }</figcaption>
+    <h2>{ title }</h2>
     {children}
   </Wrapper>
 

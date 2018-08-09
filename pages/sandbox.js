@@ -2,10 +2,10 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
-import Page from '../layouts/Page'
+import Grid from '../layouts/Grid'
 import Graph from '../components/Graph'
 import Flex from '../components/Flex'
-import Figure from '../components/Figure'
+import Section from '../components/Section'
 
 const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
   let _file
@@ -21,35 +21,32 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
   /* eslint-disable */
   return (
     <Layout pathname={pathname}>
-      <Page>
-        <Figure title='INCREMENT'>
+      <Grid>
+        <Section title='Redux INCREMENT'>
+          <hr />
           <p>{ value }</p>
+          <hr />
           <button onClick={() => { increment() }}>Click</button>
-          <hr />
-        </Figure>
+        </Section>
 
-        <Figure title='Graphs'>
+        <Section title='Bar Graph'>
           <Graph onload={fetchGraph} />
-          <hr />
-        </Figure>
+        </Section>
 
-        <Figure title='Files'>
-          <hr />
-
+        <Section title='Upload File'>
           <form onSubmit={submit}>
+            <hr />
             <input ref={input => _file = input} type='file' name='file' /> 
-            <br />
+            <hr />
             <input type='submit' value='Submit' />
           </form>
-
-          <hr />
-        </Figure>
-          <Figure title='CSS'>
+        </Section>
+        
+        <Section title='FlexBox'>
           <Flex />
-          <hr />
-        </Figure>
+        </Section>
 
-      </Page>
+      </Grid>
     </Layout>
   )
   /* eslint-enable */

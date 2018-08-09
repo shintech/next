@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   a {
     margin 5px;
     height: 3ch;
-    width: 1.75ch;
+    width: 2.06ch;
     padding: 5px 15px;
     background-color: lightgrey;
     text-decoration: none;

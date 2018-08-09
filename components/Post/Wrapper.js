@@ -3,10 +3,9 @@ import styled from 'styled-components'
 const Wrapper = styled.article`
   display: grid;
   grid-gap: 5px;
-  margin: 0;
+  
   grid-template-columns: 60% auto;
   grid-template-rows: auto auto;
-  
   
   h1 {
     font-family: "Times New Roman", Times, serif;
@@ -21,11 +20,14 @@ const Wrapper = styled.article`
   }
   
   aside {
-    margin-top: 15px;
     grid-row: 2;  
-    grid-column: 2;  
-    border: 1px solid teal;
+    grid-column: 2; 
+    
+    margin-top: 15px;
     padding: 1ch;
+
+    border: 1px solid teal;
+    color: midnightblue;
     font-family: 'Esteban', serif;
     font-size: 19px;
     
@@ -36,18 +38,19 @@ const Wrapper = styled.article`
   }
   
   p {
-    padding: 0 2ch 0 2ch;
     grid-row: span 2;  
-    grid-column: 1;    
+    grid-column: 1;  
+    
+    padding: 0 2ch 0 2ch;
+    
     font-family: 'Farsan', cursive;
-    font-size: 25px;
+    font-size: 23px;
 
     .stylized-letter {
       color: salmon;
       font-family: 'Rouge Script', cursive;
       font-size: 45px;
     };    
-
   }
 `
 
