@@ -4,7 +4,7 @@ module.exports = function ({ db, logger }) {
       let response, status
 
       try {
-        response = await db.any('SELECT * from posts')
+        response = await db.any('SELECT * from tasks')
         status = 200
       } catch (err) {
         response = { error: err.message || err }
@@ -17,18 +17,17 @@ module.exports = function ({ db, logger }) {
         .format({
           json: () => {
             res.write(JSON.stringify(response))
-            res.flush()
             res.end()
           }
         })
     },
 
     fetchOne: async function (req, res) {
-      const postId = parseInt(req.params.id)
+      const taskId = parseInt(req.params.id)
 
-      const post = await db.one('SELECT * from posts WHERE id = $1', postId)
+      const response = await db.one('SELECT * from tasks WHERE id = $1', taskId)
 
-      res.status(200).json(post)
+      res.status(200).json(response)
     }
   }
 }

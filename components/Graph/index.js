@@ -35,7 +35,7 @@ class Graph extends React.Component {
   render () {
     return (
       <Wrapper>
-        <svg />
+        <svg width='100ox' height='100px' />
       </Wrapper>
     )
   }

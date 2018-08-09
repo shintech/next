@@ -5,7 +5,7 @@ import storeFactory from '../store'
 
 const makeStore = (initialState, c) => {
   const { isServer } = c
-  return storeFactory(isServer, initialState)
+  return storeFactory(isServer)
 }
 
 class MyApp extends App {

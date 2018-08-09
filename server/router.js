@@ -2,9 +2,9 @@ const express = require('express')
 const multer = require('multer')
 const path = require('path')
 
-const posts = require('./api/posts')
-const about = require('./api/about')
-const files = require('./api/files')
+const posts = require('./routes/posts')
+const about = require('./routes/about')
+const files = require('./routes/files')
 
 const router = express.Router()
 

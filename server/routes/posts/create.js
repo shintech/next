@@ -18,7 +18,6 @@ module.exports = function ({ db, logger }) {
       .format({
         json: () => {
           res.write(JSON.stringify(response))
-
           res.end()
         }
       })

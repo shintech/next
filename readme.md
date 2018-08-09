@@ -25,4 +25,6 @@
 - [ ] error and success handling for file upload
 - [ ] find a different solution for fonts
 - [ ] convert Section component into Layot
+- [ ] add success and failure actions for fetch
+- [ ] modal to display detailed info
 - [x] make navbar collapse

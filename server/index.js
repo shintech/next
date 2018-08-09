@@ -6,7 +6,7 @@ const compression = require('compression')
 const favicon = require('serve-favicon')
 const morgan = require('morgan')
 const configDB = require('./db')
-const routes = require('../routes')
+const nextRoutes = require('../routes')
 const getRouter = require('./router')
 
 const environment = process.env['NODE_ENV']
@@ -17,7 +17,7 @@ const dev = environment !== 'production'
 
 const app = next({ dev })
 
-const handler = routes.getRequestHandler(app)
+const handler = nextRoutes.getRequestHandler(app)
 
 const fileAssets = express.static(
   path.join(__dirname, '../public')
