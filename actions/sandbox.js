@@ -1,22 +1,38 @@
 import C from '../store/constants'
-
-function increment () {
-  return async dispatch => {
-    dispatch({
-      type: C.INCREMENT
-    })
-  }
-}
-
-function fetchGraph () {
-  return async dispatch => {
-    dispatch({
-      type: C.FETCH_GRAPH
-    })
-  }
-}
+import { sandbox as api } from '../api'
 
 export default {
-  increment,
-  fetchGraph
+  increment: function () {
+    return async dispatch => {
+      dispatch({
+        type: C.INCREMENT
+      })
+    }
+  },
+
+  fetchGraph: function () {
+    return async dispatch => {
+      dispatch({
+        type: C.FETCH_GRAPH
+      })
+    }
+  },
+
+  sendFile: function (file) {
+    return async dispatch => {
+      let payload
+
+      try {
+        let result = await api.sendFile(file)
+        payload = await result.json()
+      } catch (err) {
+        throw new Error(err.message)
+      }
+
+      dispatch({
+        type: C.SEND_FILE,
+        payload
+      })
+    }
+  }
 }

@@ -5,7 +5,8 @@ const constants = {
   ADD_POST: 'ADD_POST',
   FETCH_GRAPH: 'FETCH_GRAPH',
   FETCH_TASKS: 'FETCH_TASKS',
-  ADD_TASK: 'ADD_TASK'
+  ADD_TASK: 'ADD_TASK',
+  SEND_FILE: 'SEND_FILE'
 }
 
 export default constants

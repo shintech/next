@@ -5,10 +5,10 @@ class Graph extends React.Component {
   componentDidMount () {
     let data = [90, 34, 22, 64, 12]
 
-    let width = '95%'
+    let width = 420
     let barHeight = 20
 
-    var x = d3.scaleLinear()
+    let x = d3.scaleLinear()
       .domain([0, d3.max(data)])
       .range([0, width])
 
