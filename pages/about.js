@@ -9,8 +9,11 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
 display: grid;
-grid-template-columns: 45% auto;
-grid-template-rows: auto;
+grid-template-columns: 43% auto;
+
+figcaption {
+  border-bottom: 1px dotted black;
+}
 
 figure {
   grid-column: 2;
@@ -19,18 +22,26 @@ figure {
   border-radius: 5px;
   overflow: hidden;
   
-  figcaption {
-    border-bottom: 1px dotted black;
+  :hover {
+    figcaption {
+      background-color: mediumseagreen;
+    }
   }
+  
 }
 
 figure:nth-child(2n + 1) {
   grid-column: 1;
   margin-right: 1ch;
-  grid-row: span 2;
-
+  
+  :hover {
+    figcaption {
+          background-color: steelblue;
+    }
+  }
+  
   figcaption {
-    background-color: steelblue;
+    background-color: lightsteelblue;
   }    
 }
 `
