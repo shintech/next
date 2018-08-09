@@ -4,6 +4,7 @@ import action from '../actions'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
 import Graph from '../components/Graph'
+import Flex from '../components/Flex'
 import Figure from '../components/Figure'
 
 const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
@@ -43,6 +44,11 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
 
           <hr />
         </Figure>
+          <Figure title='CSS'>
+          <Flex />
+          <hr />
+        </Figure>
+
       </Page>
     </Layout>
   )

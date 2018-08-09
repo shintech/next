@@ -19,7 +19,6 @@ const Wrapper = styled.div`
   nav a {
     line-height: 4.5ch;
     text-align: center;
-    width: 6ch;
     padding-left: 2ch;
     padding-right: 2ch;
     color: #FFF;
@@ -33,7 +32,6 @@ const Wrapper = styled.div`
   
   .sandbox {
     margin-left: auto;
-    padding-right: 3ch;
   }
   
   .active {
@@ -77,7 +75,6 @@ const Wrapper = styled.div`
   
   .responsive a:not(:last-child) {
     text-align: left;
-    padding-left: 3ch;
   }
 }  
 `
