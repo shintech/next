@@ -2,11 +2,14 @@
 
 if [ -d "node_modules" ] || [ -d ".next" ]; then
   echo "Removing existing files..."
-  rm -rv node_modules .next --force
+  rm -r node_modules .next --force
 fi
 
-echo "Creating file directories..." && \
-mkdir upload && \
+if [ ! -d "uploads" ]; then
+  echo "Creating file directories..." && \
+  mkdir uploads
+fi
+
 
 printf "\nInstalling packages...\n" && \
 yarn install && \
