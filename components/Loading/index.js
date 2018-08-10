@@ -1,3 +1,6 @@
+/*   /components/Loading/index.js
+*/
+
 import Wrapper from './Wrapper'
 
 const LoadingPage = () =>

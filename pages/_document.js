@@ -1,5 +1,4 @@
-/*
-  /pages/_document.js
+/*  /pages/_document.js
 */
 
 import Document, { Head, Main, NextScript } from 'next/document'

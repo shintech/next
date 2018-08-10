@@ -1,5 +1,4 @@
-/*
-  /pages/contact.js
+/*  /pages/contact.js
 */
 
 import { connect } from 'react-redux'

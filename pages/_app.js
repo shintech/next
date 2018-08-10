@@ -1,5 +1,4 @@
-/*
-  /pages/_app.js
+/*  /pages/_app.js
 */
 
 import App, {Container} from 'next/app'

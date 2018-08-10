@@ -1,5 +1,4 @@
-/*
-  /pages/sandbox.js
+/*  /pages/sandbox.js
 */
 
 import { connect } from 'react-redux'

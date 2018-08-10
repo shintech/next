@@ -1,5 +1,4 @@
-/*
-  /pages/index.js
+/*  /pages/index.js
 */
 
 import { connect } from 'react-redux'

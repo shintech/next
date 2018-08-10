@@ -1,4 +1,7 @@
 import Link from 'next/link'
+/*   /components/Nav/index.js
+*/
+
 import Wrapper from './Wrapper'
 
 const Nav = ({ pathname }) =>

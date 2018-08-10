@@ -1,3 +1,6 @@
+/*   /components/Graph/Wrapper.js
+*/
+
 import styled from 'styled-components'
 
 const Wrapper = styled.figure`

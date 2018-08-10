@@ -1,5 +1,4 @@
-/*
-  /pages/post.js
+/*  /pages/post.js
 */
 
 import PropTypes from 'prop-types'

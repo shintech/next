@@ -1,5 +1,4 @@
-/*
-  /pages/new.js
+/*  /pages/new.js
 */
 
 import { connect } from 'react-redux'
