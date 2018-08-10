@@ -3,7 +3,7 @@
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
-const Figure = ({ title, children }) =>
+const Section = ({ title, children }) =>
   <Wrapper>
     <h2>{ title }</h2>
     {children}
@@ -11,7 +11,7 @@ const Figure = ({ title, children }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Figure.propTypes = {
+Section.propTypes = {
   title: PropTypes.string.isRequired,
   list: PropTypes.array,
   links: PropTypes.array,
@@ -21,4 +21,4 @@ Figure.propTypes = {
 
 /* -------------------------------------------------------------------------------- */
 
-export default Figure
+export default Section
