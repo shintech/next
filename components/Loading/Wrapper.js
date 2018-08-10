@@ -1,21 +1,20 @@
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
-  margin: 0 auto;
-  width: 0;
-  padding-top: 20%;
-  
-  h3 {
+  .heading {
     text-align: center;
+    color: steelblue;
   }
   
-  div {
-    display: inline-block;
-    width: 64px;
-    height: 64px;
+  .spinner {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   
-  div:after {
+  .spinner:after {
     content: " ";
     display: block;
     width: 56px;

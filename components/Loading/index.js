@@ -2,7 +2,8 @@ import Wrapper from './Wrapper'
 
 const LoadingPage = () =>
   <Wrapper>
-    <div />
+    <h3 className='heading'>---Please Wait---</h3>
+    <div className='spinner' />
   </Wrapper>
 
 export default LoadingPage
