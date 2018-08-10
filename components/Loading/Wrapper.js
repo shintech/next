@@ -2,12 +2,15 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   .heading {
-    text-align: center;
     color: steelblue;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    animation: blinker 1s linear infinite;    
   }
   
   .spinner {
-    margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -34,6 +37,12 @@ const Wrapper = styled.div`
       transform: rotate(360deg);
     }
   }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }  
 `
 
 export default Wrapper

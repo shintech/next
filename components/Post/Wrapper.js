@@ -15,7 +15,7 @@ const Wrapper = styled.article`
     padding-left: 8px;
     border-radius: 5px;
     font-weight: bold;  
-    color: #222;
+    color: sienna;
     line-height: 2.5ch;
   }
   
