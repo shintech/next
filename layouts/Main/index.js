@@ -1,3 +1,5 @@
+/*  /layouts/Main/index.js
+*/
 import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Nav from '../../components/Nav'

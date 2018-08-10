@@ -1,6 +1,5 @@
 /*   /components/PostList/index.js
 */
-
 import { Link } from 'routes'
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'

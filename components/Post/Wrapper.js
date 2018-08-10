@@ -1,6 +1,5 @@
 /*  /components/Post/Wrapper.js
 */
-
 import styled from 'styled-components'
 
 const Wrapper = styled.article`
@@ -26,7 +25,7 @@ const Wrapper = styled.article`
     grid-row: 2;  
     grid-column: 2; 
     
-    margin-top: 15px;
+    margin: 1ch;
     padding: 1ch;
 
     border: 1px solid teal;
@@ -44,10 +43,10 @@ const Wrapper = styled.article`
     grid-row: span 2;  
     grid-column: 1;  
     
-    padding: 0 2ch 0 2ch;
+    margin: 1ch;
     
     font-family: 'Farsan', cursive;
-    font-size: 23px;
+    font-size: 19px;
 
     .stylized-letter {
       color: salmon;

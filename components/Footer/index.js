@@ -1,12 +1,9 @@
 /*   /components/Footer/index.js
 */
-
 import styled from 'styled-components'
 
 const Footer = styled.footer`
   display: flex;
-  
-  margin-top: 2ch;
   
   border-radius: 10px;
   background: #F5F5F5;

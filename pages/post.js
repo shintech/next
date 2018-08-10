@@ -1,9 +1,7 @@
 /*  /pages/post.js
 */
-
 import PropTypes from 'prop-types'
 import Layout from '../layouts/Main'
-import Page from '../layouts/Page'
 import { getPost } from '../api/posts'
 import Post from '../components/Post'
 
@@ -11,9 +9,7 @@ import Post from '../components/Post'
 
 const PostPage = ({ post }) =>
   <Layout>
-    <Page>
-      <Post post={post} />
-    </Page>
+    <Post post={post} />
   </Layout>
 
 /* -------------------------------------------------------------------------------- */

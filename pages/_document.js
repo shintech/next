@@ -1,6 +1,5 @@
 /*  /pages/_document.js
 */
-
 import Document, { Head, Main, NextScript } from 'next/document'
 import { injectGlobal, ServerStyleSheet } from 'styled-components'
 

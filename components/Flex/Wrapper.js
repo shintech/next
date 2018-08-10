@@ -1,17 +1,16 @@
 /*   /components/Flex/Wrapper.js
 */
-
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: inline;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
 
   a {
     margin 5px;
     height: 3ch;
-    width: 2.06ch;
+    width: 2.4ch;
     padding: 5px 15px;
     background-color: lightgrey;
     text-decoration: none;

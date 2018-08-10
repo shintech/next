@@ -1,11 +1,9 @@
 /*  /pages/index.js
 */
-
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
-import Page from '../layouts/Page'
 import PostList from '../components/PostList'
 import Loading from '../components/Loading'
 
@@ -19,9 +17,7 @@ class Home extends React.Component {
 
     return (
       <Layout pathname={this.props.pathname}>
-        <Page>
-          { (loading) ? <Loading /> : <PostList posts={data} /> }
-        </Page>
+        { (loading) ? <Loading /> : <PostList posts={data} /> }
       </Layout>
     )
   }

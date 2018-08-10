@@ -1,6 +1,5 @@
 /*   /components/Flex/index.js
 */
-
 import Wrapper from './Wrapper'
 
 function range (start, end) {
