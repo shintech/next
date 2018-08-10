@@ -1,10 +1,14 @@
+/*
+  /pages/about.js
+*/
+
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import { about } from '../api'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
-import Section from '../components/Section'
+import Section from '../layouts/Section'
 
 class About extends React.Component {
   async componentDidMount () {
@@ -70,7 +74,7 @@ About.getInitialProps = ({ pathname }) => ({ ...about.fetchData(), pathname })
 
 About.propTypes = {
   summary: PropTypes.array.isRequired,
-  description: PropTypes.string.isRequired,
+  description: PropTypes.object.isRequired,
   links: PropTypes.array.isRequired,
   sandbox: PropTypes.array.isRequired,
   references: PropTypes.array.isRequired

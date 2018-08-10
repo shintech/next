@@ -1,11 +1,15 @@
+/*
+  /pages/sandbox.js
+*/
+
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
+import Section from '../layouts/Section'
 import Graph from '../components/Graph'
 import Flex from '../components/Flex'
-import Section from '../components/Section'
 
 const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
   let _file

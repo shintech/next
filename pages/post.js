@@ -1,3 +1,7 @@
+/*
+  /pages/post.js
+*/
+
 import PropTypes from 'prop-types'
 import Layout from '../layouts/Main'
 import Page from '../layouts/Page'
