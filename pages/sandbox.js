@@ -6,7 +6,7 @@ import action from '../actions'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
-import Graph from '../components/Graph'
+import BarGraph from '../components/BarGraph'
 import Flex from '../components/Flex'
 
 const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
@@ -32,7 +32,7 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
         </Section>
 
         <Section title='Bar Graph'>
-          <Graph onload={fetchGraph} />
+          <BarGraph onload={fetchGraph} />
         </Section>
 
         <Section title='Upload File'>

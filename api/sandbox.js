@@ -1,3 +1,5 @@
+/*  /api/sandbox.js
+*/
 import fetch from 'isomorphic-fetch'
 
 export function sendFile (body) {

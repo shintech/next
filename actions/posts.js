@@ -1,16 +1,39 @@
+/*  /actions/post.js
+*/
 import C from '../store/constants'
 import { posts as api } from '../api'
+
+function fetchPostsSuccess (posts) {
+  return {
+    type: C.FETCH_POSTS_SUCCESS,
+    payload: posts,
+    loading: false
+  }
+}
+
+function fetchPostsError (error) {
+  return {
+    type: C.FETCH_POSTS_ERROR,
+    payload: error,
+    loading: false
+  }
+}
 
 export default {
   fetchPosts: function () {
     return async dispatch => {
-      const res = await api.getPosts()
-      const json = await res.json()
+      let response
 
-      dispatch({
-        type: C.FETCH_POSTS,
-        payload: json
-      })
+      try {
+        let res = await api.getPosts()
+        let json = await res.json()
+
+        response = fetchPostsSuccess(json)
+      } catch (err) {
+        response = fetchPostsError(err)
+      }
+
+      dispatch(response)
     }
   },
 

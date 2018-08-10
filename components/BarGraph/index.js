@@ -1,4 +1,4 @@
-/*   /components/Graph/index.js
+/*   /components/BarGraph/index.js
 */
 import * as d3 from 'd3'
 import Wrapper from './Wrapper'
@@ -37,7 +37,7 @@ class Graph extends React.Component {
   render () {
     return (
       <Wrapper>
-        <svg width='100ox' height='100px' />
+        <svg width='100px' height='100px' />
       </Wrapper>
     )
   }

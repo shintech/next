@@ -1,3 +1,5 @@
+/*  /api/posts.js
+*/
 import fetch from 'isomorphic-fetch'
 
 export function getPosts () {

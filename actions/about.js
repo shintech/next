@@ -1,3 +1,5 @@
+/*  /actions/about.js
+*/
 import C from '../store/constants'
 import { about as api } from '../api'
 

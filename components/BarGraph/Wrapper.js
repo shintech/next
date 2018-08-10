@@ -1,4 +1,4 @@
-/*   /components/Graph/Wrapper.js
+/*   /components/BarGraph/Wrapper.js
 */
 import styled from 'styled-components'
 

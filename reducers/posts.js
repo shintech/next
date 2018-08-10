@@ -1,11 +1,21 @@
+/*  /reducers/posts.js
+*/
 import C from '../store/constants'
 
 const posts = (state = {}, action) => {
   switch (action.type) {
-    case C.FETCH_POSTS:
+    case C.FETCH_POSTS_SUCCESS:
       return {
+        data: action.payload,
         loading: false,
-        data: action.payload
+        error: null
+      }
+
+    case C.FETCH_POSTS_ERROR:
+      return {
+        data: action.payload,
+        loading: false,
+        error: true
       }
 
     case C.FETCH_POST:

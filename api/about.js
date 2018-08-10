@@ -1,3 +1,5 @@
+/*  /api/about.js
+*/
 import fetch from 'isomorphic-fetch'
 
 export function fetchData () {
