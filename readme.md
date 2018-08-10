@@ -25,6 +25,7 @@
 - [ ] error and success handling for file upload
 - [ ] find a different solution for fonts
 - [x] convert Section component into Layout
-- [ ] add success and failure actions for fetch
+- [x] add success and failure actions for fetch
+- [ ] handle error in fetch action
 - [ ] modal to display detailed info
 - [x] make navbar collapse
