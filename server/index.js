@@ -33,7 +33,7 @@ app.prepare()
 
     if (environment === 'development') server.use(morgan('dev'))
 
-    server.use(fileAssets)
+    server.use('/public', fileAssets)
       .use(favicon(path.join('public', 'images', 'favicon.png')))
       .use(bodyParser.urlencoded({ extended: true }))
       .use(bodyParser.json())

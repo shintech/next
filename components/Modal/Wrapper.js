@@ -10,9 +10,9 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto; 
+  
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
-  
   
   .modal {
     display: grid;
@@ -25,14 +25,12 @@ const Wrapper = styled.div`
     overflow: hidden;
     
     background-color: lavender;
-    border: 1px solid black;
     border-radius: 5px;
   }
   
   .modal-body {
-      grid-row: 2;
-      grid-column: 2;
-      // min-height: 450px;
+    grid-row: 2;
+    grid-column: 2;
   }
   
   .modal-header {
@@ -44,7 +42,7 @@ const Wrapper = styled.div`
     color: white;
     grid-row: 1;
     grid-column: span 3;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dotted black;
   }
   
   .modal-header .title {

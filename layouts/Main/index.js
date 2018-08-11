@@ -22,7 +22,7 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
     </main>
 
     <Footer>
-      <a href='#'>shintech</a>
+      <img src='/public/images/react.svg' width='35px' height='35px' /><a href='#'><i class='far fa-copyright' />shintech.ninja</a>
     </Footer>
   </Wrapper>
 
