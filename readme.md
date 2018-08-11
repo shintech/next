@@ -36,5 +36,8 @@
 - [ ] add some more layouts
 - [ ] make better compnent for adding tasks
 - [ ] add grid layout to sandbox
+- [ ] make modal movable
+- [ ] add griddle to sandbox
+- [ ] some fake numerical data
 - [x] style footer
 - [x] make navbar collapse

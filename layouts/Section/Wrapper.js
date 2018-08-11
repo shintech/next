@@ -12,16 +12,20 @@ const Wrapper = styled.section`
   
   ul {
     list-style: none;
-    margin: 1ch 0;
-   
-    li {
-      padding-left: 1ch;
-    }    
+    
+    .blobs {
+      background-color: lightgreen;
+      border: 1px solid black;
+      margin: 6px;
+      padding: 5px;
+      display: inline-block;
+      color: black;
+      border-radius: 5px;
+    }
   }
 
-  p {
-    padding-left: 1ch;
-    margin: 1ch 0;
+  p, ul {
+    margin: 1ch;
   }
   
   h2 {
@@ -60,12 +64,11 @@ const Wrapper = styled.section`
     
   :nth-child(2n + 1) {
     grid-column: 1;
-    
     background-color: powderblue;
    
     :hover {
       background-color:lightsteelblue;
-
+      
       h2 {
         background-color: steelblue;
       }

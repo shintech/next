@@ -13,7 +13,7 @@ const About = ({ modal, summary, description, links, sandboxLinks, references, t
   <Layout pathname={pathname}>
     <Grid>
       <Section title='Summary' modal={modal}>
-        <ul>{summary.map((e, v) => <li key={v}>{e.details}</li>)}</ul>
+        <ul>{summary.map((e, v) => <li className='blobs' key={v}>{e.details}</li>)}</ul>
       </Section>
 
       <Section title='Description' modal={modal}>
