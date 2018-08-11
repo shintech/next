@@ -2,20 +2,21 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import action from '../actions'
 import { fetchData } from '../api/about'
 import { fetchTasks } from '../api/tasks'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
 
-const About = ({ summary, description, links, sandboxLinks, references, tasks, pathname }) =>
+const About = ({ modal, summary, description, links, sandboxLinks, references, tasks, pathname }) =>
   <Layout pathname={pathname}>
     <Grid>
-      <Section title='Summary'>
+      <Section title='Summary' modal={modal}>
         <ul>{summary.map((e, v) => <li key={v}>{e.details}</li>)}</ul>
       </Section>
 
-      <Section title='Description'>
+      <Section title='Description' modal={modal}>
         <p>
           {description.paragraph}
           <br />
@@ -27,19 +28,19 @@ const About = ({ summary, description, links, sandboxLinks, references, tasks, p
         </p>
       </Section>
 
-      <Section title='Links'>
+      <Section title='Links' modal={modal}>
         <ul>{links.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
       </Section>
 
-      <Section title='References'>
+      <Section title='References' modal={modal}>
         <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
       </Section>
 
-      <Section title='Sandbox'>
+      <Section title='Sandbox' modal={modal}>
         <ul>{sandboxLinks.map((link, v) => <li key={v} ><strong>{link.title}</strong>: {link.details}</li>)}</ul>
       </Section>
 
-      <Section title='TODO'>
+      <Section title='TODO' modal={modal}>
         <ul>{tasks.map((task, v) => <li key={v}>{task.details}</li>)}</ul>
       </Section>
     </Grid>
@@ -75,5 +76,9 @@ About.propTypes = {
 
 export default connect(
   state => state,
-  dispatch => ({ })
+  dispatch => ({
+    modal: ({title, children}) => {
+      dispatch(action.modal.toggleModal({ title, children }))
+    }
+  })
 )(About)

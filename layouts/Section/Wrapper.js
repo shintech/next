@@ -50,7 +50,9 @@ const Wrapper = styled.section`
   }
   
   :hover {
-  background-color: thistle;
+    background-color: thistle;
+    cursor: pointer;
+    
     h2 {
       background-color: mediumseagreen;
     }

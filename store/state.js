@@ -9,5 +9,9 @@ export default {
 
   about: {
     loading: true
+  },
+
+  modal: {
+    hidden: true
   }
 }

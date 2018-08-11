@@ -1,7 +1,9 @@
 /*   /components/PostList/index.js
 */
+import { connect } from 'react-redux'
 import { Link } from 'routes'
 import PropTypes from 'prop-types'
+import action from '../../actions'
 import Wrapper from './Wrapper'
 
 const PostList = ({ posts }) =>
@@ -26,4 +28,14 @@ PostList.propTypes = {
 
 /* -------------------------------------------------------------------------------- */
 
-export default PostList
+export default connect(
+  state => ({
+    state
+  }),
+
+  dispatch => ({
+    modal: (model) => {
+      dispatch(action.modal.toggleModal())
+    }
+  })
+)(PostList)

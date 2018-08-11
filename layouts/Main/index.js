@@ -3,6 +3,7 @@
 import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Nav from '../../components/Nav'
+import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
 
 const Main = ({ children, title = 'Default', pathname = '/' }) =>
@@ -16,6 +17,8 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
 
     <main>
       { children }
+
+      <Modal />
     </main>
 
     <Footer>

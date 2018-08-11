@@ -3,8 +3,8 @@
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
-const Section = ({ title, children }) =>
-  <Wrapper>
+const Section = ({ title, children, modal = () => {} }) =>
+  <Wrapper onClick={() => { modal({ title, children }) }}>
     <h2>{ title }</h2>
     {children}
   </Wrapper>
