@@ -24,7 +24,7 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
     <Footer>
       <img src='/public/images/react.svg' width='25px' height='25px' />
       <a href='#'>
-        <i class='far fa-copyright' />
+        <i className='far fa-copyright' />
         shintech.ninja
       </a>
     </Footer>
