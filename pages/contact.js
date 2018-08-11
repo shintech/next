@@ -2,7 +2,8 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import { contacts } from '../api'
+import { fetchData } from '../api/contacts'
+
 import Layout from '../layouts/Main'
 import Section from '../layouts/Section'
 
@@ -15,7 +16,12 @@ const Contact = ({ references, pathname }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Contact.getInitialProps = ({ pathname }) => ({ ...contacts.fetchData(), pathname })
+Contact.getInitialProps = async ({ pathname }) => {
+  let res = await fetchData()
+  let json = await res.json()
+
+  return { ...json, pathname }
+}
 
 /* -------------------------------------------------------------------------------- */
 
@@ -26,9 +32,6 @@ Contact.propTypes = {
 /* -------------------------------------------------------------------------------- */
 
 export default connect(
-  state => ({
-    state
-  }),
-
+  state => state,
   dispatch => ({})
 )(Contact)

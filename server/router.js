@@ -4,6 +4,7 @@ const path = require('path')
 
 const posts = require('./routes/posts')
 const about = require('./routes/about')
+const contact = require('./routes/contact')
 const files = require('./routes/files')
 
 const router = express.Router()
@@ -31,12 +32,11 @@ module.exports = function (options) {
   router.route('/posts/:id')
     .get(posts(options).fetchOne)
 
-  router.route('/tasks')
+  router.route('/about')
     .get(about(options).fatchAll)
-    .post(about(options).createTask)
 
-  router.route('/tasks/:id')
-    .get(about(options).fetchOne)
+  router.route('/contact')
+    .get(contact(options).fatchAll)
 
   router.post('/files', upload.single('file'), files(options).createFile)
 

@@ -6,9 +6,9 @@ const compression = require('compression')
 const favicon = require('serve-favicon')
 const morgan = require('morgan')
 const configDB = require('./db')
+const getNdb = require('./ndb')
 const nextRoutes = require('../routes')
 const getRouter = require('./router')
-
 const environment = process.env['NODE_ENV']
 const port = process.env['PORT'] || 8000
 
@@ -26,8 +26,10 @@ const fileAssets = express.static(
 app.prepare()
   .then(() => {
     const server = express()
+    const ndb = getNdb({ logger })
     const db = configDB({ logger })
-    const api = getRouter({ db, logger })
+
+    const api = getRouter({ db, ndb, logger })
 
     if (environment === 'development') server.use(morgan('dev'))
 

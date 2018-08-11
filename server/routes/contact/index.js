@@ -1,4 +1,4 @@
-const { About } = require('../../schemas')
+const { Contact } = require('../../schemas')
 
 module.exports = function ({ db, logger }) {
   return {
@@ -6,7 +6,7 @@ module.exports = function ({ db, logger }) {
       let response
 
       try {
-        response = await About.findOne()
+        response = await Contact.findOne()
       } catch (err) {
         logger.error(err.message)
         return res.send(err.message)
@@ -25,7 +25,7 @@ module.exports = function ({ db, logger }) {
       let response
 
       try {
-        response = About.create({
+        response = Contact.create({
           details: req.body.details
         })
 

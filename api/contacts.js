@@ -1,11 +1,12 @@
 /*  /api/contacts.js
 */
+import fetch from 'isomorphic-fetch'
+
 export function fetchData () {
-  return {
-    references: [
-      { url: 'https://github.com/mprather1', title: 'mprather1' },
-      { url: 'https://github.com/shintech', title: 'shintech' },
-      { url: 'https://github.com/shintech/next', title: 'shintech/next' }
-    ]
-  }
+  return fetch('http://dev.shintech.ninja:8000/api/contact', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }
