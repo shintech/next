@@ -3,6 +3,7 @@
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchData } from '../api/about'
+import { fetchTasks } from '../api/tasks'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
@@ -47,10 +48,17 @@ const About = ({ summary, description, links, sandboxLinks, references, tasks, p
 /* -------------------------------------------------------------------------------- */
 
 About.getInitialProps = async ({ pathname }) => {
-  let res = await fetchData()
-  let json = await res.json()
+  try {
+    let _about = await fetchData()
+    let about = await _about.json()
 
-  return { ...json, pathname }
+    let _tasks = await fetchTasks()
+    let tasks = await _tasks.json()
+
+    return { ...about, tasks, pathname }
+  } catch (err) {
+    console.error('Failed to fetch in About.getInitialProps...')
+  }
 }
 
 /* -------------------------------------------------------------------------------- */

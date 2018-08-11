@@ -4,6 +4,18 @@ let db = {}
 
 db.about = new Datastore({ filename: 'server/data/about.db', autoload: true })
 db.contact = new Datastore({ filename: 'server/data/contact.db', autoload: true })
+db.tasks = new Datastore({ filename: 'server/data/tasks.db', autoload: true })
+
+db.tasks.insert([
+  { details: 'work on loading component' },
+  { details: 'try to make loading animation for d3 graphs' },
+  { details: 'write some test' },
+  { details: 'upload and process files' },
+  { details: 'download files' },
+  { details: 'authentication' },
+  { details: 'more graph' },
+  { details: 'pass some initial data as an argument to next' }
+])
 
 db.about.insert({
   summary: [
@@ -22,16 +34,6 @@ db.about.insert({
       production: 'docker-compose build && docker-compose up -d'
     }
   },
-  tasks: [
-    { details: 'work on loading component' },
-    { details: 'try to make loading animation for d3 graphs' },
-    { details: 'write some test' },
-    { details: 'upload and process files' },
-    { details: 'download files' },
-    { details: 'authentication' },
-    { details: 'more graph' },
-    { details: 'pass some initial data as an argument to next' }
-  ],
   links: [
     { title: 'home', details: 'List of data fetched from /api/post' },
     { title: 'about', details: 'Details about the application' },

@@ -1,5 +1,13 @@
 const { Document } = require('camo')
 
+class Task extends Document {
+  constructor () {
+    super()
+
+    this.details = String
+  }
+}
+
 class About extends Document {
   static collectionName () {
     return 'about'
@@ -10,7 +18,6 @@ class About extends Document {
     /* eslint-disable */
     
     this.summary = Array,
-    this.tasks = Array,
     this.sandboxLinks = Array,
     this.links = Array,
     this.references = Array,
@@ -28,12 +35,13 @@ class Contact extends Document {
     super()
     /* eslint-disable */
 
-    this.references = Array()
+    this.references = Array
     /* eslint-enable */
   }
 }
 
 module.exports = {
   About,
-  Contact
+  Contact,
+  Task
 }

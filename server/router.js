@@ -6,6 +6,7 @@ const posts = require('./routes/posts')
 const about = require('./routes/about')
 const contact = require('./routes/contact')
 const files = require('./routes/files')
+const tasks = require('./routes/tasks')
 
 const router = express.Router()
 
@@ -34,6 +35,9 @@ module.exports = function (options) {
 
   router.route('/about')
     .get(about(options).fatchAll)
+
+  router.route('/tasks')
+    .get(tasks(options).fatchAll)
 
   router.route('/contact')
     .get(contact(options).fatchAll)
