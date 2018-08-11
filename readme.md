@@ -28,5 +28,6 @@
 - [x] add success and failure actions for fetch
 - [ ] handle error in fetch action
 - [ ] modal to display detailed info
+- [ ] button to switch between top and side navigation
 - [x] style footer
 - [x] make navbar collapse
