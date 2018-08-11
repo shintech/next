@@ -7,13 +7,14 @@ const Footer = styled.footer`
   
   border-radius: 10px;
   background: pink;
+  align-items: center;
   
   a {
+    padding-top: 2px;
     margin-left: auto;
-    color: black;
-    line-height: 35px;
+    color: steelblue;
     text-decoration: none;
-    padding-right: 1ch;
+    padding-right: 2ch;
 
     i {
       margin-right: 4px;
@@ -21,8 +22,7 @@ const Footer = styled.footer`
   }
 
   img {
-    margin-bottom: 0;
-    padding: 2px 0 0 3px ;
+    padding: 4px 0 0 3px ;
   }
 `
 
