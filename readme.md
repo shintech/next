@@ -31,5 +31,10 @@
 - [ ] animated transition for modal
 - [ ] button to switch between top and side navigation
 - [ ] override options on components
+- [ ] add styling to contents of Section
+- [ ] add styling to contents of Modal
+- [ ] add some more layouts
+- [ ] make better compnent for adding tasks
+- [ ] add grid layout to sandbox
 - [x] style footer
 - [x] make navbar collapse
