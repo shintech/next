@@ -10,7 +10,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   overflow: auto; 
-  
   background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4);
   
@@ -25,6 +24,7 @@ const Wrapper = styled.div`
     overflow: hidden;
     
     background-color: lavender;
+    border: 1px solid black;
     border-radius: 5px;
   }
   
@@ -34,19 +34,21 @@ const Wrapper = styled.div`
   }
   
   .modal-header {
+    grid-row: 1;
+    grid-column: span 3;
+
     display: flex;
     flex-direction: inline;
     align-items: center;
     justify-content: center;
+
     background-color: orange;
-    color: white;
-    grid-row: 1;
-    grid-column: span 3;
     border-bottom: 1px dotted black;
+    color: white;
   }
   
   .modal-header .title {
-    padding: 5px;
+    padding: 5px 1ch;
     margin: 0;
   }
   
