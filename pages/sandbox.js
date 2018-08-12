@@ -8,6 +8,7 @@ import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
 import BarGraph from '../components/BarGraph'
 import Flex from '../components/Flex'
+import GridComponent from '../components/Grid'
 
 const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
   let _file
@@ -44,8 +45,12 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
           </form>
         </Section>
         
-        <Section title='FlexBox'>
+        <Section title='CSS FlexBox'>
           <Flex />
+        </Section>
+
+        <Section title='CSS Grid'>
+          <GridComponent />
         </Section>
 
       </Grid>

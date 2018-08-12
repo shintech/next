@@ -1,11 +1,7 @@
 /*   /components/Flex/index.js
 */
+import { range } from '../../lib'
 import Wrapper from './Wrapper'
-
-function range (start, end) {
-  if (start === end) return [start]
-  return [start, ...range(start + 1, end)]
-}
 
 const Flex = () =>
   <Wrapper>
