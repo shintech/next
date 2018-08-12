@@ -23,7 +23,6 @@ db.about.insert({
     { details: 'React' },
     { details: 'Redux' },
     { details: 'Express' },
-    { details: 'Next' },
     { details: 'PostgreSQL' },
     { details: 'd3' }
   ],
