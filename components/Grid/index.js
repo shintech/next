@@ -8,6 +8,7 @@ const Grid = () =>
     <div className='div-2'>2</div>
     <div className='div-3'>3</div>
     <div className='div-4'>4</div>
+    <div className='div-5'>5</div>
   </Wrapper>
 
 export default Grid
