@@ -39,6 +39,10 @@ module.exports = function (options) {
 
   router.route('/tasks')
     .get(tasks(options).fatchAll)
+    .post(tasks(options).createTask)
+
+  router.route('/tasks/:_id')
+    .delete(tasks(options).removeTask)
 
   router.route('/accounts')
     .get(accounts(options).fatchAll)

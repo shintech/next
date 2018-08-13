@@ -21,7 +21,7 @@ module.exports = function ({ db, logger }) {
         })
     },
 
-    createNew: async function (req, res) {
+    createTask: async function (req, res) {
       let response
 
       try {
@@ -38,6 +38,26 @@ module.exports = function ({ db, logger }) {
         .format({
           json: () => {
             res.write(JSON.stringify(response))
+            res.end()
+          }
+        })
+    },
+
+    removeTask: async function (req, res) {
+      let response, message
+
+      try {
+        response = await Task.deleteOne({ _id: req.params._id })
+        message = (response === 1) ? 'ok' : 'not found'
+      } catch (err) {
+        logger.error(err.message)
+        message(err.message)
+      }
+
+      res.status(200)
+        .format({
+          json: () => {
+            res.write(JSON.stringify({message}))
             res.end()
           }
         })
