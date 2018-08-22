@@ -7,8 +7,8 @@ const Nav = ({ pathname }) =>
   <Wrapper>
     <nav id='topNav' className='topnav'>
       <Link href='/'><a className={!pathname || pathname === '/' || pathname === '' ? 'active' : null}>home</a></Link>
-      <Link href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
-      <Link href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
+      <Link prefetch href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
+      <Link prefetch href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
       <Link href='/sandbox'><a className={pathname === '/sandbox' ? 'active sandbox' : 'sandbox'}>sandbox</a></Link>
 
       <a href='javascript:void(0);' className='icon' onClick={() => { myFunction() }}>

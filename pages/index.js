@@ -16,7 +16,7 @@ class Home extends React.Component {
     const { loading, data } = this.props.posts
 
     return (
-      <Layout pathname={this.props.pathname}>
+      <Layout title='home'>
         { (loading) ? <Loading /> : <PostList posts={data} /> }
       </Layout>
     )
@@ -25,7 +25,7 @@ class Home extends React.Component {
 
 /* -------------------------------------------------------------------------------- */
 
-Home.getInitialProps = ({store, isServer, pathname, query}) => ({ pathname })
+Home.getInitialProps = ({ store, isServer, pathname, query }) => ({ })
 
 /* -------------------------------------------------------------------------------- */
 

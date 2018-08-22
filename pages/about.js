@@ -10,7 +10,7 @@ import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
 
 const About = ({ modal, summary, description, links, sandboxLinks, references, tasks, pathname }) =>
-  <Layout pathname={pathname}>
+  <Layout title='about'>
     <Grid>
       <Section title='Summary' modal={modal}>
         <ul>{summary.map((e, v) => <li className='blobs' key={v}>{e.details}</li>)}</ul>
@@ -48,7 +48,7 @@ const About = ({ modal, summary, description, links, sandboxLinks, references, t
 
 /* -------------------------------------------------------------------------------- */
 
-About.getInitialProps = async ({ pathname }) => {
+About.getInitialProps = async ({ store, isServer, pathname, query }) => {
   try {
     let _about = await fetchData()
     let about = await _about.json()
@@ -56,7 +56,7 @@ About.getInitialProps = async ({ pathname }) => {
     let _tasks = await fetchTasks()
     let tasks = await _tasks.json()
 
-    return { ...about, tasks, pathname }
+    return { ...about, tasks }
   } catch (err) {
     console.error('Failed to fetch in About.getInitialProps...')
   }

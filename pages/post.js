@@ -8,13 +8,13 @@ import Post from '../components/Post'
 /* -------------------------------------------------------------------------------- */
 
 const PostPage = ({ post }) =>
-  <Layout>
+  <Layout title={post.title}>
     <Post post={post} />
   </Layout>
 
 /* -------------------------------------------------------------------------------- */
 
-PostPage.getInitialProps = async ({ query, store }) => {
+PostPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
   let post
 
   if (store.getState().posts.data) {

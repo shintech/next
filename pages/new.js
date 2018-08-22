@@ -20,7 +20,7 @@ const NewTask = ({ createNewTask }) => {
 
   /* eslint-disable */
   return (
-    <Layout>
+    <Layout title='create new task'>
       <Grid>
         <form onSubmit={submit}>
           <ul className='form-style'>

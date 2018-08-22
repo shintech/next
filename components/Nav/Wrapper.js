@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   
   .active {
     background-color: teal;
-      color: white;
+    color: white;
     
     :hover {
       background-color: steelblue;

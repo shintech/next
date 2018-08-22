@@ -23,7 +23,7 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
 
   /* eslint-disable */
   return (
-    <Layout pathname={pathname}>
+    <Layout title='sandbox'>
       <Grid>
         <Section title='Redux INCREMENT'>
           <hr />
@@ -60,7 +60,7 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
 }
 /* -------------------------------------------------------------------------------- */
 
-Sandbox.getInitialProps = ({ pathname }) => ({ pathname })
+Sandbox.getInitialProps = ({ store, isServer, pathname, query }) => ({ })
 
 /* -------------------------------------------------------------------------------- */
 

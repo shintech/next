@@ -3,7 +3,7 @@
 import fetch from 'isomorphic-fetch'
 
 export function fetchAccounts () {
-  return fetch('http://dev.shintech.ninja:8000/api/accounts', {
+  return fetch('https://shintech.ninja/api/accounts', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'

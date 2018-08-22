@@ -3,16 +3,18 @@
 import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Nav from '../../components/Nav'
-import Modal from '../../components/Modal'
 import Footer from '../../components/Footer'
+import Modal from '../../components/Modal'
+import { withRouter } from 'next/router'
 
-const Main = ({ children, title = 'Default', pathname = '/' }) =>
+const Main = ({ children, title = 'Main Layout', router }) =>
   <Wrapper>
     <Head>
       <title>{ title }</title>
+      <link rel='icon' type='image/png' href='/public/images/favicon.png' />
     </Head>
     <header>
-      <Nav pathname={pathname} />
+      <Nav pathname={router.asPath} />
     </header>
 
     <main>
@@ -30,4 +32,4 @@ const Main = ({ children, title = 'Default', pathname = '/' }) =>
     </Footer>
   </Wrapper>
 
-export default Main
+export default withRouter(Main)

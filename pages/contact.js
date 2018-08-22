@@ -7,8 +7,8 @@ import { fetchData } from '../api/contacts'
 import Layout from '../layouts/Main'
 import Section from '../layouts/Section'
 
-const Contact = ({ references, pathname }) =>
-  <Layout pathname={pathname}>
+const Contact = ({ references }) =>
+  <Layout title='contact'>
     <Section title='Github' >
       <ul>{references.map((ref, v) => <li key={v}><a href={ref.url}>{ref.title}</a></li>)}</ul>
     </Section>
@@ -16,11 +16,11 @@ const Contact = ({ references, pathname }) =>
 
 /* -------------------------------------------------------------------------------- */
 
-Contact.getInitialProps = async ({ pathname }) => {
+Contact.getInitialProps = async ({ store, isServer, pathname, query }) => {
   let res = await fetchData()
   let json = await res.json()
 
-  return { ...json, pathname }
+  return { ...json }
 }
 
 /* -------------------------------------------------------------------------------- */
