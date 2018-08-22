@@ -1,31 +1,34 @@
 /*  /pages/index.js
 */
+import fetch from 'isomorphic-fetch'
+
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
 import Layout from '../layouts/Main'
 import PostList from '../components/PostList'
-import Loading from '../components/Loading'
 
-class Home extends React.Component {
-  async componentDidMount () {
-    await this.props.fetchPosts()
-  }
-
-  render () {
-    const { loading, data } = this.props.posts
-
-    return (
-      <Layout title='home'>
-        { (loading) ? <Loading /> : <PostList posts={data} /> }
-      </Layout>
-    )
-  }
+function getPosts () {
+  return fetch('https://shintech.ninja/api/posts', {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
 }
+
+const Home = ({ data }) =>
+  <Layout title='home'>
+    <PostList posts={data} />
+  </Layout>
 
 /* -------------------------------------------------------------------------------- */
 
-Home.getInitialProps = ({ store, isServer, pathname, query }) => ({ })
+Home.getInitialProps = async ({ store, isServer, pathname, query }) => {
+  let res = await getPosts()
+  let data = await res.json()
+  return { data }
+}
 
 /* -------------------------------------------------------------------------------- */
 

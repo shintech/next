@@ -1,24 +1,9 @@
-import Link from 'next/link'
 /*   /components/Nav/index.js
 */
+import Link from 'next/link'
 import Wrapper from './Wrapper'
 
-const Nav = ({ pathname }) =>
-  <Wrapper>
-    <nav id='topNav' className='topnav'>
-      <Link href='/'><a className={!pathname || pathname === '/' || pathname === '' ? 'active' : null}>home</a></Link>
-      <Link prefetch href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
-      <Link prefetch href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
-      <Link href='/sandbox'><a className={pathname === '/sandbox' ? 'active sandbox' : 'sandbox'}>sandbox</a></Link>
-
-      <a href='javascript:void(0);' className='icon' onClick={() => { myFunction() }}>
-        <i className='fa fa-bars' />
-      </a>
-    </nav>
-  </Wrapper>
-export default Nav
-
-function myFunction () {
+function toggleResponsive () {
   var x = document.getElementById('topNav')
   console.log(x.classList)
   if (x.classList.contains('responsive')) {
@@ -27,3 +12,18 @@ function myFunction () {
     x.classList.add('responsive')
   }
 }
+
+const Nav = ({ pathname }) =>
+  <Wrapper>
+    <nav id='topNav' className='topnav'>
+      <Link prefetch href='/'><a className={!pathname || pathname === '/' || pathname === '' ? 'active' : null}>home</a></Link>
+      <Link prefetch href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
+      <Link prefetch href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
+      <Link prefetch href='/sandbox'><a className={pathname === '/sandbox' ? 'active sandbox' : 'sandbox'}>sandbox</a></Link>
+
+      <a href='javascript:void(0);' className='icon' onClick={() => { toggleResponsive() }}>
+        <i className='fa fa-bars' />
+      </a>
+    </nav>
+  </Wrapper>
+export default Nav

@@ -12,7 +12,7 @@ export function getPosts () {
 }
 
 export function getPost (slug) {
-  return fetch(`http://shintech.ninja/api/posts/${slug}`, {
+  return fetch(`https://shintech.ninja/api/posts/${slug}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
