@@ -20,10 +20,6 @@ const app = next({ dev })
 
 const handler = nextRoutes.getRequestHandler(app)
 
-const fileAssets = express.static(
-  path.join(__dirname, '../public')
-)
-
 app.prepare()
   .then(() => {
     const server = express()
@@ -34,7 +30,7 @@ app.prepare()
 
     if (environment === 'development') server.use(morgan('dev'))
 
-    server.use('/public', fileAssets)
+    server.use('/public', express.static(path.join(__dirname, '../public')))
       .use(bodyParser.urlencoded({ extended: true }))
       .use(bodyParser.json())
       .use(compression())
