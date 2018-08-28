@@ -28,7 +28,6 @@ const middleWare = server => [
 const storeFactory = (server = false) =>
   createStore(reducers, state, composeWithDevTools(
     applyMiddleware(...middleWare())
-  // other store enhancers if any
   ))
 
 export default storeFactory
