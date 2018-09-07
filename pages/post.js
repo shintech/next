@@ -1,11 +1,7 @@
-/*  /pages/post.js
-*/
 import PropTypes from 'prop-types'
 import Layout from '../layouts/Main'
 import { getPost } from '../api/posts'
 import Post from '../components/Post'
-
-/* -------------------------------------------------------------------------------- */
 
 const PostPage = ({ post }) =>
   <Layout title={post.title}>

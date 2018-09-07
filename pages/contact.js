@@ -1,9 +1,6 @@
-/*  /pages/contact.js
-*/
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { fetchData } from '../api/contacts'
-
 import Layout from '../layouts/Main'
 import Section from '../layouts/Section'
 
@@ -19,7 +16,6 @@ const Contact = ({ references }) =>
 Contact.getInitialProps = async ({ store, isServer, pathname, query }) => {
   let res = await fetchData()
   let json = await res.json()
-
   return { ...json }
 }
 

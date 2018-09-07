@@ -48,7 +48,7 @@ const About = ({ modal, summary, description, links, sandboxLinks, references, t
 
 /* -------------------------------------------------------------------------------- */
 
-About.getInitialProps = async ({ store, isServer, pathname, query }) => {
+About.getInitialProps = async (ctx) => {
   try {
     let _about = await fetchData()
     let about = await _about.json()
@@ -77,7 +77,7 @@ About.propTypes = {
 export default connect(
   state => state,
   dispatch => ({
-    modal: ({title, children}) => {
+    modal: ({ title, children }) => {
       dispatch(action.modal.toggleModal({ title, children }))
     }
   })

@@ -1,21 +1,9 @@
-/*  /pages/index.js
-*/
-import fetch from 'isomorphic-fetch'
-
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import action from '../actions'
+import { getPosts } from '../api/posts'
 import Layout from '../layouts/Main'
 import PostList from '../components/PostList'
-
-function getPosts () {
-  return fetch('https://shintech.ninja/api/posts', {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json'
-    }
-  })
-}
 
 const Home = ({ data }) =>
   <Layout title='home'>

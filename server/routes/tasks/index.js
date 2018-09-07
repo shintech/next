@@ -57,7 +57,7 @@ module.exports = function ({ db, logger }) {
       res.status(200)
         .format({
           json: () => {
-            res.write(JSON.stringify({message}))
+            res.write(JSON.stringify({ message }))
             res.end()
           }
         })

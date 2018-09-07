@@ -1,6 +1,6 @@
 {
   "name": "nextt",
-  "version": "0.12.4",
+  "version": "0.13.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -35,7 +35,7 @@
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node server/index.js",
-    "dev": "NODE_ENV=development nodemon server/index.js",
+    "dev": "NODE_ENV=development HOSTNAME=shintech.ninja nodemon server/index.js",
     "begin": "npm run build && npm start"
   },
   "standard": {

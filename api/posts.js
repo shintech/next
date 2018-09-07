@@ -1,9 +1,11 @@
-/*  /api/posts.js
-*/
 import fetch from 'isomorphic-fetch'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const host = publicRuntimeConfig.hostname
 
 export function getPosts () {
-  return fetch('/api/posts', {
+  return fetch(`https://${host}/api/posts`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
@@ -12,20 +14,10 @@ export function getPosts () {
 }
 
 export function getPost (slug) {
-  return fetch(`https://shintech.ninja/api/posts/${slug}`, {
+  return fetch(`https://${host}/api/posts/${slug}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json'
     }
-  })
-}
-
-export function addPost (body) {
-  return fetch('/api/posts', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
   })
 }

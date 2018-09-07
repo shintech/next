@@ -6,11 +6,15 @@ import Nav from '../../components/Nav'
 import Footer from '../../components/Footer'
 import Modal from '../../components/Modal'
 import { withRouter } from 'next/router'
+import getConfig from 'next/config'
+
+const { publicRuntimeConfig } = getConfig()
+const host = publicRuntimeConfig.hostname
 
 const Main = ({ children, title = 'Main Layout', router }) =>
   <Wrapper>
     <Head>
-      <title>{ title }</title>
+      <title>{ title } | {host} </title>
       <link rel='icon' type='image/png' href='/public/images/favicon.png' />
     </Head>
     <header>
