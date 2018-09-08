@@ -3,7 +3,7 @@
 import { connect } from 'react-redux'
 import { Link } from 'routes'
 import PropTypes from 'prop-types'
-import action from '../../actions'
+import action from '../../redux/actions'
 import Wrapper from './Wrapper'
 
 const PostList = ({ posts }) =>

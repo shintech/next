@@ -1,7 +1,7 @@
 /*  /actions/post.js
 */
 import C from '../store/constants'
-import { posts as api } from '../api'
+import { posts as api } from '../../api'
 
 function fetchPostsSuccess (posts) {
   return {

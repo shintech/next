@@ -1,7 +1,7 @@
 /*  /actions/about.js
 */
 import C from '../store/constants'
-import { about as api } from '../api'
+import { about as api } from '../../api'
 
 export default {
   fetchTasks: function () {

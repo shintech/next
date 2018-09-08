@@ -3,7 +3,7 @@
 import App, { Container } from 'next/app'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
-import storeFactory from '../store'
+import storeFactory from '../redux/store'
 
 const makeStore = (initialState, c) => {
   const { isServer } = c

@@ -2,7 +2,7 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../actions'
+import action from '../redux/actions'
 import { fetchData } from '../api/about'
 import { fetchTasks } from '../api/tasks'
 import Layout from '../layouts/Main'

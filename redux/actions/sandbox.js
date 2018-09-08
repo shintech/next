@@ -1,7 +1,7 @@
 /*  /actions/sandbox.js
 */
 import C from '../store/constants'
-import { sandbox as api } from '../api'
+import { sandbox as api } from '../../api'
 
 export default {
   increment: function () {
