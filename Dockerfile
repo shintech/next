@@ -1,7 +1,5 @@
 FROM node:8.9.4
 
-LABEL 'description=shintech/next'
-
 EXPOSE 8000:8000
 
 WORKDIR /shintech
