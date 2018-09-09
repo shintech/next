@@ -12,6 +12,15 @@ export default {
     }
   },
 
+  changeMenu: function (option) {
+    return async dispatch => {
+      dispatch({
+        type: C.CHANGE_MENU,
+        payload: option
+      })
+    }
+  },
+
   fetchGraph: function () {
     return async dispatch => {
       dispatch({

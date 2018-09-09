@@ -6,7 +6,7 @@ const posts = (state = {}, action) => {
   switch (action.type) {
     case C.FETCH_POSTS_SUCCESS:
       return {
-        data: action.payload,
+        posts: action.payload,
         loading: false,
         error: null
       }

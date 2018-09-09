@@ -8,7 +8,15 @@ const about = (state = {}, action) => {
       let value = state.value + 1
 
       return {
+        ...state,
         value: value
+      }
+
+    case C.CHANGE_MENU:
+
+      return {
+        ...state,
+        menu: action.payload
       }
 
     case C.FETCH_GRAPH:

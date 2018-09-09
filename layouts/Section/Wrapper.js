@@ -27,7 +27,7 @@ const Wrapper = styled.section`
   p, ul {
     margin: 1ch;
   }
-  
+
   h2 {
     margin: 0;
 

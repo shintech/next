@@ -9,8 +9,11 @@ import Section from '../layouts/Section'
 import BarGraph from '../components/BarGraph'
 import Flex from '../components/Flex'
 import GridComponent from '../components/Grid'
+import Menu from '../components/Menu'
 
-const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
+const menuData = [1, 2, 3, 4]
+
+const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname, changeMenu, menu }) => {
   let _file
 
   const submit = (e) => {
@@ -52,6 +55,10 @@ const Sandbox = ({ value, increment, fetchGraph, sendFile, pathname }) => {
         <Section title='CSS Grid'>
           <GridComponent />
         </Section>
+        
+        <Section title='Menu'>
+          <Menu data={menuData} menu={menu} onClick={changeMenu} />
+        </Section>        
 
       </Grid>
     </Layout>
@@ -73,7 +80,8 @@ Sandbox.propTypes = {
 
 export default connect(
   state => ({
-    value: state.sandbox.value
+    value: state.sandbox.value,
+    menu: state.sandbox.menu
   }),
 
   dispatch => ({
@@ -87,6 +95,10 @@ export default connect(
 
     sendFile: (file) => {
       dispatch(action.sandbox.sendFile(file))
+    },
+
+    changeMenu: (option) => {
+      dispatch(action.sandbox.changeMenu(option))
     }
   })
 )(Sandbox)

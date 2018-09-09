@@ -1,6 +1,7 @@
 export default {
   sandbox: {
-    value: 0
+    value: 0,
+    menu: 'hidden'
   },
 
   posts: {

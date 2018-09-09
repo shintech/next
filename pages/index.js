@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../redux/actions'
+import actions from '../redux/actions'
 import { getPosts } from '../api/posts'
 import Layout from '../layouts/Main'
 import PostList from '../components/PostList'
@@ -31,7 +31,7 @@ export default connect(
 
   dispatch => ({
     fetchPosts: () => {
-      dispatch(action.posts.fetchPosts())
+      dispatch(actions.posts.fetchPosts())
     }
   })
 )(Home)
