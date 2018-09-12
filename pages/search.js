@@ -15,7 +15,7 @@ class Sandbox extends React.Component {
     const { loading, hits } = this.props
 
     return (
-      <Layout title='sandbox'>
+      <Layout title='search'>
         <form>
           <input type='text' placeholder='Search...' onKeyUp={(e) => { this.props.searchDevices(e.target.value) }} />
         </form>
