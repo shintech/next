@@ -22,6 +22,7 @@
 ### TODO
 
 - [ ] authentication
+- [ ] error handling in pages/index getInitialProps
 - [ ] work on loading component
 - [ ] try to make loading animation for d3 graphs
 - [ ] write some tests
