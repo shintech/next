@@ -5,22 +5,28 @@ services:
     build: .
     image: shintech/next:latest
     container_name: next
-    network_mode: bridge
     env_file:
       - ./next.env
-    # links:
-    #   - postgres
     ports:
       - "8000:8000"
     restart: always
-    
-  # postgres:
-  #   build: ./database
-  #   image: shintech/blog-database:latest
-  #   container_name: postgres
-  #   network_mode: bridge
-  #   env_file:
-  #       - ./postgres.env
-  #   volumes:
-  #     - ./data/db:/var/lib/postgresql/data
-  #   restart: always
+    links:
+      - express-postgres
+
+  express-postgres:
+    image: shintech/express-postgres:latest
+    container_name: express-postgres
+    env_file:
+      - ./express.env
+    restart: always
+    links:
+      - postgres
+
+  postgres:
+    image: shintech/blog-database:latest
+    container_name: postgres
+    env_file:
+        - ./postgres.env
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    restart: always
