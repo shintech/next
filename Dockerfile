@@ -13,4 +13,5 @@ RUN rm -rv node_modules .next --force && \
 RUN printf "Installing dependencies...\n" &&\
   yarn install
 
-CMD dumb-init npm run begin
+RUN npm run build
+CMD dumb-init npm run start
