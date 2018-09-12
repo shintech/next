@@ -10,8 +10,14 @@
     npm run dev
     
 #### Production
-
     docker-compose build && docker-compose up -d
+    
+### NOTES
+    
+    # Required Environment Variables
+    
+    HOSTNAME=example.org #fdqn
+    SERVER_URL=localhost:65330
     
 ### TODO
 
@@ -35,9 +41,8 @@
 - [ ] add styling to contents of Modal
 - [ ] add some more layouts
 - [ ] make better compnent for adding tasks
-- [ ] add grid layout to sandbox
+- [x] add grid layout to sandbox
 - [ ] make modal movable
-- [ ] add griddle to sandbox
-- [ ] some fake numerical data
+- [x] some fake numerical data
 - [x] style footer
 - [x] make navbar collapse
