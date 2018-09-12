@@ -19,7 +19,8 @@ const Nav = ({ pathname }) =>
       <Link prefetch href='/'><a className={!pathname || pathname === '/' || pathname === '' ? 'active' : null}>home</a></Link>
       <Link prefetch href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
       <Link prefetch href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
-      <Link prefetch href='/sandbox'><a className={pathname === '/sandbox' ? 'active sandbox' : 'sandbox'}>sandbox</a></Link>
+      <Link prefetch href='/sandbox'><a className={pathname === '/sandbox' ? 'active' : null}>sandbox</a></Link>
+      <Link prefetch href='/search'><a className={pathname === '/search' ? 'active search' : 'search'}>&#x1f50d;&nbsp; search</a></Link>
 
       <a href='javascript:void(0);' className='icon' onClick={() => { toggleResponsive() }}>
         <i className='fa fa-bars' />

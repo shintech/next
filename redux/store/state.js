@@ -14,5 +14,8 @@ export default {
 
   modal: {
     hidden: true
+  },
+  device: {
+    loading: true
   }
 }

@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     color: black
   }
   
-  .sandbox {
+  .search {
     margin-left: auto;
   }
   

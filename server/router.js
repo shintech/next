@@ -8,6 +8,7 @@ const contact = require('./routes/contact')
 const files = require('./routes/files')
 const tasks = require('./routes/tasks')
 const accounts = require('./routes/accounts')
+const devices = require('./routes/devices')
 
 const router = express.Router()
 
@@ -46,6 +47,12 @@ module.exports = function (options) {
 
   router.route('/accounts')
     .get(accounts(options).fatchAll)
+
+  router.route('/inventory')
+    .get(devices(options).fetchDevices)
+
+  router.route('/search')
+    .get(devices(options).searchDevices)
 
   router.route('/contact')
     .get(contact(options).fatchAll)
