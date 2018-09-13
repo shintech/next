@@ -5,6 +5,7 @@ EXPOSE 8000:8000
 WORKDIR /shintech
 
 COPY . .
+COPY seed.js /docker-entry-point-initdb.d/
 
 RUN rm -rv node_modules .next --force && \
   wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 && \

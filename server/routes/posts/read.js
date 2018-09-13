@@ -8,6 +8,7 @@ module.exports = function ({ logger }) {
         res.set({
           'Content-Type': 'application/json'
         })
+
         resp.pipe(res)
       })
     },
