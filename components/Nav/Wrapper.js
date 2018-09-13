@@ -38,12 +38,12 @@ const Wrapper = styled.div`
   
   .active {
     background-color: teal;
-    color: white;
+    color: black;
     
     :hover {
       background-color: steelblue;
       cursor: default;
-      color: black
+      color: white
     }  
   }
   
