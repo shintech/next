@@ -3,6 +3,7 @@ const multer = require('multer')
 const path = require('path')
 
 const posts = require('./routes/posts')
+const users = require('./routes/users')
 const about = require('./routes/about')
 const contact = require('./routes/contact')
 const files = require('./routes/files')
@@ -34,6 +35,12 @@ module.exports = function (options) {
 
   router.route('/posts/:id')
     .get(posts(options).fetchOne)
+
+  router.route('/users')
+    .get(users(options).fatchAll)
+
+  router.route('/users/:id')
+    .get(users(options).fetchOne)
 
   router.route('/about')
     .get(about(options).fatchAll)

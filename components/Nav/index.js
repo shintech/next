@@ -5,7 +5,7 @@ import Wrapper from './Wrapper'
 
 function toggleResponsive () {
   var x = document.getElementById('topNav')
-  console.log(x.classList)
+
   if (x.classList.contains('responsive')) {
     x.classList.remove('responsive')
   } else {
@@ -27,4 +27,5 @@ const Nav = ({ pathname }) =>
       </a>
     </nav>
   </Wrapper>
+
 export default Nav
