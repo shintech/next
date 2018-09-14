@@ -52,19 +52,17 @@ services:
   express-mongo:
     image: shintech/express-mongo:latest
     container_name: express-mongo
-    network_mode: bridge
     env_file:
       - ./express.env
     restart: always
     links:
       - mongo
-
+      
   mongo:
-    image: mongo:latest
     container_name: mongo
-    network_mode: bridge
+    image: shintech/shintech-mongo:latest
     env_file:
         - ./mongo.env
-    # volumes:
-    #   - ./data/db:/var/lib/postgresql/data
+    volumes:
+      - ./data/mongo:/data/db
     restart: always
