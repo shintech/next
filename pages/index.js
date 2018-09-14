@@ -13,8 +13,15 @@ const Home = ({ data }) =>
 /* -------------------------------------------------------------------------------- */
 
 Home.getInitialProps = async ({ store, isServer, pathname, query }) => {
-  let res = await getPosts()
-  let data = await res.json()
+  let data
+
+  try {
+    let res = await getPosts()
+    data = await res.json()
+  } catch (err) {
+    data = err.error
+  }
+
   return { data }
 }
 

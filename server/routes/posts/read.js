@@ -11,6 +11,12 @@ module.exports = function ({ logger }) {
 
         resp.pipe(res)
       })
+
+        .on('error', err => {
+          res.json({
+            error: err.message
+          })
+        })
     },
 
     fetchOne: async function (req, res) {
