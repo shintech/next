@@ -26,7 +26,7 @@ const posts = (state = {}, action) => {
 
     case C.ADD_POST:
       return {
-        payload: 'success',
+        payload: action.payload,
         loading: false
       }
 

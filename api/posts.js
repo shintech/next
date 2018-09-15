@@ -21,3 +21,13 @@ export function getPost (slug) {
     }
   })
 }
+
+export function addPost (post) {
+  return fetch(`https://${host}/api/posts`, {
+    method: 'POST',
+    body: JSON.stringify(post),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  })
+}

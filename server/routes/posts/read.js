@@ -18,6 +18,8 @@ module.exports = function ({ logger }) {
             error: err.message
           })
         })
+
+        .end()
     },
 
     fetchOne: async function (req, res) {
@@ -30,6 +32,14 @@ module.exports = function ({ logger }) {
 
         resp.pipe(res)
       })
+
+        .on('error', err => {
+          res.json({
+            error: err.message
+          })
+        })
+
+        .end()
     }
   }
 }

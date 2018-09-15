@@ -2,25 +2,26 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../redux/actions'
+import actions from '../redux/actions'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 
-const NewTask = ({ createNewTask }) => {
-  let _title, _details
+const NewPost = ({ createNewPost }) => {
+  let _title, _body, _short
 
   const submit = e => {
     e.preventDefault()
 
     let title = _title.value
-    let details = _details.value
+    let body = _body.value
+    let short = _short.value
 
-    createNewTask({ title, details })
+    createNewPost({ title, body, short })
   }
 
   /* eslint-disable */
   return (
-    <Layout title='create new task'>
+    <Layout title='create new post'>
       <Grid>
         <form onSubmit={submit}>
           <ul className='form-style'>
@@ -30,10 +31,15 @@ const NewTask = ({ createNewTask }) => {
             </li>
 
             <li className='form-group'>
-              <label>Details <span className='required'>*</span></label>
-              <input ref={input => _details = input} type='textarea' placeholder='....' />
-            </li>
+              <label>Body <span className='required'>*</span></label>
+              <input ref={input => _short = input} type='textarea' placeholder='Headline....' />
+            </li>            
 
+            <li className='form-group'>
+              <label>Body <span className='required'>*</span></label>
+              <input ref={input => _body = input} type='textarea' placeholder='Body....' />
+            </li>            
+            
             <li>
               <button type='button' className='close'>Close</button>
               <button type='submit' className='submit'>Submit</button>
@@ -48,8 +54,8 @@ const NewTask = ({ createNewTask }) => {
 
 /* -------------------------------------------------------------------------------- */
 
-NewTask.propTypes = {
-  createNewTask: PropTypes.func.isRequired
+NewPost.propTypes = {
+  createNewPost: PropTypes.func.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
@@ -60,8 +66,8 @@ export default connect(
   }),
 
   dispatch => ({
-    createNewTask: (attrs) => {
-      dispatch(action.about.addTask(attrs))
+    createNewPost: (attrs) => {
+      dispatch(actions.posts.addPost(attrs))
     }
   })
-)(NewTask)
+)(NewPost)
