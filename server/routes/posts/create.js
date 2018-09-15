@@ -1,27 +1,32 @@
-module.exports = function ({ db, logger }) {
-  return async function (req, res) {
-    /* eslint-disable */
+const http = require('http')
+const remote = process.env['POSTGRES_HOST']
+const port = process.env['POSTGRES_PORT']
 
-    let response, status
-  
-    try {
-      response = await db.one('insert into posts(title, short, body)' + 'values( ${title}, ${short}, ${body} ) returning id, title, short, body', req.body) 
-      status = 200
-    } catch (err) {
-      response = { error: err.message || err }
-      status = (err.constructor.name === 'QueryResultError') ? 404 : 500
+module.exports = function ({ logger }) {
+  return {
+    addOne: async function (req, res) {
+      let options = {
+        method: 'POST',
+        hostname: remote,
+        port: port,
+        path: '/api/posts',
+        headers: { 'Content-Type': 'application/json' }
+      }
 
-      logger.error(response.error)
-    }
+      let request = http.request(options, resp => {
+        res.set({
+          'Content-Type': 'application/json'
+        })
 
-    res.status(status)
-      .format({
-        json: () => {
-          res.write(JSON.stringify(response))
-          res.end()
-        }
+        resp.pipe(res)
       })
-      
-    /* eslint-enable */
+
+      request.on('error', (err) => {
+        logger.error(err.message)
+      })
+
+      request.write(JSON.stringify(req.body))
+      request.end()
+    }
   }
 }

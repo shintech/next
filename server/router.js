@@ -31,7 +31,7 @@ module.exports = function (options) {
 
   router.route('/posts')
     .get(posts(options).fatchAll)
-    .post(posts(options).createPost)
+    .post(posts(options).addOne)
 
   router.route('/posts/:id')
     .get(posts(options).fetchOne)
