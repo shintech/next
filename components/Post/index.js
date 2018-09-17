@@ -10,7 +10,7 @@ const Post = ({ post }) => {
     <Wrapper>
       <h1>{post.title}</h1>
       <p><span className='stylized-letter'>{split[0]}</span>{split.slice(1)}</p>
-      <aside>{post.short}</aside>
+      <aside>{post.summary}</aside>
     </Wrapper>
   )
 }

@@ -10,11 +10,11 @@ const PostList = ({ posts }) =>
   <Wrapper>
     {(posts.error) ? <h3>Error loading posts... </h3>
       : posts.map(post =>
-        <li key={post.id}>
-          <Link route='post' params={{ slug: post.id }}>
+        <li key={post._id}>
+          <Link route='post' params={{ slug: post._id }}>
             <a>
               <h3>{post.title}</h3>
-              <div>{post.short}</div>
+              <div>{post.summary}</div>
             </a>
           </Link>
         </li>

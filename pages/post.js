@@ -14,7 +14,7 @@ PostPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
   let post
 
   if (store.getState().posts.data) {
-    post = store.getState().posts.data.find(e => e.id === parseInt(query.slug))
+    post = store.getState().posts.data.find(e => e._id === query._slug)
   } else {
     let res = await getPost(query.slug)
     post = await res.json()

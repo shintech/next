@@ -3,10 +3,9 @@ version: '3'
 services: 
   next:
     build: .
-    image: shintech/next:latest
     container_name: next
     env_file:
-      - ./next.env
+      - ./env/next.env
     ports:
       - "8000:8000"
     restart: always
@@ -17,7 +16,7 @@ services:
     image: shintech/express-postgres:latest
     container_name: express-postgres
     env_file:
-      - ./express.env
+      - ./env/express.env
     restart: always
     links:
       - postgres
@@ -26,7 +25,7 @@ services:
     image: shintech/blog-database:latest
     container_name: postgres
     env_file:
-        - ./postgres.env
+        - ./env/postgres.env
     volumes:
       - ./data/db:/var/lib/postgresql/data
     restart: always
@@ -35,7 +34,7 @@ services:
     image: shintech/express-elastic:latest
     container_name: express-elastic
     env_file:
-      - ./express.env
+      - ./env/express.env
     restart: always
     links:
       - elastic
@@ -44,7 +43,7 @@ services:
     image: elasticsearch:latest
     container_name: elasticsearch
     env_file:
-        - ./elastic.env
+        - ./env/elastic.env
     restart: always
     # volumes:
     #   - esdata1:/usr/share/elasticsearch/data
@@ -53,7 +52,7 @@ services:
     image: shintech/express-mongo:latest
     container_name: express-mongo
     env_file:
-      - ./express.env
+      - ./env/express.env
     restart: always
     links:
       - mongo
@@ -62,7 +61,7 @@ services:
     container_name: mongo
     image: shintech/shintech-mongo:latest
     env_file:
-        - ./mongo.env
+        - ./env/mongo.env
     volumes:
       - ./data/mongo:/data/db
     restart: always

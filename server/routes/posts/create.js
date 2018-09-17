@@ -1,14 +1,12 @@
 const http = require('http')
-const remote = process.env['POSTGRES_HOST']
-const port = process.env['POSTGRES_PORT']
 
-module.exports = function ({ logger }) {
+module.exports = function ({ postsURL, logger }) {
   return {
     addOne: async function (req, res) {
       let options = {
         method: 'POST',
-        hostname: remote,
-        port: port,
+        hostname: postsURL.hostname,
+        port: postsURL.port,
         path: '/api/posts',
         headers: { 'Content-Type': 'application/json' }
       }

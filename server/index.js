@@ -1,47 +1,30 @@
 const express = require('express')
 const bodyParser = require('body-parser')
-const next = require('next')
+const { URL } = require('url')
 const path = require('path')
 const compression = require('compression')
 const morgan = require('morgan')
 const getNdb = require('./ndb')
-const nextRoutes = require('../routes')
 const getRouter = require('./router')
 
-const environment = process.env['NODE_ENV']
-const port = process.env['PORT'] || 8000
+const server = express()
 
-const logger = require('./logger')({ environment })
+const postsURL = new URL(process.env['POSTS_URL'])
+const usersURL = new URL(process.env['USERS_URL'])
+const devicesURL = new URL(process.env['DEVICES_URL'])
 
-const dev = environment === 'development'
-const app = next({ dev })
+module.exports = ({ logger, port, environment }) => {
+  const ndb = getNdb({ logger })
 
-const handler = nextRoutes.getRequestHandler(app)
+  const api = getRouter({ ndb, postsURL, usersURL, devicesURL, logger })
 
-app.prepare()
-  .then(() => {
-    const server = express()
-    const ndb = getNdb({ logger })
+  if (environment === 'development') server.use(morgan('dev'))
 
-    const api = getRouter({ ndb, logger })
+  server.use('/public', express.static(path.join(__dirname, '../public')))
+    .use(bodyParser.urlencoded({ extended: true }))
+    .use(bodyParser.json())
+    .use(compression())
+    .use('/api', api)
 
-    if (environment === 'development') server.use(morgan('dev'))
-
-    server.use('/public', express.static(path.join(__dirname, '../public')))
-      .use(bodyParser.urlencoded({ extended: true }))
-      .use(bodyParser.json())
-      .use(compression())
-      .use('/api', api)
-
-      .use(handler)
-
-      .listen(port)
-
-      .on('listening', () => {
-        logger.info(`listening on port ${port}...`)
-      })
-
-      .on('error', (err) => {
-        throw (err)
-      })
-  })
+  return server
+}

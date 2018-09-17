@@ -1,6 +1,6 @@
 {
   "name": "nextt",
-  "version": "0.16.8",
+  "version": "0.17.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -27,19 +27,27 @@
   },
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
-    "babel-plugin-styled-components": "^1.5.1"
+    "babel-plugin-styled-components": "^1.5.1",
+    "chai": "^4.1.2",
+    "chai-http": "^4.2.0",
+    "mocha": "^5.2.0",
+    "nock": "^10.0.0"
   },
   "scripts": {
+    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test mocha test --exit -t 10000",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
-    "start": "node server/index.js",
-    "dev": "NODE_ENV=development HOSTNAME=shintech.ninja POSTGRES_HOST=localhost POSTGRES_PORT=65330 MONGO_URL=localhost:65332  ELASTIC_URL=localhost:65331 nodemon server/index.js",
+    "start": "node .",
+    "dev": "NODE_ENV=development HOSTNAME=shintech.ninja USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 nodemon .",
     "begin": "npm run build && npm start"
   },
   "standard": {
     "globals": [
       "React",
-      "FormData"
+      "FormData",
+      "beforeEach",
+      "describe",
+      "it"
     ]
   }
 }

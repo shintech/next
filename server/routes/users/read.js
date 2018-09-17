@@ -1,10 +1,9 @@
 const http = require('http')
-const remote = process.env['MONGO_URL']
 
-module.exports = function ({ logger }) {
+module.exports = function ({ logger, usersURL }) {
   return {
     fatchAll: async function (req, res) {
-      http.get(`http://${remote}/api/users`, resp => {
+      http.get(`${usersURL}/api/users`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })
@@ -14,7 +13,7 @@ module.exports = function ({ logger }) {
     },
 
     fetchOne: async function (req, res) {
-      http.get(`http://${remote}/api/users/${req.params.id}`, resp => {
+      http.get(`${usersURL}/api/users/${req.params.id}`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })

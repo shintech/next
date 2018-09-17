@@ -1,11 +1,9 @@
 const http = require('http')
-const remote = process.env['POSTGRES_HOST']
-const port = process.env['POSTGRES_PORT']
 
-module.exports = function ({ logger }) {
+module.exports = function ({ postsURL, logger }) {
   return {
     fatchAll: async function (req, res) {
-      http.get(`http://${remote}:${port}/api/posts`, resp => {
+      http.get(`${postsURL}api/posts`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })
@@ -23,9 +21,9 @@ module.exports = function ({ logger }) {
     },
 
     fetchOne: async function (req, res) {
-      const postId = parseInt(req.params.id)
+      const postId = req.params.id
 
-      http.get(`http://${remote}:${port}/api/posts/${postId}`, resp => {
+      http.get(`${postsURL}api/posts/${postId}`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })

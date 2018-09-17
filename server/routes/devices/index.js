@@ -1,10 +1,9 @@
 const http = require('http')
-const remote = process.env['ELASTIC_URL']
 
-module.exports = function ({ logger }) {
+module.exports = function ({ logger, devicesURL }) {
   return {
     fetchDevices: async function (req, res) {
-      http.get(`http://${remote}/api/inventory`, resp => {
+      http.get(`${devicesURL}api/inventory`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })
@@ -16,7 +15,7 @@ module.exports = function ({ logger }) {
     searchDevices: async function (req, res) {
       const postId = req.query.slug
 
-      http.get(`http://${remote}/api/search?slug=${postId}`, resp => {
+      http.get(`${devicesURL}api/search?slug=${postId}`, resp => {
         res.set({
           'Content-Type': 'application/json'
         })
