@@ -1,6 +1,6 @@
 {
   "name": "nextt",
-  "version": "0.17.0",
+  "version": "0.17.1",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -34,7 +34,7 @@
     "nock": "^10.0.0"
   },
   "scripts": {
-    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test mocha test --exit -t 10000",
+    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test PORT=65000 mocha test --exit -t 10000",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",

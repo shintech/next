@@ -7,16 +7,16 @@ import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 
 const NewPost = ({ createNewPost }) => {
-  let _title, _body, _short
+  let _title, _body, _summary
 
   const submit = e => {
     e.preventDefault()
 
     let title = _title.value
     let body = _body.value
-    let short = _short.value
+    let summary = _summary.value
 
-    createNewPost({ title, body, short })
+    createNewPost({ title, body, summary })
   }
 
   /* eslint-disable */
@@ -32,7 +32,7 @@ const NewPost = ({ createNewPost }) => {
 
             <li className='form-group'>
               <label>Body <span className='required'>*</span></label>
-              <input ref={input => _short = input} type='textarea' placeholder='Headline....' />
+              <input ref={input => _summary = input} type='textarea' placeholder='Headline....' />
             </li>            
 
             <li className='form-group'>
