@@ -53,6 +53,7 @@ describe('POSTS', function () {
     chai.request(server)
       .get('/api/posts')
       .end(function (error, response) { // eslint-disable-line
+        expect(error).to.be.null // eslint-disable-line
         chai.request(server)
           .get(`/api/posts/${response.body[0]._id}`)
           .end(function (err, res) {
