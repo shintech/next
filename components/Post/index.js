@@ -1,5 +1,6 @@
 /*   /components/Post/index.js
 */
+import React from 'react'
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
