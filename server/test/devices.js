@@ -1,3 +1,4 @@
+/* eslint-env mocha */
 const nock = require('nock')
 const chai = require('chai')
 const chaiHttp = require('chai-http')
@@ -65,7 +66,7 @@ describe('DEVICES', function () {
     chai.request(server)
       .get('/api/inventory')
       .end(function (err, res) {
-          expect(err).to.be.null // eslint-disable-line
+        expect(err).to.be.null  // eslint-disable-line
         expect(res).to.have.status(200)
         expect(res.body).to.have.property('hits')
         expect(res.body['hits'].hits.length).to.be.at.least(1)

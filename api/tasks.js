@@ -1,7 +1,8 @@
 import getConfig from 'next/config'
 import fetch from 'isomorphic-fetch'
 
-const host = (getConfig()) ? getConfig().publicRuntimeConfig.hostname : 'localhost:8000'
+const { publicRuntimeConfig } = getConfig()
+const host = publicRuntimeConfig.hostname
 
 export function fetchTasks () {
   return fetch(`https://${host}/api/tasks`, {

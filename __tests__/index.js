@@ -1,8 +1,6 @@
 /* eslint-env jest */
 
 import { shallow } from 'enzyme'
-import React from 'react'
-
 import Nav from '../components/Nav'
 import Post from '../components/Post'
 
