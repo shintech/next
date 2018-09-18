@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "0.17.6",
+  "version": "0.17.7",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -50,10 +50,7 @@
   "standard": {
     "globals": [
       "React",
-      "FormData",
-      "beforeEach",
-      "describe",
-      "it"
+      "FormData"
     ]
   }
 }
