@@ -8,8 +8,7 @@ import Modal from '../../components/Modal'
 import { withRouter } from 'next/router'
 import getConfig from 'next/config'
 
-const { publicRuntimeConfig } = getConfig()
-const host = publicRuntimeConfig.hostname
+const host = (getConfig()) ? getConfig().publicRuntimeConfig.hostname : 'localhost:8000'
 
 const Main = ({ children, title = 'Main Layout', router }) =>
   <Wrapper>

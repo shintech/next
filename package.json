@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "0.17.3",
+  "version": "0.17.4",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -28,13 +28,19 @@
   "devDependencies": {
     "babel-plugin-module-resolver": "^3.1.1",
     "babel-plugin-styled-components": "^1.5.1",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
     "chai": "^4.1.2",
     "chai-http": "^4.2.0",
+    "enzyme": "^3.6.0",
+    "enzyme-adapter-react-16": "^1.5.0",
+    "jest": "^23.6.0",
     "mocha": "^5.2.0",
-    "nock": "^10.0.0"
+    "nock": "^10.0.0",
+    "react-test-renderer": "^16.5.1"
   },
   "scripts": {
-    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test PORT=65000 mocha test --exit -t 10000",
+    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",
