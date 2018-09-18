@@ -11,7 +11,7 @@ describe('Next', () => {
     expect(shallow(<Nav pathname='/' />).find('nav').length).toEqual(1)
   })
 
-  it('Post test...', () => {
+  it('Post...', () => {
     let attrs = {
       title: 'title',
       body: 'body',
