@@ -38,6 +38,7 @@ module.exports = function (options) {
 
   router.route('/users')
     .get(users(options).fatchAll)
+    .post(users(options).addOne)
 
   router.route('/users/:id')
     .get(users(options).fetchOne)

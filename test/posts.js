@@ -36,10 +36,11 @@ describe('POSTS', function () {
       .reply(200)
   })
 
-  it('fetch posts at /api/posts', done => {
-    chai.request(server).get('/api/posts')
+  it('GET /api/posts', done => {
+    chai.request(server)
+      .get('/api/posts')
       .end(function (err, res) {
-        expect(err).to.be.null // eslint-disable-line
+          expect(err).to.be.null // eslint-disable-line
         expect(res).to.have.status(200)
         expect(res.body[0]).to.have.property('_id')
         expect(res.body[0]).to.have.property('title')
@@ -49,7 +50,7 @@ describe('POSTS', function () {
       })
   })
 
-  it('fetch one post at /api/post', done => {
+  it('GET /api/posts/:id', done => {
     chai.request(server)
       .get('/api/posts')
       .end(function (error, response) { // eslint-disable-line
@@ -68,7 +69,7 @@ describe('POSTS', function () {
       })
   })
 
-  it('create one post at /api/post', done => {
+  it('POST /api/post', done => {
     chai.request(server)
       .post('/api/posts')
       .send({ title: 'title', summary: 'summary', body: 'body' })
