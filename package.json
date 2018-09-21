@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "0.17.7",
+  "version": "0.18.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -13,7 +13,7 @@
     "morgan": "^1.9.0",
     "multer": "^1.3.1",
     "nedb": "^1.8.0",
-    "next": "^6.1.2",
+    "next": "^7.0.0",
     "next-redux-wrapper": "^2.0.0",
     "next-routes": "^1.4.2",
     "react": "^16.4.1",
@@ -40,7 +40,7 @@
     "react-test-renderer": "^16.5.1"
   },
   "scripts": {
-    "test": "USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 NODE_ENV=test PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest",
+    "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",
