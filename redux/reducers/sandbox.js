@@ -13,7 +13,6 @@ const about = (state = {}, action) => {
       }
 
     case C.CHANGE_MENU:
-
       return {
         ...state,
         menu: action.payload
