@@ -2,7 +2,6 @@ import reducers from '../reducers'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'remote-redux-devtools'
-import state from './state'
 
 const clientLogger = store => next => action => {
   let result
@@ -25,7 +24,7 @@ const middleWare = server => [
   (server) ? serverLogger : clientLogger
 ]
 
-const storeFactory = (server = false) =>
+const storeFactory = (server = false, state) =>
   createStore(reducers, state, composeWithDevTools(
     applyMiddleware(...middleWare())
   ))

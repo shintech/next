@@ -4,10 +4,11 @@ import App, { Container } from 'next/app'
 import { Provider } from 'react-redux'
 import withRedux from 'next-redux-wrapper'
 import storeFactory from '../redux/store'
+import state from '../redux/store/state'
 
 const makeStore = (initialState, c) => {
   const { isServer } = c
-  return storeFactory(isServer)
+  return storeFactory(isServer, state)
 }
 
 class MyApp extends App {
