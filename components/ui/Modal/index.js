@@ -2,7 +2,6 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../../../redux/actions'
 import Wrapper from './Wrapper'
 
 const Modal = ({ hidden, modal, model, children, title }) => {
@@ -41,7 +40,7 @@ export default connect(
 
   dispatch => ({
     modal: (props) => {
-      dispatch(action.modal.toggleModal(props))
+      // dispatch(action.modal.toggleModal(props))
     }
   })
 )(Modal)

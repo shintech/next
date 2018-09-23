@@ -1,7 +1,6 @@
 import { connect } from 'react-redux'
 import { Link } from 'routes'
 import PropTypes from 'prop-types'
-import action from '../../../redux/actions'
 import Wrapper from './Wrapper'
 
 const PostList = ({ posts }) =>
@@ -34,7 +33,7 @@ export default connect(
 
   dispatch => ({
     modal: (model) => {
-      dispatch(action.modal.toggleModal())
+      // dispatch(action.modal.toggleModal())
     }
   })
 )(PostList)

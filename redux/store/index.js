@@ -25,7 +25,6 @@ const middleWare = server => [
   (server) ? serverLogger : clientLogger
 ]
 
-
 export const initStore = (initialState = {}, c) => {
   const {isServer} = c
 

@@ -1,8 +1,5 @@
-/*  /pages/sandbox.js
-*/
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../redux/actions'
 import Layout from '../layouts/Main'
 import Grid from '../layouts/Grid'
 import Section from '../layouts/Section'
