@@ -6,17 +6,12 @@ const Wrapper = styled.div`
     grid-template-columns:  [start col-1] 1fr [stop end last];
     grid-gap: 0;
     margin 1ch;
+    
     ul {
       margin: 0;
       grid-row: 1;
       grid-columns: 1;
       display: flex;
-      flex-wrap: wrap;  
-      justify-content: center;
-      align-content: center;
-      background-image: url("static/red.svg");
-      background-size: cover; 
-      border-radius: 5px;
 
       li { 
         padding: 1ch 0 1ch 0;

@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
 import { shallow } from 'enzyme'
-import Nav from '../components/Nav'
-import Post from '../components/Post'
+import Nav from '../components/ui/Nav'
+import Post from '../components/posts/Post'
 
 describe('Next', () => {
   it('Navbar...', () => {
