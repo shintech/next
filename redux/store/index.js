@@ -1,7 +1,8 @@
-import reducers from '../reducers'
+import { rootReducer } from 'fast-redux'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'remote-redux-devtools'
+import withRedux from 'next-redux-wrapper'
 
 const clientLogger = store => next => action => {
   let result
@@ -24,9 +25,11 @@ const middleWare = server => [
   (server) ? serverLogger : clientLogger
 ]
 
-const storeFactory = (server = false, state) =>
-  createStore(reducers, state, composeWithDevTools(
-    applyMiddleware(...middleWare())
-  ))
 
-export default storeFactory
+export const initStore = (initialState = {}, server=false) => {
+  return createStore(rootReducer, initialState,
+    composeWithDevTools(applyMiddleware(...middleWare(server))))
+}
+
+
+export const reduxPage = (comp) => withRedux(initStore)(comp)

@@ -15,8 +15,6 @@ const Nav = ({ pathname }) =>
   <Wrapper>
     <nav id='topNav' className='topnav'>
       <Link prefetch href='/'><a className={!pathname || pathname === '/' || pathname === '' ? 'active' : null}>home</a></Link>
-      <Link prefetch href='/about'><a className={pathname === '/about' ? 'active' : null}>about</a></Link>
-      <Link prefetch href='/contact'><a className={pathname === '/contact' ? 'active' : null}>contact</a></Link>
       <Link prefetch href='/sandbox'><a className={pathname === '/sandbox' ? 'active' : null}>sandbox</a></Link>
       <Link prefetch href='/search'><a className={pathname === '/search' ? 'active search' : 'search'}>search &nbsp;&#x1f50d;</a></Link>
 

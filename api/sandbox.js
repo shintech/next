@@ -1,10 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import getConfig from 'next/config'
 
-const { publicRuntimeConfig } = getConfig()
-const host = publicRuntimeConfig.hostname
-
-export function sendFile (body) {
+export function sendFile (body, host) {
   const data = new FormData()
 
   data.append('file', body.files[0])

@@ -1,6 +1,6 @@
 /*   /components/Flex/index.js
 */
-import { range } from '../../lib'
+import { range } from '../../../lib'
 import Wrapper from './Wrapper'
 
 const Flex = () =>

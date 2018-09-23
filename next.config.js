@@ -7,7 +7,8 @@ const auth = 'Basic ' + Buffer.from(username + ':' + password).toString('base64'
 module.exports = (phase, { defaultConfig }) => {
   return {
     serverRuntimeConfig: {
-      mySecret: 'secret'
+      hostname
+      
     },
 
     publicRuntimeConfig: {

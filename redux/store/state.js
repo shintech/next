@@ -8,14 +8,11 @@ export default {
     loading: true
   },
 
-  about: {
-    loading: true
-  },
-
   modal: {
     hidden: true
   },
-  device: {
+  
+  inventory: {
     loading: true
   }
 }

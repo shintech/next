@@ -20,12 +20,12 @@ function fetchPostsError (error) {
 }
 
 export default {
-  fetchPosts: function () {
+  fetchPosts: function (host) {
     return async dispatch => {
       let response
 
       try {
-        let res = await api.getPosts()
+        let res = await api.getPosts(host)
         let json = await res.json()
 
         response = fetchPostsSuccess(json)

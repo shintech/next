@@ -2,10 +2,11 @@
 */
 import C from '../store/constants'
 
-const posts = (state = {}, action) => {
+const posts = (state = { posts: [] }, action) => {
   switch (action.type) {
     case C.FETCH_POSTS_SUCCESS:
       return {
+        ...state,
         posts: action.payload,
         loading: false,
         error: null

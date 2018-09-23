@@ -4,7 +4,6 @@ const { URL } = require('url')
 const path = require('path')
 const compression = require('compression')
 const morgan = require('morgan')
-const getNdb = require('./ndb')
 const Router = require('./router')
 
 const server = express()
@@ -14,9 +13,7 @@ const usersURL = new URL(process.env['USERS_URL'])
 const devicesURL = new URL(process.env['DEVICES_URL'])
 
 module.exports = ({ logger, port, environment }) => {
-  const ndb = getNdb({ logger })
-
-  const api = Router({ ndb, postsURL, usersURL, devicesURL, logger })
+  const api = Router({ postsURL, usersURL, devicesURL, logger })
 
   if (environment === 'development') server.use(morgan('dev'))
 

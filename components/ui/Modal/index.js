@@ -2,7 +2,7 @@
 */
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import action from '../../redux/actions'
+import action from '../../../redux/actions'
 import Wrapper from './Wrapper'
 
 const Modal = ({ hidden, modal, model, children, title }) => {

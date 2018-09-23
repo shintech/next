@@ -1,10 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import getConfig from 'next/config'
 
-const { publicRuntimeConfig } = getConfig()
-const host = publicRuntimeConfig.hostname
-
-export function getPosts () {
+export function getPosts (host) {
   return fetch(`https://${host}/api/posts`, {
     method: 'GET',
     headers: {
@@ -13,7 +10,7 @@ export function getPosts () {
   })
 }
 
-export function getPost (slug) {
+export function getPost (slug, host) {
   return fetch(`https://${host}/api/posts/${slug}`, {
     method: 'GET',
     headers: {
