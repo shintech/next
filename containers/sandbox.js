@@ -13,11 +13,12 @@ import Menu from '../components/sandbox/Menu'
 import {bindActionCreators} from 'redux'
 import getConfig from 'next/config'
 import {namespaceConfig} from 'fast-redux'
-
-const menuData = [1, 2, 3, 4]
+import { sandbox as api } from '../api'
 
 const DEFAULT_STATE = {
-  value: 0
+  value: 0,
+  menu: 'hidden',
+  menuData: [1, 2, 3, 4]
 }
 
 const { publicRuntimeConfig } = getConfig()
@@ -25,12 +26,37 @@ const host = publicRuntimeConfig.hostname
 
 const {actionCreator, getState: getPageState} = namespaceConfig('sandbox', DEFAULT_STATE)
 
-const bumpIncrement = actionCreator(function fetchPost (state, increment) {
+const bumpIncrement = actionCreator(function bumpIncrement (state, increment) {
   return { ...state, value: state.value + increment }
 })
 
-const Sandbox = ({ value, bumpIncrement }) => {
-  /* eslint-disable */
+const changeMenu = actionCreator(function changeMenu (state, menu) {
+  return { ...state, menu: menu }
+})
+
+const sendFileAction = actionCreator(function sendFileAction (state) {
+  return { ...state }
+})
+
+const Sandbox = ({ value, bumpIncrement, menu, menuData, changeMenu, sendFileAction }) => {
+  let _file
+  
+  const submit = async (e) => {
+    e.preventDefault()
+    
+    let file = _file
+
+    try {
+      let result = await api.sendFile(file, host)
+      let payload = await result.json()
+      
+      sendFileAction(payload)
+    } catch (err) {
+      throw new Error(err.message)
+    }    
+  }
+  
+/* eslint-disable */
   return (
     <Layout title='sandbox'>
       <Grid>
@@ -39,7 +65,32 @@ const Sandbox = ({ value, bumpIncrement }) => {
           <p>{ value }</p>
           <hr />
           <button onClick={() => { bumpIncrement(1) }}>Click</button>
-        </Section>          
+        </Section>
+
+        <Section title='Bar Graph'>
+          <BarGraph />
+        </Section>    
+
+        <Section title='Upload File'>
+          <form onSubmit={submit}>
+            <hr />
+            <input ref={input => _file = input} type='file' name='file' /> 
+            <hr />
+            <input type='submit' value='Submit' />
+          </form>
+        </Section>
+
+        <Section title='CSS FlexBox'>
+          <Flex />
+        </Section>
+
+        <Section title='CSS Grid'>
+          <GridComponent />
+        </Section>
+
+        <Section title='Menu'>
+          <Menu data={menuData} menu={menu} onClick={changeMenu} />
+        </Section>        
       </Grid>
     </Layout>
   )
@@ -52,10 +103,10 @@ Sandbox.getInitialProps = ({ store, isServer, pathname, query }) => ({ })
 
 /* -------------------------------------------------------------------------------- */
 
-// Sandbox.propTypes = {
-//   value: PropTypes.number.isRequired,
-//   increment: PropTypes.func.isRequired
-// }
+Sandbox.propTypes = {
+  value: PropTypes.number.isRequired,
+  bumpIncrement: PropTypes.func.isRequired
+}
 
 /* -------------------------------------------------------------------------------- */
 
@@ -64,7 +115,7 @@ function mapStateToProps (state) {
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ bumpIncrement }, dispatch)
+  return bindActionCreators({ bumpIncrement, changeMenu, sendFileAction }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Sandbox)

@@ -1,12 +1,22 @@
 const express = require('express')
+const multer = require('multer')
 const path = require('path')
 
 const posts = require('./routes/posts')
 const users = require('./routes/users')
 const devices = require('./routes/devices')
+const files = require('./routes/files')
 
 const router = express.Router()
 
+const storage = multer.diskStorage({
+  destination: path.join('uploads'),
+  filename (req, file, cb) {
+    cb(null, `${new Date()}-${file.originalname}`)
+  }
+})
+
+const upload = multer({ storage: storage })
 
 module.exports = function (options) {
   router.get('/state', (req, res) =>
@@ -35,5 +45,7 @@ module.exports = function (options) {
   router.route('/search')
     .get(devices(options).searchDevices)
 
+  router.post('/files', upload.single('file'), files(options).createFile)
+  
   return router
 }
