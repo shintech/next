@@ -9,31 +9,11 @@ import GridComponent from '../components/sandbox/Grid'
 import Menu from '../components/sandbox/Menu'
 import {bindActionCreators} from 'redux'
 import getConfig from 'next/config'
-import {namespaceConfig} from 'fast-redux'
 import { sandbox as api } from '../api'
-
-const DEFAULT_STATE = {
-  value: 0,
-  menu: 'hidden',
-  menuData: [1, 2, 3, 4]
-}
+import { getPageState, bumpIncrement, changeMenu, sendFileAction } from '../redux/stores/sandbox'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
-
-const {actionCreator, getState: getPageState} = namespaceConfig('sandbox', DEFAULT_STATE)
-
-const bumpIncrement = actionCreator(function bumpIncrement (state, increment) {
-  return { ...state, value: state.value + increment }
-})
-
-const changeMenu = actionCreator(function changeMenu (state, menu) {
-  return { ...state, menu: menu }
-})
-
-const sendFileAction = actionCreator(function sendFileAction (state) {
-  return { ...state }
-})
 
 const Sandbox = ({ value, bumpIncrement, menu, menuData, changeMenu, sendFileAction }) => {
   let _file

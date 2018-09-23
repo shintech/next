@@ -7,17 +7,10 @@ import getConfig from 'next/config'
 import { posts as api } from '../api'
 import Layout from '../layouts/Main'
 import PostList from '../components/posts/PostList'
-
-const DEFAULT_STATE = {posts: []}
+import {fetchPosts, getHomePageState } from '../redux/stores/posts'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
-
-const {actionCreator, getState: getHomePageState} = namespaceConfig('posts', DEFAULT_STATE)
-
-const fetchPosts = actionCreator(function fetchPosts (state, posts) {
-  return { ...state, posts, loading: false }
-})
 
 const HomePage = ({ posts }) => 
   <Layout title='home'>

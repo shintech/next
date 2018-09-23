@@ -7,23 +7,15 @@ import getConfig from 'next/config'
 import { posts as api } from '../api'
 import Layout from '../layouts/Main'
 import Post from '../components/posts/Post'
-
-const DEFAULT_STATE = {post: {}}
+import {  getPostPageState, fetchPost } from '../redux/stores/post'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
-
-const {actionCreator, getState: getPageState} = namespaceConfig('post', DEFAULT_STATE)
-
-const fetchPost = actionCreator(function fetchPost (state, post) {
-  return { ...state, post, loading: false }
-})
 
 const PostPage = ({ post }) => 
   <Layout title={post.title}>
     <Post post={post} />
   </Layout>      
-  
   
 PostPage.getInitialProps = async ({store, isServer, pathname, query}) => {
   let res = await api.getPost(query.slug, host)
@@ -36,7 +28,7 @@ PostPage.getInitialProps = async ({store, isServer, pathname, query}) => {
 }  
 
 function mapStateToProps (state) {
-  return getPageState(state)
+  return getPostPageState(state)
 }
 
 function mapDispatchToProps (dispatch) {

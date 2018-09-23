@@ -1,28 +1,14 @@
 import React from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
-import {namespaceConfig} from 'fast-redux'
-import Link from 'next/link'
 import getConfig from 'next/config'
 import { inventory as api } from '../api'
 import Layout from '../layouts/Main'
-import PostList from '../components/posts/PostList'
 import Table from '../components/inventory/Table'
-
-const DEFAULT_STATE = {devices: [], loading: true}
+import {fetchDevices, searchInventory, getInventoryPageState } from '../redux/stores/inventory'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
-
-const {actionCreator, getState: getHomePageState} = namespaceConfig('devices', DEFAULT_STATE)
-
-const fetchDevices = actionCreator(function fetchDevices (state, json) {
-  return { ...state, devices: json, loading: false }
-})
-
-const searchInventory = actionCreator(function searchInventory (state, devices) {
-  return { ...state, devices: devices, loading: false }
-})
 
 class SearchPage extends React.Component {
   render () {
@@ -60,7 +46,7 @@ SearchPage.getInitialProps = async ({store, isServer, pathname, query}) => {
 }
 
 function mapStateToProps (state) {
-  return getHomePageState(state)
+  return getInventoryPageState(state)
 }
 
 function mapDispatchToProps (dispatch) {

@@ -9,6 +9,10 @@
     
     npm run dev
     
+    # or
+    
+    yarn dev
+    
 #### Production
     docker-compose build && docker-compose up -d
     
@@ -25,7 +29,7 @@
 - [ ] error handling in pages/index getInitialProps
 - [ ] work on loading component
 - [ ] try to make loading animation for d3 graphs
-- [ ] write some tests
+- [x] write some tests
 - [ ] upload and process files
 - [ ] download files
 - [ ] more graph
@@ -47,3 +51,5 @@
 - [x] some fake numerical data
 - [x] style footer
 - [x] make navbar collapse
+- [ ] refactor search page fetching
+- [ ] tests for fast-redux actions
