@@ -14,36 +14,32 @@ const DEFAULT_STATE = {posts: []}
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
 
-const {actionCreator, getState: getHomepageState} = namespaceConfig('posts', DEFAULT_STATE)
+const {actionCreator, getState: getHomePageState} = namespaceConfig('posts', DEFAULT_STATE)
 
-const bumpBuild = actionCreator(function bumpBuild (state, posts) {
+const fetchPosts = actionCreator(function fetchPosts (state, posts) {
   return { ...state, posts, loading: false }
 })
 
-class Homepage extends React.Component {
-  static async getInitialProps({store, isServer, pathname, query}) {
-    let data = await api.getPosts(host)
-    let json = await data.json()
-    
-    store.dispatch(bumpBuild(json))
-    
-    return {custom: 'custom'}
-  }
-  render() {
-    return (
-      <Layout title='home'>
-        <PostList posts={this.props.posts} />
-    </Layout>
-    )
-  }
+const HomePage = ({ posts }) => 
+  <Layout title='home'>
+    <PostList posts={posts} />
+  </Layout>
+
+HomePage.getInitialProps = async ({store, isServer, pathname, query}) => {
+  let data = await api.getPosts(host)
+  let json = await data.json()
+  
+  store.dispatch(fetchPosts(json))
+  
+  return {custom: 'custom'}
 }
 
 function mapStateToProps (state) {
-  return getHomepageState(state)
+  return getHomePageState(state)
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ bumpBuild }, dispatch)
+  return bindActionCreators({ fetchPosts }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage)
+export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

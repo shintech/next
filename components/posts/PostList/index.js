@@ -1,5 +1,3 @@
-/*   /components/PostList/index.js
-*/
 import { connect } from 'react-redux'
 import { Link } from 'routes'
 import PropTypes from 'prop-types'

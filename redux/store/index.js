@@ -26,9 +26,11 @@ const middleWare = server => [
 ]
 
 
-export const initStore = (initialState = {}, server=false) => {
+export const initStore = (initialState = {}, c) => {
+  const {isServer} = c
+
   return createStore(rootReducer, initialState,
-    composeWithDevTools(applyMiddleware(...middleWare(server))))
+    composeWithDevTools(applyMiddleware(...middleWare(isServer))))
 }
 
 
