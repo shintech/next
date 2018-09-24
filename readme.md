@@ -54,3 +54,4 @@
 - [ ] refactor search page fetching
 - [ ] tests for fast-redux actions
 - [ ] add tests for redux action - addPost
+- [ ] mock functions and children in components
