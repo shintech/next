@@ -1,9 +1,11 @@
 /* eslint-env jest */
 
-import {  fetchPosts } from '../redux/stores/posts'
-import { initStore } from '../redux/init'
-import { posts as api } from '../api'
+import {  fetchPosts } from '../../redux/stores/posts'
+import { initStore } from '../../redux/init'
+import { posts as api } from '../../api'
 import nock from 'nock'
+
+console.log = jest.fn()
 
 const store = initStore({}, {
   isServer: true
