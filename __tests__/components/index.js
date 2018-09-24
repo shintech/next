@@ -4,7 +4,7 @@ import { shallow } from 'enzyme'
 import Nav from '../../components/ui/Nav'
 import Post from '../../components/posts/Post'
 
-describe('Next', () => {
+describe('components...', () => {
   it('Navbar...', () => {
     expect(shallow(<Nav pathname='/' />).find('nav').length).toEqual(1)
   })

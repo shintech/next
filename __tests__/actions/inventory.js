@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import {  fetchDevices } from '../../redux/stores/inventory'
+import {  fetchDevices, searchInventory } from '../../redux/stores/inventory'
 import { initStore } from '../../redux/init'
 import { inventory as api } from '../../api'
 import nock from 'nock'
@@ -25,6 +25,9 @@ nock('https://localhost')
   .get('/api/inventory')
   .reply(200, fakeResponse)
   
+  .get('/api/search?slug=serial')
+  .reply(200, fakeResponse)
+  
 describe('inventory actions', () => {
   it('fetchDevices', async () => {
     let data = await api.getInventory('localhost')
@@ -38,5 +41,17 @@ describe('inventory actions', () => {
     expect(store.getState().devices.devices[0].manufacturer).toEqual(fakeResponse[0].manufacturer)
     expect(store.getState().devices.devices[0].model).toEqual(fakeResponse[0].model)
     expect(store.getState().devices.devices[0].facility).toEqual(fakeResponse[0].facility)
+  })
+  
+  it('searchInventory', async () => {
+    let devices = await api.searchInventory('serial', 'localhost')
+    let json = await devices.json()
+    
+    store.dispatch(searchInventory(json))     
+    expect(store.getState().devices.devices[0]._id).toEqual(fakeResponse[0]._id)
+    expect(store.getState().devices.devices[0].serial).toEqual(fakeResponse[0].serial)
+    expect(store.getState().devices.devices[0].manufacturer).toEqual(fakeResponse[0].manufacturer)
+    expect(store.getState().devices.devices[0].model).toEqual(fakeResponse[0].model)
+    expect(store.getState().devices.devices[0].facility).toEqual(fakeResponse[0].facility)    
   })
 })
