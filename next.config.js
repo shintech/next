@@ -8,7 +8,6 @@ module.exports = (phase, { defaultConfig }) => {
   return {
     serverRuntimeConfig: {
       hostname
-      
     },
 
     publicRuntimeConfig: {
