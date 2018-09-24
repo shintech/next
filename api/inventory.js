@@ -1,7 +1,6 @@
 import fetch from 'isomorphic-fetch'
-import getConfig from 'next/config'
 
-export function getInventory(host) {
+export function getInventory (host) {
   return fetch(`https://${host}/api/inventory`, {
     method: 'GET',
     headers: {
@@ -12,7 +11,7 @@ export function getInventory(host) {
 
 export async function searchInventory (slug, host) {
   let uri = `https://${host}/api/search?slug=${slug}`
-  
+
   return fetch(uri, {
     method: 'GET',
     headers: {

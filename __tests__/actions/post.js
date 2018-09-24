@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import {  fetchPost } from '../../redux/stores/post'
+import { fetchPost } from '../../redux/stores/post'
 import { initStore } from '../../redux/init'
 import { posts as api } from '../../api'
 import nock from 'nock'
@@ -23,7 +23,7 @@ let fakeResponse = [
 nock('https://shintech.ninja')
   .get('/api/posts')
   .reply(200, fakeResponse)
-  
+
   .get('/api/posts/5b9eeda95744c570b3689035')
   .reply(200, fakeResponse[0])
 
@@ -31,9 +31,9 @@ describe('posts actions', () => {
   it('fetchPosts', async () => {
     let data = await api.getPost('5b9eeda95744c570b3689035', 'shintech.ninja')
     let json = await data.json()
-    
+
     store.dispatch(fetchPost(json))
-    
+
     expect(store.getState().post.post._id).toEqual(fakeResponse[0]._id)
     expect(store.getState().post.post.title).toEqual(fakeResponse[0].title)
     expect(store.getState().post.post.body).toEqual(fakeResponse[0].body)

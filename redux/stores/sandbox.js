@@ -1,4 +1,4 @@
-import {namespaceConfig} from 'fast-redux'
+import { namespaceConfig } from 'fast-redux'
 
 const DEFAULT_STATE = {
   value: 0,
@@ -6,7 +6,7 @@ const DEFAULT_STATE = {
   menuData: [1, 2, 3, 4]
 }
 
-const {actionCreator, getState: getPageState} = namespaceConfig('sandbox', DEFAULT_STATE)
+const { actionCreator, getState: getPageState } = namespaceConfig('sandbox', DEFAULT_STATE)
 
 const bumpIncrement = actionCreator(function bumpIncrement (state, increment) {
   return { ...state, value: state.value + increment }

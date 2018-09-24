@@ -46,6 +46,6 @@ module.exports = function (options) {
     .get(devices(options).searchDevices)
 
   router.post('/files', upload.single('file'), files(options).createFile)
-  
+
   return router
 }

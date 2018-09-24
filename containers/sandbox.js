@@ -7,7 +7,7 @@ import BarGraph from '../components/sandbox/BarGraph'
 import Flex from '../components/sandbox/Flex'
 import GridComponent from '../components/sandbox/Grid'
 import Menu from '../components/sandbox/Menu'
-import {bindActionCreators} from 'redux'
+import { bindActionCreators } from 'redux'
 import getConfig from 'next/config'
 import { sandbox as api } from '../api'
 import { getPageState, bumpIncrement, changeMenu, sendFileAction } from '../redux/stores/sandbox'
@@ -17,22 +17,22 @@ const host = publicRuntimeConfig.hostname
 
 const Sandbox = ({ value, bumpIncrement, menu, menuData, changeMenu, sendFileAction }) => {
   let _file
-  
+
   const submit = async (e) => {
     e.preventDefault()
-    
+
     let file = _file
 
     try {
       let result = await api.sendFile(file, host)
       let payload = await result.json()
-      
+
       sendFileAction(payload)
     } catch (err) {
       throw new Error(err.message)
-    }    
+    }
   }
-  
+
 /* eslint-disable */
   return (
     <Layout title='sandbox'>

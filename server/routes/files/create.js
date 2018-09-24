@@ -11,4 +11,4 @@ module.exports = ({ db, logger }) =>
           res.end()
         }
       })
-}
+  }

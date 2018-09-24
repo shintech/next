@@ -29,9 +29,6 @@ const Wrapper = styled.ul`
   a {
     display: block;
     text-decoration: none;
-  
-    height: 100%;
-    width: 100%;
     padding: 15px;
   }
   
@@ -39,7 +36,6 @@ const Wrapper = styled.ul`
     overflow: hidden;
     text-overflow: ellipsis;
     
-    height: 100%;
     padding-right: 25px;
     
     color: #444;

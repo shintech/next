@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Wrapper from './Wrapper'
 import Nav from '../../components/ui/Nav'
 import Footer from '../../components/ui/Footer'
-import Modal from '../../components/ui/Modal'
+// import Modal from '../../components/ui/Modal'
 import { withRouter } from 'next/router'
 import getConfig from 'next/config'
 

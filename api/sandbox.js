@@ -1,5 +1,4 @@
 import fetch from 'isomorphic-fetch'
-import getConfig from 'next/config'
 
 export function sendFile (body, host) {
   const data = new FormData()

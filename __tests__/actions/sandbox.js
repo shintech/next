@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import {  bumpIncrement, changeMenu } from '../../redux/stores/sandbox'
+import { bumpIncrement, changeMenu } from '../../redux/stores/sandbox'
 import { initStore } from '../../redux/init'
 
 console.log = jest.fn()
@@ -21,10 +21,10 @@ describe('posts actions', () => {
 
     expect(store.getState().sandbox.value).toEqual(1)
   })
-  
+
   it('changeMenu', () => {
     store.dispatch(changeMenu(2))
-    
+
     expect(store.getState().sandbox.menu).toEqual(2)
   })
 })
