@@ -13,6 +13,19 @@ module.exports = (phase, { defaultConfig }) => {
     publicRuntimeConfig: {
       auth,
       hostname
+    },
+
+    webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+      config.module.rules.push(
+        {
+          test: /\.js$/,
+          enforce: 'pre',
+          exclude: [/node_modules/, '/.next'],
+          use: ['standard-loader']
+        }
+      )
+
+      return config
     }
   }
 }

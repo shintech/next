@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "0.19.1",
+  "version": "0.19.2",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -34,7 +34,8 @@
     "mocha": "^5.2.0",
     "nock": "^10.0.0",
     "react-test-renderer": "^16.5.1",
-    "remote-redux-devtools": "^0.5.13"
+    "remote-redux-devtools": "^0.5.13",
+    "standard-loader": "^6.0.1"
   },
   "scripts": {
     "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose",
