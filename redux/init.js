@@ -28,8 +28,7 @@ const middleWare = server => [
 export const initStore = (initialState = {}, c) => {
   const { isServer } = c
 
-  return createStore(rootReducer, initialState,
-    composeWithDevTools(applyMiddleware(...middleWare(isServer))))
+  return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleWare(isServer))))
 }
 
 export const reduxPage = (comp) => withRedux(initStore)(comp)
