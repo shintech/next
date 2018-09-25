@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { fetchPosts } from '../../redux/stores/posts'
+import { fetchPost } from '../../redux/stores/post'
 import { initStore } from '../../redux/init'
 import { posts as api } from '../../api'
 import nock from 'nock'
@@ -24,17 +24,30 @@ nock('https://shintech.ninja')
   .get('/api/posts')
   .reply(200, fakeResponse)
 
-describe('posts actions', () => {
-  it('fetchPosts', async () => {
-    let data = await api.getPosts('shintech.ninja')
+  .get('/api/posts/5b9eeda95744c570b3689035')
+  .reply(200, fakeResponse[0])
+
+describe('fetchPost...', () => {
+  beforeAll(async () => {
+    let data = await api.getPost('5b9eeda95744c570b3689035', 'shintech.ninja')
     let json = await data.json()
 
-    store.dispatch(fetchPosts(json))
+    store.dispatch(fetchPost(json))
+  })
 
-    expect(store.getState().posts.posts.length).toBeGreaterThan(0)
-    expect(store.getState().posts.posts[0]._id).toEqual(fakeResponse[0]._id)
-    expect(store.getState().posts.posts[0].title).toEqual(fakeResponse[0].title)
-    expect(store.getState().posts.posts[0].body).toEqual(fakeResponse[0].body)
-    expect(store.getState().posts.posts[0].summary).toEqual(fakeResponse[0].summary)
+  it('expect post to have property _id...', () => {
+    expect(store.getState().post.data._id).toEqual(fakeResponse[0]._id)
+  })
+
+  it('expect post to have property title...', () => {
+    expect(store.getState().post.data.title).toEqual(fakeResponse[0].title)
+  })
+
+  it('expect post to have property body...', () => {
+    expect(store.getState().post.data.body).toEqual(fakeResponse[0].body)
+  })
+
+  it('expect post to have property summary...', () => {
+    expect(store.getState().post.data.summary).toEqual(fakeResponse[0].summary)
   })
 })

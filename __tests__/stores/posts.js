@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { fetchPost } from '../../redux/stores/post'
+import { fetchPosts } from '../../redux/stores/posts'
 import { initStore } from '../../redux/init'
 import { posts as api } from '../../api'
 import nock from 'nock'
@@ -24,19 +24,31 @@ nock('https://shintech.ninja')
   .get('/api/posts')
   .reply(200, fakeResponse)
 
-  .get('/api/posts/5b9eeda95744c570b3689035')
-  .reply(200, fakeResponse[0])
-
-describe('posts actions', () => {
-  it('fetchPosts', async () => {
-    let data = await api.getPost('5b9eeda95744c570b3689035', 'shintech.ninja')
+describe('fetchPosts...', () => {
+  beforeAll(async () => {
+    let data = await api.getPosts('shintech.ninja')
     let json = await data.json()
 
-    store.dispatch(fetchPost(json))
+    store.dispatch(fetchPosts(json))
+  })
 
-    expect(store.getState().post.post._id).toEqual(fakeResponse[0]._id)
-    expect(store.getState().post.post.title).toEqual(fakeResponse[0].title)
-    expect(store.getState().post.post.body).toEqual(fakeResponse[0].body)
-    expect(store.getState().post.post.summary).toEqual(fakeResponse[0].summary)
+  it('expect posts length to be greater than 0...', () => {
+    expect(store.getState().posts.data.length).toBeGreaterThan(0)
+  })
+
+  it('expect post[0] to have _id...', () => {
+    expect(store.getState().posts.data[0]._id).toEqual(fakeResponse[0]._id)
+  })
+
+  it('expect post[0] to have title...', () => {
+    expect(store.getState().posts.data[0].title).toEqual(fakeResponse[0].title)
+  })
+
+  it('expect post[0] to have body...', () => {
+    expect(store.getState().posts.data[0].body).toEqual(fakeResponse[0].body)
+  })
+
+  it('expect post[0] to have summary...', () => {
+    expect(store.getState().posts.data[0].summary).toEqual(fakeResponse[0].summary)
   })
 })

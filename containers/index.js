@@ -10,9 +10,9 @@ import { fetchPosts, getHomePageState } from '../redux/stores/posts'
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
 
-const HomePage = ({ posts }) =>
+const HomePage = ({ data }) =>
   <Layout title='home'>
-    <PostList posts={posts} />
+    <PostList posts={data} />
   </Layout>
 
 HomePage.getInitialProps = async ({ store, isServer, pathname, query }) => {

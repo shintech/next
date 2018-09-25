@@ -15,14 +15,16 @@ const initialState = {
 
 const store = initStore(initialState, { isServer: true })
 
-describe('posts actions', () => {
-  it('bumpIncrement', async () => {
+describe('increment...', () => {
+  it('expect value to equal 1...', () => {
     store.dispatch(bumpIncrement(1))
 
     expect(store.getState().sandbox.value).toEqual(1)
   })
+})
 
-  it('changeMenu', () => {
+describe('changeMenu...', () => {
+  it('expect menu to equal 2...', () => {
     store.dispatch(changeMenu(2))
 
     expect(store.getState().sandbox.menu).toEqual(2)

@@ -10,9 +10,9 @@ import { getPostPageState, fetchPost } from '../redux/stores/post'
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
 
-const PostPage = ({ post }) =>
-  <Layout title={post.title}>
-    <Post post={post} />
+const PostPage = ({ data }) =>
+  <Layout title={data.title}>
+    <Post post={data} />
   </Layout>
 
 PostPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
