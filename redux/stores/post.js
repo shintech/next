@@ -1,6 +1,6 @@
 import { namespaceConfig } from 'fast-redux'
 
-const DEFAULT_STATE = { post: {}, loading: true }
+const DEFAULT_STATE = { data: {}, loading: true }
 
 const { actionCreator, getState: getPostPageState } = namespaceConfig('post', DEFAULT_STATE)
 
