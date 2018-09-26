@@ -57,3 +57,4 @@
 - [ ] mock functions and children in components
 - [x] add total hits to search page
 - [ ] create better mock response for inventory search test
+- [ ] make inventory search input field update state
