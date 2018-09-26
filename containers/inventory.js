@@ -24,7 +24,7 @@ const SearchPage = ({ devices, loading, fetchDevices, searchInventory }) =>
 
           searchInventory(json)
         }
-      }} />
+      }} /> {(!devices.hits.hits) ? <span /> : <span>Results: {devices.hits.hits.length}</span>}
     </form>
 
     {(loading || !devices.hits.hits) ? <h1>Loading...</h1> : <Table hits={devices.hits.hits} /> }
