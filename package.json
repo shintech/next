@@ -48,7 +48,8 @@
   "standard": {
     "globals": [
       "React",
-      "FormData"
+      "FormData",
+      "_posts"
     ]
   }
 }
