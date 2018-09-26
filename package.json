@@ -38,7 +38,7 @@
     "standard-loader": "^6.0.1"
   },
   "scripts": {
-    "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose && standard",
+    "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",

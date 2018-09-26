@@ -52,7 +52,8 @@
 - [x] style footer
 - [x] make navbar collapse
 - [ ] refactor search page fetching
-- [ ] tests for fast-redux actions
+- [x] tests for fast-redux actions
 - [ ] add tests for redux action - addPost
 - [ ] mock functions and children in components
-- [ ] add total hits to search page
+- [x] add total hits to search page
+- [ ] create better mock response for inventory search test

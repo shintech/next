@@ -13,7 +13,7 @@ const store = initStore({}, {
 
 nock('https://shintech.ninja')
   .get('/api/posts')
-  .reply(200, _posts)
+  .reply(200, _postsMock)
 
 describe('fetchPosts...', () => {
   beforeAll(async () => {
@@ -24,22 +24,22 @@ describe('fetchPosts...', () => {
   })
 
   it('expect posts length to be greater than 0...', () => {
-    expect(store.getState().posts.data.length).toBeGreaterThan(0)
+    expect(store.getState().posts.data.length).toEqual(_postsMock.length)
   })
 
   it('expect post[0] to have _id...', () => {
-    expect(store.getState().posts.data[0]._id).toEqual(_posts[0]._id)
+    expect(store.getState().posts.data[0]._id).toEqual(_postsMock[0]._id)
   })
 
   it('expect post[0] to have title...', () => {
-    expect(store.getState().posts.data[0].title).toEqual(_posts[0].title)
+    expect(store.getState().posts.data[0].title).toEqual(_postsMock[0].title)
   })
 
   it('expect post[0] to have body...', () => {
-    expect(store.getState().posts.data[0].body).toEqual(_posts[0].body)
+    expect(store.getState().posts.data[0].body).toEqual(_postsMock[0].body)
   })
 
   it('expect post[0] to have summary...', () => {
-    expect(store.getState().posts.data[0].summary).toEqual(_posts[0].summary)
+    expect(store.getState().posts.data[0].summary).toEqual(_postsMock[0].summary)
   })
 })

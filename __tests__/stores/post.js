@@ -13,7 +13,7 @@ const store = initStore({}, {
 
 nock('https://shintech.ninja')
   .get('/api/posts/5b9eeda95744c570b3689035')
-  .reply(200, _posts[0])
+  .reply(200, _postsMock[0])
 
 describe('fetchPost...', () => {
   beforeAll(async () => {
@@ -24,18 +24,18 @@ describe('fetchPost...', () => {
   })
 
   it('expect post to have property _id...', () => {
-    expect(store.getState().post.data._id).toEqual(_posts[0]._id)
+    expect(store.getState().post.data._id).toEqual(_postsMock[0]._id)
   })
 
   it('expect post to have property title...', () => {
-    expect(store.getState().post.data.title).toEqual(_posts[0].title)
+    expect(store.getState().post.data.title).toEqual(_postsMock[0].title)
   })
 
   it('expect post to have property body...', () => {
-    expect(store.getState().post.data.body).toEqual(_posts[0].body)
+    expect(store.getState().post.data.body).toEqual(_postsMock[0].body)
   })
 
   it('expect post to have property summary...', () => {
-    expect(store.getState().post.data.summary).toEqual(_posts[0].summary)
+    expect(store.getState().post.data.summary).toEqual(_postsMock[0].summary)
   })
 })
