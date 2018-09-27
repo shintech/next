@@ -49,7 +49,9 @@
     "globals": [
       "React",
       "FormData",
-      "_posts"
+      "_posts",
+      "_postsMock",
+      "_devicesMock"
     ]
   }
 }

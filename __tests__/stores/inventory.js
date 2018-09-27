@@ -7,10 +7,6 @@ import nock from 'nock'
 
 console.log = jest.fn()
 
-const store = initStore({}, {
-  isServer: true
-})
-
 nock('https://localhost')
   .get('/api/inventory')
   .reply(200, _devicesMock)
@@ -19,15 +15,21 @@ nock('https://localhost')
   .reply(200, _devicesMock)
 
 describe('fetchDevices...', () => {
-  let _devices
+  let _devices, _source, _mockSource
 
   beforeAll(async () => {
+    let store = initStore({}, {
+      isServer: true
+    })
+
     let data = await api.getInventory('localhost')
     let json = await data.json()
-  
+
     store.dispatch(fetchDevices(json))
-    
+
     _devices = store.getState().inventory.devices
+    _source = _devices.hits.hits[0]._source
+    _mockSource = _devicesMock.hits.hits[0]._source
   })
 
   it(`expect devices to have total hits equal to ${_devicesMock.hits.total}...`, () => {
@@ -39,53 +41,61 @@ describe('fetchDevices...', () => {
   })
 
   it('expect devices[0] to have property serial...', () => {
-    expect(_devices.hits.hits[0].serial).toEqual(_devicesMock.hits.hits[0].serial)
+    expect(_source.serial).toEqual(_mockSource.serial)
   })
 
   it('expect devices[0] to have property manufacturer...', () => {
-    expect(_devices.hits.hits[0].manufacturer).toEqual(_devicesMock.hits.hits[0].manufacturer)
+    expect(_source.manufacturer).toEqual(_mockSource.manufacturer)
   })
 
   it('expect devices[0] to have property model...', () => {
-    expect(_devices.hits.hits[0].model).toEqual(_devicesMock.hits.hits[0].model)
+    expect(_source.model).toEqual(_mockSource.model)
   })
 
   it('expect devices[0] to have property facility...', () => {
-    expect(_devices.hits.hits[0].facility).toEqual(_devicesMock.hits.hits[0].facility)
+    expect(_source.facility).toEqual(_mockSource.facility)
   })
 })
 
 describe('searchInventory...', () => {
-  let _devices
-  
+  let _devices, _source, _mockSource
+
   beforeAll(async () => {
+    let store = initStore({}, {
+      isServer: true
+    })
+
     let devices = await api.searchInventory('1234', 'localhost')
     let json = await devices.json()
 
+    store.dispatch(searchInventory(json))
+
     _devices = store.getState().inventory.devices
+    _source = _devices.hits.hits[0]._source
+    _mockSource = _devicesMock.hits.hits[0]._source
   })
 
   it(`expect devices to have total hits equal to ${_devicesMock.hits.total}...`, () => {
     expect(_devices.hits.total).toEqual(_devicesMock.hits.total)
   })
 
-  it('expect devices[0] to have property  _id...', () => {
+  it('expect devices[0] to have property _id...', () => {
     expect(_devices.hits.hits[0]._id).toEqual(_devicesMock.hits.hits[0]._id)
   })
 
   it('expect devices[0] to have property serial...', () => {
-    expect(_devices.hits.hits[0].serial).toEqual(_devicesMock.hits.hits[0].serial)
+    expect(_source.serial).toEqual(_mockSource.serial)
   })
 
   it('expect devices[0] to have property manufacturer...', () => {
-    expect(_devices.hits.hits[0].manufacturer).toEqual(_devicesMock.hits.hits[0].manufacturer)
+    expect(_source.manufacturer).toEqual(_mockSource.manufacturer)
   })
 
   it('expect devices[0] to have property model...', () => {
-    expect(_devices.hits.hits[0].model).toEqual(_devicesMock.hits.hits[0].model)
+    expect(_source.model).toEqual(_mockSource.model)
   })
 
   it('expect devices[0] to have property facility...', () => {
-    expect(_devices.hits.hits[0].facility).toEqual(_devicesMock.hits.hits[0].facility)
+    expect(_source.facility).toEqual(_mockSource.facility)
   })
 })
