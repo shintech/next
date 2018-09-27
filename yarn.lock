@@ -7267,7 +7267,7 @@ standard-loader@^6.0.1:
     object-assign "^4.1.1"
     snazzy "^6.0.0"
 
-standard@*:
+standard@*, standard@^12.0.1:
   version "12.0.1"
   resolved "https://registry.yarnpkg.com/standard/-/standard-12.0.1.tgz#0fc5a8aa6c34c546c5562aae644242b24dae2e61"
   dependencies:
