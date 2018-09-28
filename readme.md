@@ -18,7 +18,7 @@
     
 ### NOTES
     
-    # Required Environment Variables
+    # Environment Variables
     
     HOSTNAME=example.org #fdqn
     SERVER_URL=localhost:65330
@@ -58,3 +58,5 @@
 - [x] add total hits to search page
 - [ ] create better mock response for inventory search test
 - [ ] make inventory search input field update state
+- [ ] build some forms
+- [ ] search page errors in production build
