@@ -5,8 +5,8 @@ module.exports = function ({ environment }) {
     level: 'info',
     format: winston.format.json(),
     transports: [
-      new winston.transports.File({ filename: path.join('log', 'error.log'), level: 'error' }),
-      new winston.transports.File({ filename: path.join('log', 'combined.log') })
+      new winston.transports.File({ filename: path.join('server', 'log', 'error.log'), level: 'error' }),
+      new winston.transports.File({ filename: path.join('server', 'log', 'combined.log') })
     ]
   })
 
