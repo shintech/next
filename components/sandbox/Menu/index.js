@@ -10,14 +10,14 @@ const Menu = ({ menu, data, onClick = () => {} }) =>
     </ul>
 
     <div className='hidden'>
-      {(menu === 'hidden') ? <h3>Please choose a value...</h3>
+      {(menu === 0) ? <h3>Please choose a value...</h3>
         : <h3>You have chosen: {menu}</h3>
       }
     </div>
   </Wrapper>
 
 Menu.propTypes = {
-  menu: PropTypes.string,
+  menu: PropTypes.number,
   data: PropTypes.array.isRequired,
   onClick: PropTypes.func.isRequired
 }

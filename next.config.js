@@ -13,22 +13,22 @@ module.exports = (phase, { defaultConfig }) => {
     publicRuntimeConfig: {
       auth,
       hostname
-    },
-
-    webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-      config.module.rules.push({
-        test: /\.js$/,
-        enforce: 'pre',
-        exclude: [/node_modules/, '/.next'],
-        loader: 'eslint-loader',
-        options: {
-          emitWarning: true,
-          failOnWarning: false,
-          failOnError: false
-        }
-      })
-
-      return config
     }
+
+    // webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
+    //   config.module.rules.push({
+    //     test: /\.js$/,
+    //     enforce: 'pre',
+    //     exclude: [/node_modules/, '/.next'],
+    //     loader: 'eslint-loader',
+    //     options: {
+    //       emitError: false,
+    //       emitWarning: true,
+    //       failOnWarning: false
+    //     }
+    //   })
+
+    //   return config
+    // }
   }
 }

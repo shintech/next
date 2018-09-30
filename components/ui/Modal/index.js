@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
-const Modal = ({ hidden, modal, model, children, title }) => {
+const Modal = ({ hidden, modal = () => {}, children, title }) => {
   if (hidden) return <div className='hidden' />
 
   return (
@@ -26,7 +26,10 @@ const Modal = ({ hidden, modal, model, children, title }) => {
 /* -------------------------------------------------------------------------------- */
 
 Modal.propTypes = {
-  hidden: PropTypes.bool.isRequired
+  title: PropTypes.string.isRequired,
+  hidden: PropTypes.bool.isRequired,
+  modal: PropTypes.func.isRequired,
+  children: PropTypes.node.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */

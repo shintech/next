@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -44,12 +44,13 @@
     "remote-redux-devtools": "^0.5.13"
   },
   "scripts": {
-    "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose",
+    "test": "npm run lint && NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",
     "dev": "NODE_ENV=development HOSTNAME=shintech.ninja USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 nodemon .",
-    "begin": "npm run build && npm start"
+    "begin": "npm run build && npm start",
+    "lint": "eslint . --fix"
   },
   "standard": {
     "globals": [

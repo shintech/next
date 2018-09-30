@@ -2,7 +2,7 @@ import { namespaceConfig } from 'fast-redux'
 
 const DEFAULT_STATE = {
   value: 0,
-  menu: 'hidden',
+  menu: 0,
   menuData: [1, 2, 3, 4]
 }
 

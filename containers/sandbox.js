@@ -85,7 +85,7 @@ Sandbox.propTypes = {
   bumpIncrement: PropTypes.func.isRequired,
   changeMenu: PropTypes.func.isRequired,
   sendFileAction: PropTypes.func.isRequired,
-  menu: PropTypes.string.isRequired,
+  menu: PropTypes.number.isRequired,
   menuData: PropTypes.array.isRequired
 }
 
