@@ -6,6 +6,7 @@ import Nav from '../../components/ui/Nav'
 import Footer from '../../components/ui/Footer'
 // import Modal from '../../components/ui/Modal'
 import { withRouter } from 'next/router'
+import PropTypes from 'prop-types'
 import getConfig from 'next/config'
 
 const host = (getConfig()) ? getConfig().publicRuntimeConfig.hostname : 'localhost:8000'
@@ -32,5 +33,11 @@ const Main = ({ children, title = 'Main Layout', router }) =>
       </a>
     </Footer>
   </Wrapper>
+
+Main.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string,
+  router: PropTypes.object.isRequired
+}
 
 export default withRouter(Main)

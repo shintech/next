@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -30,13 +30,18 @@
     "chai-http": "^4.2.0",
     "enzyme": "^3.6.0",
     "enzyme-adapter-react-16": "^1.5.0",
+    "eslint": "^5.6.1",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-react": "^7.11.1",
+    "eslint-plugin-standard": "^4.0.0",
     "jest": "^23.6.0",
     "mocha": "^5.2.0",
     "nock": "^10.0.0",
     "react-test-renderer": "^16.5.1",
-    "remote-redux-devtools": "^0.5.13",
-    "standard": "^12.0.1",
-    "standard-loader": "^6.0.1"
+    "remote-redux-devtools": "^0.5.13"
   },
   "scripts": {
     "test": "NODE_ENV=test USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 PORT=65000 mocha server/test --exit -t 10000 && NODE_ENV=test jest --verbose",

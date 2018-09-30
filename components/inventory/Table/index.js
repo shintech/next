@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
 const Table = ({ hits }) => {
@@ -26,6 +27,10 @@ const Table = ({ hits }) => {
       })}</tbody>
     </Wrapper>
   )
+}
+
+Table.propTypes = {
+  hits: PropTypes.array.isRequired
 }
 
 export default Table

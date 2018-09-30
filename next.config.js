@@ -16,14 +16,17 @@ module.exports = (phase, { defaultConfig }) => {
     },
 
     webpack: (config, { buildId, dev, isServer, defaultLoaders }) => {
-      config.module.rules.push(
-        {
-          test: /\.js$/,
-          enforce: 'pre',
-          exclude: [/node_modules/, '/.next'],
-          use: ['standard-loader']
+      config.module.rules.push({
+        test: /\.js$/,
+        enforce: 'pre',
+        exclude: [/node_modules/, '/.next'],
+        loader: 'eslint-loader',
+        options: {
+          emitWarning: true,
+          failOnWarning: false,
+          failOnError: false
         }
-      )
+      })
 
       return config
     }

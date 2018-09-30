@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import getConfig from 'next/config'
+import PropTypes from 'prop-types'
 import { posts as api } from '../api'
 import Layout from '../layouts/Main'
 import PostList from '../components/posts/PostList'
@@ -21,6 +22,10 @@ HomePage.getInitialProps = async ({ store, isServer, pathname, query }) => {
   store.dispatch(fetchPosts(json))
 
   return { custom: 'custom' }
+}
+
+HomePage.propTypes = {
+  data: PropTypes.array.isRequired
 }
 
 function mapStateToProps (state) {

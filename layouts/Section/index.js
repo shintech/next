@@ -16,7 +16,9 @@ Section.propTypes = {
   list: PropTypes.array,
   links: PropTypes.array,
   references: PropTypes.array,
-  text: PropTypes.string
+  text: PropTypes.string,
+  children: PropTypes.node.isRequired,
+  modal: PropTypes.func
 }
 
 /* -------------------------------------------------------------------------------- */

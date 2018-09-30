@@ -1,6 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import getConfig from 'next/config'
+import PropTypes from 'prop-types'
 import { inventory as api } from '../api'
 import Layout from '../layouts/Main'
 import Table from '../components/inventory/Table'
@@ -24,7 +25,8 @@ const SearchPage = ({ devices, loading, fetchDevices, searchInventory }) =>
 
           searchInventory(json)
         }
-      }} /> {(!devices.hits.hits) ? <span /> : <span>Results: {devices.hits.hits.length}</span>}
+      }} />
+      <span>{loading || (!devices.hits.hits) ? '' : ` Results: ${devices.hits.hits.length}`}</span>
     </form>
 
     {(loading || !devices.hits.hits) ? <h1>Loading...</h1> : <Table hits={devices.hits.hits} /> }
@@ -37,6 +39,13 @@ SearchPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
   store.dispatch(fetchDevices(json))
 
   return { custom: 'custom' }
+}
+
+SearchPage.propTypes = {
+  devices: PropTypes.object.isRequired,
+  loading: PropTypes.bool.isRequired,
+  fetchDevices: PropTypes.func.isRequired,
+  searchInventory: PropTypes.func.isRequired
 }
 
 function mapStateToProps (state) {

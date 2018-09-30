@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
 function toggleResponsive () {
@@ -23,5 +24,9 @@ const Nav = ({ pathname }) =>
       </a>
     </nav>
   </Wrapper>
+
+Nav.propTypes = {
+  pathname: PropTypes.string.isRequired
+}
 
 export default Nav

@@ -1,6 +1,7 @@
+import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
 
-const Menu = ({ pathname, menu, data, onClick = () => {} }) =>
+const Menu = ({ menu, data, onClick = () => {} }) =>
   <Wrapper>
     <ul>
       {data.map((d, v) => {
@@ -14,5 +15,11 @@ const Menu = ({ pathname, menu, data, onClick = () => {} }) =>
       }
     </div>
   </Wrapper>
+
+Menu.propTypes = {
+  menu: PropTypes.string,
+  data: PropTypes.array.isRequired,
+  onClick: PropTypes.func.isRequired
+}
 
 export default Menu

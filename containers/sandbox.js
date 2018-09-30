@@ -82,7 +82,11 @@ Sandbox.getInitialProps = ({ store, isServer, pathname, query }) => ({ })
 
 Sandbox.propTypes = {
   value: PropTypes.number.isRequired,
-  bumpIncrement: PropTypes.func.isRequired
+  bumpIncrement: PropTypes.func.isRequired,
+  changeMenu: PropTypes.func.isRequired,
+  sendFileAction: PropTypes.func.isRequired,
+  menu: PropTypes.string.isRequired,
+  menuData: PropTypes.array.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
