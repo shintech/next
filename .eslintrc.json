@@ -33,7 +33,15 @@
     "_postsMock": true,
     "_devicesMock": true
   },
-
+  
+  "settings": {
+    "react": {
+      "createClass": "createReactClass", 
+      "version": "16.0"
+    },
+    "propWrapperFunctions": [ "forbidExtraProps" ]
+  },
+  
   "rules": {
     "accessor-pairs": "error",
     "arrow-spacing": ["error", { "before": true, "after": true }],
