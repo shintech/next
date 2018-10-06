@@ -1,6 +1,6 @@
 {
-  "name": "next",
-  "version": "1.0.3",
+  "name": "shintech/next",
+  "version": "1.1.0",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -48,7 +48,7 @@
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",
-    "dev": "NODE_ENV=development HOSTNAME=shintech.ninja USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 nodemon .",
+    "dev": "NODE_ENV=development PORT=8000 HOST=localhost HOSTNAME=shintech.ninja USERS_URL=http://localhost:65330 POSTS_URL=http://localhost:65332  DEVICES_URL=http://localhost:65331 nodemon .",
     "begin": "npm run build && npm start",
     "lint": "eslint . --fix"
   },
