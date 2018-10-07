@@ -39,6 +39,9 @@ module.exports = function (options) {
   router.route('/users/:id')
     .get(users(options).fetchOne)
 
+  router.route('/users/:id/login')
+    .post(users(options).login)
+
   router.route('/inventory')
     .get(devices(options).fetchDevices)
 

@@ -16,6 +16,15 @@ const usersURL = new URL(process.env['USERS_URL'])
 chai.use(chaiHttp)
 const expect = chai.expect
 
+let loginResponse = (e, q) => {
+  if (!q.username || q.username === '') { return { authorized: false } }
+  const authorized = (q.password === 'password')
+
+  return {
+    authorized
+  }
+}
+
 describe('USERS', function () {
   beforeEach(function () {
     let fakeResponse = [
@@ -38,6 +47,9 @@ describe('USERS', function () {
 
       .post('/api/users')
       .reply(200)
+
+      .post('/api/users/1/login')
+      .reply(200, loginResponse)
   })
 
   it('GET /api/users', done => {
@@ -79,6 +91,54 @@ describe('USERS', function () {
       .end(function (err, res) {
         expect(err).to.be.null // eslint-disable-line
         expect(res).to.have.status(200)
+        done()
+      })
+  })
+
+  it('POST /api/user/:id/login -> Expect successful login...', done => {
+    chai.request(server)
+      .post('/api/users/1/login')
+      .send({
+        username: 'username',
+        password: 'password'
+      })
+      .end((err, res) => {
+        expect(err).to.be.null // eslint-disable-line
+        expect(res).to.have.status(200)
+        expect(res.body).to.have.property('authorized')
+        expect(res.body.authorized).to.be.true // eslint-disable-line
+        done()
+      })
+  })
+
+  it('POST /api/user/:id/login -> Expect login failure with incorrect password...', done => {
+    chai.request(server)
+      .post('/api/users/1/login')
+      .send({
+        username: 'username',
+        password: 'fail'
+      })
+      .end((err, res) => {
+        expect(err).to.be.null // eslint-disable-line
+        expect(res).to.have.status(200)
+        expect(res.body).to.have.property('authorized')
+        expect(res.body.authorized).to.be.false // eslint-disable-line
+        done()
+      })
+  })
+
+  it('POST /api/user/:id/login -> Expect login failure with no username...', done => {
+    chai.request(server)
+      .post('/api/users/1/login')
+      .send({
+        username: '',
+        password: 'password'
+      })
+      .end((err, res) => {
+        expect(err).to.be.null // eslint-disable-line
+        expect(res).to.have.status(200)
+        expect(res.body).to.have.property('authorized')
+        expect(res.body.authorized).to.be.false // eslint-disable-line
         done()
       })
   })
