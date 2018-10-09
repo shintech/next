@@ -7,7 +7,7 @@ module.exports = function ({ logger, usersURL }) {
 
       const options = {
         host: usersURL.hostname,
-        path: `/api/users/${req.params.id}/login`,
+        path: `/api/users/login`,
         port: usersURL.port,
         method: 'POST',
         headers: {

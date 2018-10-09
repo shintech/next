@@ -48,7 +48,7 @@ describe('USERS', function () {
       .post('/api/users')
       .reply(200)
 
-      .post('/api/users/1/login')
+      .post('/api/users/login')
       .reply(200, loginResponse)
   })
 
@@ -95,9 +95,9 @@ describe('USERS', function () {
       })
   })
 
-  it('POST /api/user/:id/login -> Expect successful login...', done => {
+  it('POST /api/user/login -> Expect successful login...', done => {
     chai.request(server)
-      .post('/api/users/1/login')
+      .post('/api/users/login')
       .send({
         username: 'username',
         password: 'password'
@@ -111,9 +111,9 @@ describe('USERS', function () {
       })
   })
 
-  it('POST /api/user/:id/login -> Expect login failure with incorrect password...', done => {
+  it('POST /api/user/login -> Expect login failure with incorrect password...', done => {
     chai.request(server)
-      .post('/api/users/1/login')
+      .post('/api/users/login')
       .send({
         username: 'username',
         password: 'fail'
@@ -127,9 +127,9 @@ describe('USERS', function () {
       })
   })
 
-  it('POST /api/user/:id/login -> Expect login failure with no username...', done => {
+  it('POST /api/user/login -> Expect login failure with no username...', done => {
     chai.request(server)
-      .post('/api/users/1/login')
+      .post('/api/users/login')
       .send({
         username: '',
         password: 'password'

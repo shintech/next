@@ -4,6 +4,16 @@ import React from 'react'
 
 global.React = React
 
+global._usersMock = [
+  {
+    username: 'username',
+    first_name: 'first_name',
+    last_name: 'last_name',
+    email: 'email@example.org',
+    password: 'password'
+  }
+]
+
 global._postsMock = [
   {
     '__v': 0,
