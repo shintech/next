@@ -3,6 +3,7 @@
 import { shallow } from 'enzyme'
 import Nav from '../../components/ui/Nav'
 import Post from '../../components/posts/Post'
+import Auth from '../../components/users/Auth'
 
 describe('Nav component...', () => {
   it('expect nav length to equal 1...', () => {
@@ -29,5 +30,13 @@ describe('Post component...', () => {
 
   it(`expect h1 text to equal ${attrs.summary}...`, () => {
     expect(post.find('aside').text()).toEqual('summary')
+  })
+})
+
+describe('Login Component', () => {
+  let auth = shallow(<Auth />)
+
+  it(`expect h1 text to equa...`, () => {
+    expect(auth.find('h1').text()).toEqual('login')
   })
 })
