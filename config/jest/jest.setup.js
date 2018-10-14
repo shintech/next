@@ -2,6 +2,7 @@ import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
 import { URL } from 'url'
+import path from 'path'
 
 configure({ adapter: new Adapter() })
 
@@ -22,9 +23,9 @@ global.process.env = {
 
 const environment = 'test'
 const port = 8000
-const logger = require('../server/logger')({ environment })
+const logger = require(path.join('..', '..', 'server', 'logger'))({ environment })
 
-global._server = require('../server')({ logger, environment, port })
+global._server = require(path.join('..', '..', 'server'))({ logger, environment, port })
 
 global.React = React
 

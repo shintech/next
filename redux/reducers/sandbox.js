@@ -6,7 +6,7 @@ const initialState = {
   menuData: [1, 2, 3, 4]
 }
 
-const post = (state = initialState, action) => {
+const sandbox = (state = initialState, action) => {
   switch (action.type) {
     case C.INCREMENT:
       return { ...state, value: state.value + action.payload }
@@ -19,4 +19,4 @@ const post = (state = initialState, action) => {
   }
 }
 
-export default post
+export default sandbox
