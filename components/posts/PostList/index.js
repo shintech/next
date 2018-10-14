@@ -6,7 +6,7 @@ import Wrapper from './Wrapper'
 const PostList = ({ posts }) =>
   <Wrapper>
     {(posts.error) ? <h3>Error loading posts... </h3>
-      : posts.map(post =>
+      : posts.data.map(post =>
         <li key={post._id}>
           <Link route='post' params={{ slug: post._id }}>
             <a>

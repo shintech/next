@@ -1,16 +1,49 @@
 import { configure } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16'
 import React from 'react'
+import { URL } from 'url'
+
+configure({ adapter: new Adapter() })
+
+const urls = {
+  users: new URL('http://localhost:65330'),
+  posts: new URL('http://localhost:65332'),
+  devices: new URL('http://localhost:65331')
+}
+
+global._url = urls
+
+global.process.env = {
+  USERS_URL: urls.users,
+  POSTS_URL: urls.posts,
+  DEVICES_URL: urls.devices,
+  NODE_ENV: 'test'
+}
+
+const environment = 'test'
+const port = 8000
+const logger = require('../server/logger')({ environment })
+
+global._server = require('../server')({ logger, environment, port })
 
 global.React = React
 
 global._usersMock = [
   {
+    id: 1,
     username: 'username',
     first_name: 'first_name',
     last_name: 'last_name',
     email: 'email@example.org',
-    password: 'password'
+    password: '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG'
+  },
+  {
+    id: 2,
+    username: 'user2',
+    first_name: 'first_name',
+    last_name: 'last_name',
+    email: 'email2@example.org',
+    password: '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG'
   }
 ]
 
@@ -425,5 +458,3 @@ global._devicesMock = {
   'timed_out': false,
   'took': 2
 }
-
-configure({ adapter: new Adapter() })

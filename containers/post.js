@@ -1,18 +1,17 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import getConfig from 'next/config'
 import PropTypes from 'prop-types'
 import { posts as api } from '../api'
 import Layout from '../layouts/Main'
 import Post from '../components/posts/Post'
-import { getPostPageState, fetchPost } from '../redux/stores/post'
+import { fetchPost } from '../redux/actions/post'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
 
-const PostPage = ({ data }) =>
-  <Layout title={data.title}>
-    <Post post={data} />
+const PostPage = ({ post }) =>
+  <Layout title={post.data.title}>
+    <Post post={post.data} />
   </Layout>
 
 PostPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
@@ -26,15 +25,15 @@ PostPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
 }
 
 PostPage.propTypes = {
-  data: PropTypes.object.isRequired
+  post: PropTypes.object.isRequired
 }
 
 function mapStateToProps (state) {
-  return getPostPageState(state)
+  return state
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ fetchPost }, dispatch)
+  return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage)

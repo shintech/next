@@ -1,17 +1,11 @@
 /* eslint-env jest */
 
 import { shallow } from 'enzyme'
-import Nav from '../../components/ui/Nav'
-import Post from '../../components/posts/Post'
-import Auth from '../../components/users/Auth'
+import Post from './index'
 
-describe('Nav component...', () => {
-  it('expect nav length to equal 1...', () => {
-    expect(shallow(<Nav pathname='/' />).find('nav').length).toEqual(1)
-  })
-})
+console.log = jest.fn()
 
-describe('Post component...', () => {
+describe('COMPONENT -> POSTS -> Post...', () => {
   let attrs = {
     title: 'title',
     body: 'body',
@@ -30,13 +24,5 @@ describe('Post component...', () => {
 
   it(`expect h1 text to equal ${attrs.summary}...`, () => {
     expect(post.find('aside').text()).toEqual('summary')
-  })
-})
-
-describe('Login Component', () => {
-  let auth = shallow(<Auth />)
-
-  it(`expect h1 text to equa...`, () => {
-    expect(auth.find('h1').text()).toEqual('login')
   })
 })

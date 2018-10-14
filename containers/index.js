@@ -1,23 +1,28 @@
-import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import getConfig from 'next/config'
 import PropTypes from 'prop-types'
 import { posts as api } from '../api'
 import Layout from '../layouts/Main'
 import PostList from '../components/posts/PostList'
-import { fetchPosts, getHomePageState } from '../redux/stores/posts'
+import { fetchPosts } from '../redux/actions/posts'
 
 const { publicRuntimeConfig } = getConfig()
 const host = publicRuntimeConfig.hostname
 
-const HomePage = ({ data }) =>
+const HomePage = ({ posts }) =>
   <Layout title='home'>
-    <PostList posts={data} />
+    <PostList posts={posts} />
   </Layout>
 
 HomePage.getInitialProps = async ({ store, isServer, pathname, query }) => {
-  let data = await api.getPosts(host)
-  let json = await data.json()
+  let json
+
+  try {
+    let data = await api.getPosts(host)
+    json = await data.json()
+  } catch (err) {
+    json = err
+  }
 
   store.dispatch(fetchPosts(json))
 
@@ -25,15 +30,15 @@ HomePage.getInitialProps = async ({ store, isServer, pathname, query }) => {
 }
 
 HomePage.propTypes = {
-  data: PropTypes.array.isRequired
+  posts: PropTypes.array.isRequired
 }
 
 function mapStateToProps (state) {
-  return getHomePageState(state)
+  return state
 }
 
 function mapDispatchToProps (dispatch) {
-  return bindActionCreators({ fetchPosts }, dispatch)
+  return {}
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomePage)

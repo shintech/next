@@ -1,4 +1,4 @@
-import { rootReducer } from 'fast-redux'
+import reducers from './reducers'
 import thunk from 'redux-thunk'
 import { createStore, applyMiddleware } from 'redux'
 import { composeWithDevTools } from 'remote-redux-devtools'
@@ -28,7 +28,7 @@ const middleWare = server => [
 export const initStore = (initialState = {}, c) => {
   const { isServer } = c
 
-  return createStore(rootReducer, initialState, composeWithDevTools(applyMiddleware(...middleWare(isServer))))
+  return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(...middleWare(isServer))))
 }
 
 export const reduxPage = (comp) => withRedux(initStore)(comp)
