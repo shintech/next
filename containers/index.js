@@ -30,7 +30,7 @@ HomePage.getInitialProps = async ({ store, isServer, pathname, query }) => {
 }
 
 HomePage.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.object.isRequired
 }
 
 function mapStateToProps (state) {

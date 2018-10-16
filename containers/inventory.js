@@ -14,7 +14,7 @@ const SearchPage = ({ inventory, fetchAll, searchInventory }) => {
 
   return (<Layout title='search'>
     <form>
-      <input type='text' placeholder='Search...' onKeyUp={async (e) => {
+      <input type='search' placeholder='Search...' onKeyUp={async (e) => {
         if (e.target.value.length < 1) {
           let data = await api.getInventory(host)
           let json = await data.json()
@@ -43,11 +43,9 @@ SearchPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
 }
 
 SearchPage.propTypes = {
-  devices: PropTypes.object.isRequired,
-  loading: PropTypes.bool.isRequired,
   fetchAll: PropTypes.func.isRequired,
   searchInventory: PropTypes.func.isRequired,
-  inventory: PropTypes.node.isRequired
+  inventory: PropTypes.object.isRequired
 }
 
 function mapStateToProps (state) {

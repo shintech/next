@@ -1,6 +1,11 @@
 import C from '../constants'
 
-const inventory = (state = {}, action) => {
+const initialState = {
+  error: false,
+  loading: true
+}
+
+const inventory = (state = initialState, action) => {
   switch (action.type) {
     case C.FETCH_DEVICES:
       return { ...state, devices: action.payload, loading: false, error: false }

@@ -21,7 +21,7 @@ const PostList = ({ posts }) =>
 /* -------------------------------------------------------------------------------- */
 
 PostList.propTypes = {
-  posts: PropTypes.array.isRequired
+  posts: PropTypes.object.isRequired
 }
 
 /* -------------------------------------------------------------------------------- */
