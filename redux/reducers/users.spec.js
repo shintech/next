@@ -26,3 +26,69 @@ describe('REDUX -> REDUCER -> FETCH_USERS...', () => {
     expect(results).toEqual({ ...state, data: action.payload })
   })
 })
+
+describe('REDUX -> REDUCER -> AUTHORIZE - success...', () => {
+  const state = {
+    error: false,
+    loading: false,
+    authorized: false
+  }
+
+  const action = {
+    type: C.AUTHORIZE,
+    payload: true
+  }
+
+  deepFreeze(action)
+  deepFreeze(state)
+
+  const results = reducer(state, action)
+
+  it('expect result.authorized to be truthy...', () => {
+    expect(results.authorized).toBeTruthy()
+  })
+})
+
+describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
+  const state = {
+    error: false,
+    loading: false,
+    authorized: false
+  }
+
+  const action = {
+    type: C.AUTHORIZE,
+    payload: false
+  }
+
+  deepFreeze(action)
+  deepFreeze(state)
+
+  const results = reducer(state, action)
+
+  it('expect result.authorized to be falsy with incorrect password...', () => {
+    expect(results.authorized).toBeFalsy()
+  })
+})
+
+describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
+  const state = {
+    error: false,
+    loading: false,
+    authorized: false
+  }
+
+  const action = {
+    type: C.AUTHORIZE,
+    payload: false
+  }
+
+  deepFreeze(action)
+  deepFreeze(state)
+
+  const results = reducer(state, action)
+
+  it('expect result.authorized to be falsy with incorrect username...', () => {
+    expect(results.authorized).toBeFalsy()
+  })
+})

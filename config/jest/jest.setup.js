@@ -29,6 +29,14 @@ global._server = require(path.join('..', '..', 'server'))({ logger, environment,
 
 global.React = React
 
+global._loginResponse = (e, q) => {
+  if (!q.username || q.username === '') { return { authorized: false } }
+  const authorized = (q.password === 'password')
+  return {
+    authorized
+  }
+}
+
 global._usersMock = [
   {
     id: 1,

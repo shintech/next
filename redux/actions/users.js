@@ -8,3 +8,12 @@ export function fetchUsers (users) {
     })
   }
 }
+
+export function login (authorized) {
+  return async dispatch => {
+    await dispatch({
+      type: C.AUTHORIZE,
+      payload: authorized
+    })
+  }
+}

@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import { initStore } from '../../redux/init'
-import { fetchUsers } from '../../redux/actions/users'
+import { fetchUsers, login } from '../../redux/actions/users'
 
 console.log = jest.fn()
 
@@ -36,5 +36,35 @@ describe('REDUX -> ACTION -> fetchUsers()...', () => {
 
   it('expect users.data[0] to have property password...', () => {
     expect(store.getState().users.data[0]).toHaveProperty('password')
+  })
+})
+
+describe('REDUX -> ACTION -> login() -- success...', () => {
+  beforeAll(() => {
+    store.dispatch(login(true))
+  })
+
+  it('expect expect users.authorized to be true...', () => {
+    expect(store.getState().users.authorized).toBeTruthy()
+  })
+})
+
+describe('REDUX -> ACTION -> login() -- failure...', () => {
+  beforeAll(() => {
+    store.dispatch(login(false))
+  })
+
+  it('expect expect users.authorized to be false...', () => {
+    expect(store.getState().users.authorized).toBeFalsy()
+  })
+})
+
+describe('REDUX -> ACTION -> login() -- failure...', () => {
+  beforeAll(() => {
+    store.dispatch(login(false))
+  })
+
+  it('expect expect users.authorized to be false...', () => {
+    expect(store.getState().users.authorized).toBeFalsy()
   })
 })
