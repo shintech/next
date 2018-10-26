@@ -33,6 +33,7 @@ const SearchPage = ({ inventory, fetchAll, searchInventory }) => {
     {(loading || !devices.hits.hits) ? <h1>Loading...</h1> : <Table hits={devices.hits.hits} /> }
   </Layout>)
 }
+
 SearchPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
   let data = await api.getInventory(host)
   let json = await data.json()

@@ -1,4 +1,3 @@
-import { connect } from 'react-redux'
 import { Link } from 'routes'
 import PropTypes from 'prop-types'
 import Wrapper from './Wrapper'
@@ -26,14 +25,4 @@ PostList.propTypes = {
 
 /* -------------------------------------------------------------------------------- */
 
-export default connect(
-  state => ({
-    state
-  }),
-
-  dispatch => ({
-    modal: (model) => {
-      // dispatch(action.modal.toggleModal())
-    }
-  })
-)(PostList)
+export default PostList
