@@ -1,4 +1,4 @@
-import C from '../../redux/constants'
+import C from '../constants'
 
 export function fetchUsers (users) {
   return async dispatch => {
@@ -9,11 +9,9 @@ export function fetchUsers (users) {
   }
 }
 
-export function login (authorized) {
-  return async dispatch => {
-    await dispatch({
-      type: C.AUTHORIZE,
-      payload: authorized
-    })
+export function authorize (auth, host) {
+  return {
+    type: C.AUTHORIZE,
+    payload: auth
   }
 }

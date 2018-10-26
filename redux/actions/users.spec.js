@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
 import { initStore } from '../../redux/init'
-import { fetchUsers, login } from '../../redux/actions/users'
+import { fetchUsers, authorize } from '../actions/users'
 
 console.log = jest.fn()
 
@@ -39,9 +39,9 @@ describe('REDUX -> ACTION -> fetchUsers()...', () => {
   })
 })
 
-describe('REDUX -> ACTION -> login() -- success...', () => {
+describe('REDUX -> ACTION -> authorize() -- success...', () => {
   beforeAll(() => {
-    store.dispatch(login(true))
+    store.dispatch(authorize(true))
   })
 
   it('expect expect users.authorized to be true...', () => {
@@ -49,9 +49,9 @@ describe('REDUX -> ACTION -> login() -- success...', () => {
   })
 })
 
-describe('REDUX -> ACTION -> login() -- failure...', () => {
+describe('REDUX -> ACTION -> authorize() -- failure...', () => {
   beforeAll(() => {
-    store.dispatch(login(false))
+    store.dispatch(authorize(false))
   })
 
   it('expect expect users.authorized to be false...', () => {
@@ -59,9 +59,9 @@ describe('REDUX -> ACTION -> login() -- failure...', () => {
   })
 })
 
-describe('REDUX -> ACTION -> login() -- failure...', () => {
+describe('REDUX -> ACTION -> authorize() -- failure...', () => {
   beforeAll(() => {
-    store.dispatch(login(false))
+    store.dispatch(authorize(false))
   })
 
   it('expect expect users.authorized to be false...', () => {

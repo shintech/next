@@ -1,4 +1,4 @@
-import C from '../../redux/constants'
+import C from '../constants'
 
 export function fetchPosts (posts) {
   return async dispatch => {

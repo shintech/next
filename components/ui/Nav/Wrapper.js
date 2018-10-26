@@ -32,7 +32,7 @@ const Wrapper = styled.div`
     color: black
   }
   
-  .search {
+  .login {
     margin-left: auto;
   }
   

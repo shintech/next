@@ -19,6 +19,8 @@ const Nav = ({ pathname }) =>
       <Link prefetch href='/sandbox'><a className={pathname === '/sandbox' ? 'active' : null}>sandbox</a></Link>
       <Link prefetch href='/search'><a className={pathname === '/search' ? 'active search' : 'search'}>search &nbsp;&#x1f50d;</a></Link>
 
+      <Link prefetch href='/login'><a className={pathname === '/login' ? 'active login' : 'login'}>login</a></Link>
+
       <a href='javascript:void(0);' className='icon' onClick={() => { toggleResponsive() }}>
         <i className='fa fa-bars' />
       </a>
