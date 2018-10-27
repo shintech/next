@@ -31,12 +31,12 @@ describe('REDUX -> REDUCER -> AUTHORIZE - success...', () => {
   const state = {
     error: false,
     loading: false,
-    authorized: false
+    token: false
   }
 
   const action = {
     type: C.AUTHORIZE,
-    payload: true
+    payload: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU'
   }
 
   deepFreeze(action)
@@ -44,8 +44,8 @@ describe('REDUX -> REDUCER -> AUTHORIZE - success...', () => {
 
   const results = reducer(state, action)
 
-  it('expect result.authorized to be truthy...', () => {
-    expect(results.authorized).toBeTruthy()
+  it('expect result.token to be equal "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU"...', () => {
+    expect(results.token).toEqual('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU')
   })
 })
 
@@ -53,7 +53,7 @@ describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
   const state = {
     error: false,
     loading: false,
-    authorized: false
+    token: false
   }
 
   const action = {
@@ -66,8 +66,8 @@ describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
 
   const results = reducer(state, action)
 
-  it('expect result.authorized to be falsy with incorrect password...', () => {
-    expect(results.authorized).toBeFalsy()
+  it('expect result.token to be falsy with incorrect password...', () => {
+    expect(results.token).toBeFalsy()
   })
 })
 
@@ -75,7 +75,7 @@ describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
   const state = {
     error: false,
     loading: false,
-    authorized: false
+    token: false
   }
 
   const action = {
@@ -88,7 +88,7 @@ describe('REDUX -> REDUCER -> AUTHORIZE - failure...', () => {
 
   const results = reducer(state, action)
 
-  it('expect result.authorized to be falsy with incorrect username...', () => {
-    expect(results.authorized).toBeFalsy()
+  it('expect result.token to be falsy with incorrect username...', () => {
+    expect(results.token).toBeFalsy()
   })
 })

@@ -9,7 +9,7 @@ export function fetchUsers (users) {
   }
 }
 
-export function authorize (auth, host) {
+export function authorize (auth) {
   return {
     type: C.AUTHORIZE,
     payload: auth

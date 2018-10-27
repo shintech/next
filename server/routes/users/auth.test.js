@@ -6,11 +6,11 @@ import request from 'supertest'
 console.log = jest.fn()
 
 let loginResponse = (e, q) => {
-  if (!q.username || q.username === '') { return { authorized: false } }
-  const authorized = (q.password === '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG')
+  if (!q.username || q.username === '') { return { token: false } }
+  const token = (q.password === '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG') ? 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU' : false
 
   return {
-    authorized
+    token
   }
 }
 
@@ -27,12 +27,12 @@ describe('SERVER -> USERS -> api.login() - expect successful login...', () => {
       .send({ username: 'username', password: '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG' })
   })
 
-  it('expect res.body to have property authorized...', async () => {
-    expect(res.body).toHaveProperty('authorized')
+  it('expect res.body to have property token...', async () => {
+    expect(res.body).toHaveProperty('token')
   })
 
-  it('expect res.body.authorized to be true', () => {
-    expect(res.body.authorized).toBeTruthy()
+  it('expect res.body.token to equal mock response token...', () => {
+    expect(res.body.token).toEqual('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU')
   })
 })
 
@@ -44,12 +44,12 @@ describe('SERVER -> USERS -> api.login() - expect login failure with incorrect p
       .send({ username: 'username', password: 'fail' })
   })
 
-  it('expect res.body to have property authorized...', async () => {
-    expect(res.body).toHaveProperty('authorized')
+  it('expect res.body to have property token...', async () => {
+    expect(res.body).toHaveProperty('token')
   })
 
-  it('expect res.body.authorized to be false', () => {
-    expect(res.body.authorized).toBeFalsy()
+  it('expect res.body.token to be false', () => {
+    expect(res.body.token).toBeFalsy()
   })
 })
 
@@ -61,11 +61,11 @@ describe('SERVER -> USERS -> api.login() - expect login failure no username...',
       .send({ username: '', password: '$2a$10$z0yU2Lr73m/hz/FcrITgn.9s3vqpXmWJGvyfoG4wupvu03eylINQG' })
   })
 
-  it('expect res.body to have property authorized...', async () => {
-    expect(res.body).toHaveProperty('authorized')
+  it('expect res.body to have property token...', async () => {
+    expect(res.body).toHaveProperty('token')
   })
 
-  it('expect res.body.authorized to be false', () => {
-    expect(res.body.authorized).toBeFalsy()
+  it('expect res.body.token to be false', () => {
+    expect(res.body.token).toBeFalsy()
   })
 })

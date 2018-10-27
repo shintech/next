@@ -3,7 +3,7 @@ import C from '../constants'
 const initialState = {
   error: false,
   loading: true,
-  authorized: false
+  token: false
 }
 
 const users = (state = initialState, action) => {
@@ -12,7 +12,7 @@ const users = (state = initialState, action) => {
       return { ...state, data: action.payload, loading: false, error: false }
 
     case C.AUTHORIZE:
-      return { ...state, authorized: action.payload }
+      return { ...state, token: action.payload }
 
     default:
       return state

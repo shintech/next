@@ -41,21 +41,15 @@ describe('REDUX -> ACTION -> fetchUsers()...', () => {
 
 describe('REDUX -> ACTION -> authorize() -- success...', () => {
   beforeAll(() => {
-    store.dispatch(authorize(true))
+    store.dispatch(authorize('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU'))
   })
 
-  it('expect expect users.authorized to be true...', () => {
-    expect(store.getState().users.authorized).toBeTruthy()
-  })
-})
-
-describe('REDUX -> ACTION -> authorize() -- failure...', () => {
-  beforeAll(() => {
-    store.dispatch(authorize(false))
+  it('expect users to have property token...', () => {
+    expect(store.getState().users).toHaveProperty('token')
   })
 
-  it('expect expect users.authorized to be false...', () => {
-    expect(store.getState().users.authorized).toBeFalsy()
+  it('expect expect users.token to be true...', () => {
+    expect(store.getState().users.token).toEqual('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE1NDA2MTExMTgsImV4cCI6MTU0MDY5NzUxOH0.OVgzl7iQL_tF48D2QGXl0h2sj2b9JtyS7cPoXxZIAXU')
   })
 })
 
@@ -64,7 +58,25 @@ describe('REDUX -> ACTION -> authorize() -- failure...', () => {
     store.dispatch(authorize(false))
   })
 
-  it('expect expect users.authorized to be false...', () => {
-    expect(store.getState().users.authorized).toBeFalsy()
+  it('expect users to have property token...', () => {
+    expect(store.getState().users).toHaveProperty('token')
+  })
+
+  it('expect expect users.token to be false...', () => {
+    expect(store.getState().users.token).toBeFalsy()
+  })
+})
+
+describe('REDUX -> ACTION -> authorize() -- failure...', () => {
+  beforeAll(() => {
+    store.dispatch(authorize(false))
+  })
+
+  it('expect users to have property token...', () => {
+    expect(store.getState().users).toHaveProperty('token')
+  })
+
+  it('expect expect users.token to be false...', () => {
+    expect(store.getState().users.token).toBeFalsy()
   })
 })

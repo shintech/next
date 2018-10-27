@@ -3,7 +3,7 @@ import Wrapper from './Wrapper'
 
 const LoginForm = (props) => {
   let _username, _password
-  const { login, authorized } = props
+  const { login, token } = props
 
   const submit = e => {
     e.preventDefault()
@@ -18,7 +18,7 @@ const LoginForm = (props) => {
 
   return (
     <Wrapper>
-      <div>{(authorized) ? <div>Authorized: <span className='true'>true</span></div>
+      <div>{(token) ? <div>Authorized: <span className='true'>true</span></div>
         : <form onSubmit={submit}>
           <div>Authorized: <span className='false'>false</span></div>
           <ul className='form-style'>
@@ -47,7 +47,7 @@ const LoginForm = (props) => {
 
 LoginForm.propTypes = {
   login: PropTypes.func.isRequired,
-  authorized: PropTypes.bool.isRequired
+  token: PropTypes.node.isRequired
 }
 
 export default LoginForm

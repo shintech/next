@@ -11,7 +11,7 @@ const host = publicRuntimeConfig.hostname
 
 const LoginPage = ({ login, users }) =>
   <Layout title='login'>
-    <Login login={login} authorized={users.authorized} />
+    <Login login={login} token={users.token} />
   </Layout>
 
 LoginPage.getInitialProps = async ({ store, isServer, pathname, query }) => {
@@ -33,7 +33,7 @@ function mapDispatchToProps (dispatch) {
       let data = await api.login(auth.username, auth.password, host)
       let json = await data.json()
 
-      dispatch(authorize(json.authorized, host))
+      dispatch(authorize(json.token, host))
     }
   }
 }
