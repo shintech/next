@@ -1,6 +1,6 @@
 {
   "name": "next",
-  "version": "1.5.4",
+  "version": "1.5.5",
   "main": "index.js",
   "license": "MIT",
   "dependencies": {
@@ -41,8 +41,9 @@
     "supertest": "^3.3.0"
   },
   "scripts": {
-    "test": "NODE_ENV=test jest --verbose -c config/jest/jest.config.server.js",
-    "jest": "NODE_ENV=test jest --verbose -c config/jest/jest.config.react.js",
+    "test:all": "jest --verbose -c config/jest/jest.config.js",
+    "test:server": "jest --verbose -c config/jest/jest.config.server.js",
+    "test:react": "jest --verbose -c config/jest/jest.config.react.js",
     "build": "next build",
     "build:watch:server": "babel ./server -d dist --watch",
     "start": "node .",

@@ -33,7 +33,7 @@ function mapDispatchToProps (dispatch) {
       let data = await api.login(auth.username, auth.password, host)
       let json = await data.json()
 
-      dispatch(authorize(json.token, host))
+      dispatch(authorize(json.token))
     }
   }
 }
