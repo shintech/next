@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { initStore } from '../../redux/init'
-import { fetchPost } from '../../redux/actions/post'
+import { initStore } from '../init'
+import { fetchPost } from '../actions/post'
 
 console.log = jest.fn()
 

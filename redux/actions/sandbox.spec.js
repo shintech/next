@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { initStore } from '../../redux/init'
-import { increment, changeMenuValue } from '../../redux/actions/sandbox'
+import { initStore } from '../init'
+import { increment, changeMenuValue } from '../actions/sandbox'
 
 console.log = jest.fn()
 

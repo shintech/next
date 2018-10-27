@@ -1,7 +1,7 @@
 /* eslint-env jest */
 
-import { initStore } from '../../redux/init'
-import { fetchAll } from '../../redux/actions/inventory'
+import { initStore } from '..//init'
+import { fetchAll } from '../actions/inventory'
 
 console.log = jest.fn()
 

@@ -1,6 +1,6 @@
 /* eslint-env jest */
 
-import { initStore } from '../../redux/init'
+import { initStore } from '../init'
 import { fetchUsers, authorize } from '../actions/users'
 
 console.log = jest.fn()

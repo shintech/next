@@ -1,8 +1,8 @@
 /* eslint-env jest */
 
 import deepFreeze from 'deep-freeze'
-import reducer from '../../redux/reducers/inventory'
-import C from '../../redux/constants'
+import reducer from '../reducers/inventory'
+import C from '../constants'
 
 console.log = jest.fn()
 
