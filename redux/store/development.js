@@ -25,16 +25,14 @@ const middleWare = server => [
   (server) ? serverLogger : clientLogger
 ]
 
-export const initStore = (initialState = {}, c) => {
-  const { isServer } = c
-
+export const initStore = (initialState = {}, ctx) => {
+  const { isServer } = ctx
   return createStore(reducers, initialState, composeWithDevTools(applyMiddleware(...middleWare(isServer))))
 }
 
 if (module.hot) {
   module.hot.accept('../reducers', () => {
     const nextReducer = require('../reducers')
-
     initStore.replaceReducer(nextReducer)
   })
 }
