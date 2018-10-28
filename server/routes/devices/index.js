@@ -1,6 +1,6 @@
 const http = require('http')
 
-module.exports = function ({ logger, devicesURL }) {
+module.exports = function ({ devicesURL }) {
   return {
     fetchDevices: async function (req, res) {
       http.get(`${devicesURL}api/inventory`, resp => {

@@ -1,6 +1,6 @@
 const http = require('http')
 
-module.exports = function ({ logger, usersURL }) {
+module.exports = function ({ usersURL }) {
   return {
     login: async function (req, res) {
       let postData = JSON.stringify(req.body)

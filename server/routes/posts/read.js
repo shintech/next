@@ -1,6 +1,6 @@
 const http = require('http')
 
-module.exports = function ({ postsURL, logger }) {
+module.exports = function ({ postsURL }) {
   return {
     fatchAll: async function (req, res) {
       http.get(`${postsURL}api/posts`, resp => {

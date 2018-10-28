@@ -7,6 +7,7 @@ WORKDIR /shintech
 COPY . .
 
 RUN rm -rv node_modules .next --force && \
+  mkdir -p uploads log && \
   wget -O /usr/local/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.0/dumb-init_1.2.0_amd64 && \
   chmod +x /usr/local/bin/dumb-init  
 

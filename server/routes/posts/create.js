@@ -1,8 +1,10 @@
 const http = require('http')
 
-module.exports = function ({ postsURL, logger }) {
+module.exports = function ({ postsURL }) {
   return {
     addOne: async function (req, res) {
+      const { logger } = req
+
       let options = {
         method: 'POST',
         hostname: postsURL.hostname,

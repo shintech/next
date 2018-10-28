@@ -1,6 +1,6 @@
 const http = require('http')
 
-module.exports = function ({ logger, usersURL }) {
+module.exports = function ({ usersURL }) {
   return {
     fatchAll: async function (req, res) {
       http.get(`${usersURL}api/users`, resp => {

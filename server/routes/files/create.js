@@ -1,4 +1,4 @@
-module.exports = ({ db, logger }) =>
+module.exports = () =>
   function (req, res) {
     res.status(200)
       .format({

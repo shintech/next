@@ -4,6 +4,8 @@ services:
   next:
     build: .
     container_name: next
+    volumes: 
+      - ./data/log/next:/shintech/log
     env_file:
       - ./env/next.env
     ports:
@@ -15,6 +17,8 @@ services:
   express-postgres:
     image: shintech/express-postgres:latest
     container_name: express-postgres
+    volumes: 
+      - ./data/log/express-postgres:/shintech/log
     env_file:
       - ./env/express.env
     restart: always
@@ -33,6 +37,8 @@ services:
   express-elastic:
     image: shintech/express-elastic:latest
     container_name: express-elastic
+    volumes: 
+      - ./data/log/express-elastic:/shintech/log
     env_file:
       - ./env/express.env
     restart: always
@@ -40,7 +46,7 @@ services:
       - elastic
 
   elastic:
-    image: elasticsearch:latest
+    image: elasticsearch:6.4.1
     container_name: elasticsearch
     env_file:
         - ./env/elastic.env
@@ -51,6 +57,8 @@ services:
   express-mongo:
     image: shintech/express-mongo:latest
     container_name: express-mongo
+    volumes: 
+      - ./data/log/express-mongo:/shintech/log
     env_file:
       - ./env/express.env
     restart: always

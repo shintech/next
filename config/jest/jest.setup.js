@@ -23,7 +23,8 @@ global.process.env = {
 
 const environment = 'test'
 const port = 8000
-const logger = require(path.join('..', '..', 'server', 'logger'))({ environment })
+
+const logger = require('shintech-logger')({ environment })
 
 global._server = require(path.join('..', '..', 'server'))({ logger, environment, port })
 
