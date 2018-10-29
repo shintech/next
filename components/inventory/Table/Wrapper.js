@@ -13,11 +13,11 @@ td, th {
 }
 
 thead tr {
-  background-color: green;
-  color: white;
+  background-color: orange;
+  color: black;
 }
 
-tbody tr:nth-child(2n + 1) {
+tbody tr:nth-child(2n + 2) {
   background-color: lightgreen;
 }
 `
