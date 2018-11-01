@@ -20,6 +20,11 @@ thead tr {
 tbody tr:nth-child(2n + 2) {
   background-color: lightgreen;
 }
+
+tbody tr:hover {
+  background-color: white;
+  cursor: default;
+}
 `
 
 export default Wrapper
